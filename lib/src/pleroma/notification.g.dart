@@ -6,12 +6,14 @@ part of 'notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
+PleromaNotification _$PleromaNotificationFromJson(Map<String, dynamic> json) =>
+    PleromaNotification(
       isMuted: json['is_muted'] as bool,
       isSeen: json['is_seen'] as bool,
     );
 
-Map<String, dynamic> _$NotificationToJson(Notification instance) =>
+Map<String, dynamic> _$PleromaNotificationToJson(
+        PleromaNotification instance) =>
     <String, dynamic>{
       'is_muted': instance.isMuted,
       'is_seen': instance.isSeen,

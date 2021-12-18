@@ -15,7 +15,8 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
           : Account.fromJson(json['account'] as Map<String, dynamic>),
       pleroma: json['pleroma'] == null
           ? null
-          : Notification.fromJson(json['pleroma'] as Map<String, dynamic>),
+          : PleromaNotification.fromJson(
+              json['pleroma'] as Map<String, dynamic>),
       status: json['status'] == null
           ? null
           : Status.fromJson(json['status'] as Map<String, dynamic>),

@@ -1,5 +1,6 @@
 import 'package:fediverse_objects/src/mastodon/account.dart';
 import 'package:fediverse_objects/src/mastodon/status.dart';
+import 'package:fediverse_objects/src/pleroma/notification.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'notification.g.dart';
@@ -17,7 +18,7 @@ class Notification {
   /// The id of the notification in the database.
   final String id;
 
-  final Notification? pleroma;
+  final PleromaNotification? pleroma;
 
   /// Status that was the object of the notification, e.g. in mentions, reblogs, favourites, or polls.
   final Status? status;
