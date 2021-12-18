@@ -8,7 +8,7 @@ part 'notification.g.dart';
 @JsonSerializable()
 class Notification {
   /// The account that performed the action that generated the notification.
-  final Account account;
+  final Account? account;
 
   /// The timestamp of the notification.
   @JsonKey(name: 'created_at')
@@ -38,10 +38,10 @@ class Notification {
   final String type;
 
   const Notification({
-    required this.account,
     required this.createdAt,
     required this.id,
     required this.type,
+    this.account,
     this.pleroma,
     this.status,
   });
