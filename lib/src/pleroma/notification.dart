@@ -16,7 +16,7 @@ class PleromaNotification {
   });
 
   factory PleromaNotification.fromJson(Map<String, dynamic> json) =>
-      _$NotificationFromJson(json);
+      _$PleromaNotificationFromJson(json);
 
-  Map<String, dynamic> toJson() => _$NotificationToJson(this);
+  Map<String, dynamic> toJson() => _$PleromaNotificationToJson(this);
 }
