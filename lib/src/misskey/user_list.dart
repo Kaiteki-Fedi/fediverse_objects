@@ -3,17 +3,13 @@ part 'user_list.g.dart';
 
 @JsonSerializable()
 class UserList {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'name')
   final String name;
 
-  @JsonKey(name: 'userIds')
-  final Iterable<String>? userIds;
+  final List<String>? userIds;
 
   const UserList({
     required this.id,

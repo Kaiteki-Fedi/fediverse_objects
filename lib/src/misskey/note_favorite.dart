@@ -4,16 +4,12 @@ part 'note_favorite.g.dart';
 
 @JsonSerializable()
 class NoteFavorite {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'note')
   final Note note;
 
-  @JsonKey(name: 'noteId')
   final String noteId;
 
   const NoteFavorite({

@@ -5,37 +5,26 @@ part 'gallery_post.g.dart';
 
 @JsonSerializable()
 class GalleryPost {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'updatedAt')
   final DateTime updatedAt;
 
-  @JsonKey(name: 'title')
   final String title;
 
-  @JsonKey(name: 'description')
   final String? description;
 
-  @JsonKey(name: 'userId')
   final String userId;
 
-  @JsonKey(name: 'user')
   final UserLite user;
 
-  @JsonKey(name: 'fileIds')
-  final Iterable<String>? fileIds;
+  final List<String>? fileIds;
 
-  @JsonKey(name: 'files')
-  final Iterable<DriveFile>? files;
+  final List<DriveFile>? files;
 
-  @JsonKey(name: 'tags')
-  final Iterable<String>? tags;
+  final List<String>? tags;
 
-  @JsonKey(name: 'isSensitive')
   final bool isSensitive;
 
   const GalleryPost({

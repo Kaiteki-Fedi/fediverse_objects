@@ -4,34 +4,24 @@ part 'page.g.dart';
 
 @JsonSerializable()
 class Page {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'updatedAt')
   final DateTime updatedAt;
 
-  @JsonKey(name: 'title')
   final String title;
 
-  @JsonKey(name: 'name')
   final String name;
 
-  @JsonKey(name: 'summary')
   final String? summary;
 
-  @JsonKey(name: 'content')
-  final Iterable<dynamic> content;
+  final List<dynamic> content;
 
-  @JsonKey(name: 'variables')
-  final Iterable<dynamic> variables;
+  final List<dynamic> variables;
 
-  @JsonKey(name: 'userId')
   final String userId;
 
-  @JsonKey(name: 'user')
   final UserLite user;
 
   const Page({

@@ -5,52 +5,36 @@ part 'drive_file.g.dart';
 
 @JsonSerializable()
 class DriveFile {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'name')
   final String name;
 
-  @JsonKey(name: 'type')
   final String type;
 
-  @JsonKey(name: 'md5')
   final String md5;
 
-  @JsonKey(name: 'size')
   final int size;
 
-  @JsonKey(name: 'isSensitive')
   final bool isSensitive;
 
-  @JsonKey(name: 'blurhash')
   final String? blurhash;
 
-  @JsonKey(name: 'properties')
-  final Map<String, dynamic> properties;
+  final Property properties;
 
-  @JsonKey(name: 'url')
   final String? url;
 
-  @JsonKey(name: 'thumbnailUrl')
   final String? thumbnailUrl;
 
-  @JsonKey(name: 'comment')
   final String? comment;
 
-  @JsonKey(name: 'folderId')
   final String? folderId;
 
-  @JsonKey(name: 'folder')
   final DriveFolder? folder;
 
-  @JsonKey(name: 'userId')
   final String? userId;
 
-  @JsonKey(name: 'user')
   final UserLite? user;
 
   const DriveFile({

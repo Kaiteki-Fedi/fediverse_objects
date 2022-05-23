@@ -4,19 +4,14 @@ part 'muting.g.dart';
 
 @JsonSerializable()
 class Muting {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'expiresAt')
   final DateTime? expiresAt;
 
-  @JsonKey(name: 'muteeId')
   final String muteeId;
 
-  @JsonKey(name: 'mutee')
   final dynamic mutee;
 
   const Muting({

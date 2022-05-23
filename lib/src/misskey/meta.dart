@@ -1,6 +1,4 @@
-import 'package:fediverse_objects/src/misskey/emoji.dart';
 import 'package:json_annotation/json_annotation.dart';
-
 part 'meta.g.dart';
 
 @JsonSerializable()
@@ -17,7 +15,7 @@ class Meta {
 
   final String? description;
 
-  final Iterable<String> langs;
+  final List<String> langs;
 
   final String? tosUrl;
 
@@ -25,7 +23,9 @@ class Meta {
 
   final String feedbackUrl;
 
-  final bool secure;
+  final String? defaultDarkTheme;
+
+  final String? defaultLightTheme;
 
   final bool disableRegistration;
 
@@ -37,9 +37,9 @@ class Meta {
 
   final int driveCapacityPerRemoteUserMb;
 
-  final bool? cacheRemoteFiles;
+  final bool cacheRemoteFiles;
 
-  final bool? proxyRemoteFiles;
+  final bool emailRequiredForSignup;
 
   final bool enableHcaptcha;
 
@@ -61,9 +61,11 @@ class Meta {
 
   final int maxNoteTextLength;
 
-  final Iterable<Emoji> emojis;
+  final List<Emoji> emojis;
 
-  final bool? requireSetup;
+  final List<Ad> ads;
+
+  final bool requireSetup;
 
   final bool enableEmail;
 
@@ -75,48 +77,55 @@ class Meta {
 
   final bool enableServiceWorker;
 
-  final String? backgroundImageUrl;
+  final bool translatorAvailable;
+
+  final String? proxyAccountName;
+
+  final Feature? features;
 
   const Meta({
-    required this.maintainerName,
-    required this.maintainerEmail,
+    this.maintainerName,
+    this.maintainerEmail,
     required this.version,
     required this.name,
     required this.uri,
-    required this.description,
+    this.description,
     required this.langs,
-    required this.tosUrl,
+    this.tosUrl,
     required this.repositoryUrl,
     required this.feedbackUrl,
-    required this.secure,
+    this.defaultDarkTheme,
+    this.defaultLightTheme,
     required this.disableRegistration,
     required this.disableLocalTimeline,
     required this.disableGlobalTimeline,
     required this.driveCapacityPerLocalUserMb,
     required this.driveCapacityPerRemoteUserMb,
-    this.cacheRemoteFiles,
-    this.proxyRemoteFiles,
+    required this.cacheRemoteFiles,
+    required this.emailRequiredForSignup,
     required this.enableHcaptcha,
-    required this.hcaptchaSiteKey,
+    this.hcaptchaSiteKey,
     required this.enableRecaptcha,
-    required this.recaptchaSiteKey,
-    required this.swPublickey,
+    this.recaptchaSiteKey,
+    this.swPublickey,
     required this.mascotImageUrl,
     required this.bannerUrl,
     required this.errorImageUrl,
-    required this.iconUrl,
+    this.iconUrl,
     required this.maxNoteTextLength,
     required this.emojis,
-    this.requireSetup,
+    required this.ads,
+    required this.requireSetup,
     required this.enableEmail,
     required this.enableTwitterIntegration,
     required this.enableGithubIntegration,
     required this.enableDiscordIntegration,
     required this.enableServiceWorker,
-    this.backgroundImageUrl,
+    required this.translatorAvailable,
+    this.proxyAccountName,
+    this.features,
   });
 
   factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
-
   Map<String, dynamic> toJson() => _$MetaToJson(this);
 }

@@ -4,16 +4,12 @@ part 'note_reaction.g.dart';
 
 @JsonSerializable()
 class NoteReaction {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'user')
   final UserLite user;
 
-  @JsonKey(name: 'type')
   final String type;
 
   const NoteReaction({

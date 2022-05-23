@@ -14,10 +14,12 @@ GalleryPost _$GalleryPostFromJson(Map<String, dynamic> json) => GalleryPost(
       description: json['description'] as String?,
       userId: json['userId'] as String,
       user: UserLite.fromJson(json['user'] as Map<String, dynamic>),
-      fileIds: (json['fileIds'] as List<dynamic>?)?.map((e) => e as String),
+      fileIds:
+          (json['fileIds'] as List<dynamic>?)?.map((e) => e as String).toList(),
       files: (json['files'] as List<dynamic>?)
-          ?.map((e) => DriveFile.fromJson(e as Map<String, dynamic>)),
-      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String),
+          ?.map((e) => DriveFile.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
       isSensitive: json['isSensitive'] as bool,
     );
 
@@ -30,8 +32,8 @@ Map<String, dynamic> _$GalleryPostToJson(GalleryPost instance) =>
       'description': instance.description,
       'userId': instance.userId,
       'user': instance.user,
-      'fileIds': instance.fileIds?.toList(),
-      'files': instance.files?.toList(),
-      'tags': instance.tags?.toList(),
+      'fileIds': instance.fileIds,
+      'files': instance.files,
+      'tags': instance.tags,
       'isSensitive': instance.isSensitive,
     };

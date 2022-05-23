@@ -28,20 +28,23 @@ MeDetailedOnly _$MeDetailedOnlyFromJson(Map<String, dynamic> json) =>
       hasUnreadNotification: json['hasUnreadNotification'] as bool,
       hasPendingReceivedFollowRequest:
           json['hasPendingReceivedFollowRequest'] as bool,
-      integrations: json['integrations'] as Map<String, dynamic>?,
+      integrations: json['integrations'],
       mutedWords: (json['mutedWords'] as List<dynamic>)
-          .map((e) => (e as List<dynamic>).map((e) => e as String)),
-      mutedInstances:
-          (json['mutedInstances'] as List<dynamic>?)?.map((e) => e as String),
+          .map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList(),
+      mutedInstances: (json['mutedInstances'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       mutingNotificationTypes:
           (json['mutingNotificationTypes'] as List<dynamic>?)
-              ?.map((e) => e as String),
+              ?.map((e) => e as String)
+              .toList(),
       emailNotificationTypes: (json['emailNotificationTypes'] as List<dynamic>?)
-          ?.map((e) => e as String),
+          ?.map((e) => e as String)
+          .toList(),
       email: json['email'] as String?,
       emailVerified: json['emailVerified'] as bool?,
-      securityKeysList: (json['securityKeysList'] as List<dynamic>?)
-          ?.map((e) => e as Map<String, dynamic>),
+      securityKeysList: json['securityKeysList'] as List<dynamic>?,
     );
 
 Map<String, dynamic> _$MeDetailedOnlyToJson(MeDetailedOnly instance) =>
@@ -67,11 +70,11 @@ Map<String, dynamic> _$MeDetailedOnlyToJson(MeDetailedOnly instance) =>
       'hasPendingReceivedFollowRequest':
           instance.hasPendingReceivedFollowRequest,
       'integrations': instance.integrations,
-      'mutedWords': instance.mutedWords.map((e) => e.toList()).toList(),
-      'mutedInstances': instance.mutedInstances?.toList(),
-      'mutingNotificationTypes': instance.mutingNotificationTypes?.toList(),
-      'emailNotificationTypes': instance.emailNotificationTypes?.toList(),
+      'mutedWords': instance.mutedWords,
+      'mutedInstances': instance.mutedInstances,
+      'mutingNotificationTypes': instance.mutingNotificationTypes,
+      'emailNotificationTypes': instance.emailNotificationTypes,
       'email': instance.email,
       'emailVerified': instance.emailVerified,
-      'securityKeysList': instance.securityKeysList?.toList(),
+      'securityKeysList': instance.securityKeysList,
     };

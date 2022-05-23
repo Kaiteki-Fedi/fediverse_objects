@@ -26,8 +26,8 @@ Map<String, dynamic> _$PageToJson(Page instance) => <String, dynamic>{
       'title': instance.title,
       'name': instance.name,
       'summary': instance.summary,
-      'content': instance.content.toList(),
-      'variables': instance.variables.toList(),
+      'content': instance.content,
+      'variables': instance.variables,
       'userId': instance.userId,
       'user': instance.user,
     };

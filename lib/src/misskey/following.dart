@@ -4,22 +4,16 @@ part 'following.g.dart';
 
 @JsonSerializable()
 class Following {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'followeeId')
   final String followeeId;
 
-  @JsonKey(name: 'followee')
   final dynamic? followee;
 
-  @JsonKey(name: 'followerId')
   final String followerId;
 
-  @JsonKey(name: 'follower')
   final dynamic? follower;
 
   const Following({

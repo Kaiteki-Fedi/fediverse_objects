@@ -1,14 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_detailed_not_me_only.dart';
+part of 'user_detailed_not_me.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserDetailedNotMeOnly _$UserDetailedNotMeOnlyFromJson(
-        Map<String, dynamic> json) =>
-    UserDetailedNotMeOnly(
+UserDetailedNotMe _$UserDetailedNotMeFromJson(Map<String, dynamic> json) =>
+    UserDetailedNotMe(
+      id: json['id'] as String,
+      name: json['name'] as String?,
+      username: json['username'] as String,
+      host: json['host'] as String?,
+      avatarUrl: json['avatarUrl'] as String?,
+      avatarBlurhash: json['avatarBlurhash'],
+      avatarColor: json['avatarColor'],
+      isAdmin: json['isAdmin'] as bool?,
+      isModerator: json['isModerator'] as bool?,
+      isBot: json['isBot'] as bool?,
+      isCat: json['isCat'] as bool?,
+      emojis: json['emojis'] as List<dynamic>,
+      onlineStatus: $enumDecodeNullable(
+          _$UserDetailedNotMeOnlineStatusEnumMap, json['onlineStatus']),
       url: json['url'] as String?,
       uri: json['uri'] as String?,
       createdAt: DateTime.parse(json['createdAt'] as String),
@@ -57,9 +70,22 @@ UserDetailedNotMeOnly _$UserDetailedNotMeOnlyFromJson(
       isMuted: json['isMuted'] as bool?,
     );
 
-Map<String, dynamic> _$UserDetailedNotMeOnlyToJson(
-        UserDetailedNotMeOnly instance) =>
+Map<String, dynamic> _$UserDetailedNotMeToJson(UserDetailedNotMe instance) =>
     <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'username': instance.username,
+      'host': instance.host,
+      'avatarUrl': instance.avatarUrl,
+      'avatarBlurhash': instance.avatarBlurhash,
+      'avatarColor': instance.avatarColor,
+      'isAdmin': instance.isAdmin,
+      'isModerator': instance.isModerator,
+      'isBot': instance.isBot,
+      'isCat': instance.isCat,
+      'emojis': instance.emojis,
+      'onlineStatus':
+          _$UserDetailedNotMeOnlineStatusEnumMap[instance.onlineStatus],
       'url': instance.url,
       'uri': instance.uri,
       'createdAt': instance.createdAt.toIso8601String(),
@@ -95,3 +121,10 @@ Map<String, dynamic> _$UserDetailedNotMeOnlyToJson(
       'isBlocked': instance.isBlocked,
       'isMuted': instance.isMuted,
     };
+
+const _$UserDetailedNotMeOnlineStatusEnumMap = {
+  UserDetailedNotMeOnlineStatus.unknown: 'unknown',
+  UserDetailedNotMeOnlineStatus.online: 'online',
+  UserDetailedNotMeOnlineStatus.active: 'active',
+  UserDetailedNotMeOnlineStatus.offline: 'offline',
+};

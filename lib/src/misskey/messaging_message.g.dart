@@ -28,7 +28,8 @@ MessagingMessage _$MessagingMessageFromJson(Map<String, dynamic> json) =>
           ? null
           : UserGroup.fromJson(json['group'] as Map<String, dynamic>),
       isRead: json['isRead'] as bool?,
-      reads: (json['reads'] as List<dynamic>?)?.map((e) => e as String),
+      reads:
+          (json['reads'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
 Map<String, dynamic> _$MessagingMessageToJson(MessagingMessage instance) =>
@@ -45,5 +46,5 @@ Map<String, dynamic> _$MessagingMessageToJson(MessagingMessage instance) =>
       'groupId': instance.groupId,
       'group': instance.group,
       'isRead': instance.isRead,
-      'reads': instance.reads?.toList(),
+      'reads': instance.reads,
     };

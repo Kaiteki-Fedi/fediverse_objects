@@ -11,13 +11,15 @@ Antenna _$AntennaFromJson(Map<String, dynamic> json) => Antenna(
       createdAt: DateTime.parse(json['createdAt'] as String),
       name: json['name'] as String,
       keywords: (json['keywords'] as List<dynamic>)
-          .map((e) => (e as List<dynamic>).map((e) => e as String)),
+          .map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList(),
       excludeKeywords: (json['excludeKeywords'] as List<dynamic>)
-          .map((e) => (e as List<dynamic>).map((e) => e as String)),
+          .map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList(),
       src: $enumDecode(_$AntennaSrcEnumMap, json['src']),
       userListId: json['userListId'] as String?,
       userGroupId: json['userGroupId'] as String?,
-      users: (json['users'] as List<dynamic>).map((e) => e as String),
+      users: (json['users'] as List<dynamic>).map((e) => e as String).toList(),
       caseSensitive: json['caseSensitive'] as bool,
       notify: json['notify'] as bool,
       withReplies: json['withReplies'] as bool,
@@ -29,13 +31,12 @@ Map<String, dynamic> _$AntennaToJson(Antenna instance) => <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt.toIso8601String(),
       'name': instance.name,
-      'keywords': instance.keywords.map((e) => e.toList()).toList(),
-      'excludeKeywords':
-          instance.excludeKeywords.map((e) => e.toList()).toList(),
+      'keywords': instance.keywords,
+      'excludeKeywords': instance.excludeKeywords,
       'src': _$AntennaSrcEnumMap[instance.src],
       'userListId': instance.userListId,
       'userGroupId': instance.userGroupId,
-      'users': instance.users.toList(),
+      'users': instance.users,
       'caseSensitive': instance.caseSensitive,
       'notify': instance.notify,
       'withReplies': instance.withReplies,

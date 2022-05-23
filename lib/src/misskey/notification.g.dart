@@ -20,7 +20,7 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
           : Note.fromJson(json['note'] as Map<String, dynamic>),
       reaction: json['reaction'] as String?,
       choice: json['choice'] as int?,
-      invitation: json['invitation'] as Map<String, dynamic>?,
+      invitation: json['invitation'],
       body: json['body'] as String?,
       header: json['header'] as String?,
       icon: json['icon'] as String?,

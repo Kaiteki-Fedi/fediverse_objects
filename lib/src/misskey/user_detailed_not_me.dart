@@ -1,10 +1,37 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:fediverse_objects/src/misskey/note.dart';
 import 'package:fediverse_objects/src/misskey/page.dart';
-part 'user_detailed_not_me_only.g.dart';
+part 'user_detailed_not_me.g.dart';
 
 @JsonSerializable()
-class UserDetailedNotMeOnly {
+class UserDetailedNotMe {
+  final String id;
+
+  final String? name;
+
+  final String username;
+
+  /// The local host is represented with `null`.
+  final String? host;
+
+  final String? avatarUrl;
+
+  final dynamic? avatarBlurhash;
+
+  final dynamic? avatarColor;
+
+  final bool? isAdmin;
+
+  final bool? isModerator;
+
+  final bool? isBot;
+
+  final bool? isCat;
+
+  final List<Emoji> emojis;
+
+  final UserDetailedNotMeOnlineStatus? onlineStatus;
+
   final String? url;
 
   final String? uri;
@@ -73,7 +100,20 @@ class UserDetailedNotMeOnly {
 
   final bool? isMuted;
 
-  const UserDetailedNotMeOnly({
+  const UserDetailedNotMe({
+    required this.id,
+    this.name,
+    required this.username,
+    this.host,
+    this.avatarUrl,
+    this.avatarBlurhash,
+    this.avatarColor,
+    this.isAdmin,
+    this.isModerator,
+    this.isBot,
+    this.isCat,
+    required this.emojis,
+    this.onlineStatus,
     this.url,
     this.uri,
     required this.createdAt,
@@ -110,6 +150,12 @@ class UserDetailedNotMeOnly {
     this.isMuted,
   });
 
-  factory UserDetailedNotMeOnly.fromJson(Map<String, dynamic> json) => _$UserDetailedNotMeOnlyFromJson(json);
-  Map<String, dynamic> toJson() => _$UserDetailedNotMeOnlyToJson(this);
+  factory UserDetailedNotMe.fromJson(Map<String, dynamic> json) => _$UserDetailedNotMeFromJson(json);
+  Map<String, dynamic> toJson() => _$UserDetailedNotMeToJson(this);
+}
+enum UserDetailedNotMeOnlineStatus {
+  unknown,
+  online,
+  active,
+  offline,
 }

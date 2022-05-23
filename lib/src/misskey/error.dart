@@ -4,7 +4,6 @@ part 'error.g.dart';
 @JsonSerializable()
 class Error {
   /// An error object.
-  @JsonKey(name: 'error')
   final Error error;
 
   const Error({

@@ -3,46 +3,32 @@ part 'antenna.g.dart';
 
 @JsonSerializable()
 class Antenna {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'name')
   final String name;
 
-  @JsonKey(name: 'keywords')
-  final Iterable<Iterable<String>> keywords;
+  final List<List<String>> keywords;
 
-  @JsonKey(name: 'excludeKeywords')
-  final Iterable<Iterable<String>> excludeKeywords;
+  final List<List<String>> excludeKeywords;
 
-  @JsonKey(name: 'src')
   final AntennaSrc src;
 
-  @JsonKey(name: 'userListId')
   final String? userListId;
 
-  @JsonKey(name: 'userGroupId')
   final String? userGroupId;
 
-  @JsonKey(name: 'users')
-  final Iterable<String> users;
+  final List<String> users;
 
-  @JsonKey(name: 'caseSensitive')
   final bool caseSensitive;
 
-  @JsonKey(name: 'notify')
   final bool notify;
 
-  @JsonKey(name: 'withReplies')
   final bool withReplies;
 
-  @JsonKey(name: 'withFile')
   final bool withFile;
 
-  @JsonKey(name: 'hasUnreadNote')
   final bool hasUnreadNote;
 
   const Antenna({

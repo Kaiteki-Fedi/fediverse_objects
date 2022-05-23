@@ -3,19 +3,14 @@ part 'queue_count.g.dart';
 
 @JsonSerializable()
 class QueueCount {
-  @JsonKey(name: 'waiting')
   final int waiting;
 
-  @JsonKey(name: 'active')
   final int active;
 
-  @JsonKey(name: 'completed')
   final int completed;
 
-  @JsonKey(name: 'failed')
   final int failed;
 
-  @JsonKey(name: 'delayed')
   final int delayed;
 
   const QueueCount({

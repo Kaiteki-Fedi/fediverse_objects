@@ -3,86 +3,59 @@ part 'me_detailed_only.g.dart';
 
 @JsonSerializable()
 class MeDetailedOnly {
-  @JsonKey(name: 'avatarId')
   final String? avatarId;
 
-  @JsonKey(name: 'bannerId')
   final String? bannerId;
 
-  @JsonKey(name: 'injectFeaturedNote')
   final bool? injectFeaturedNote;
 
-  @JsonKey(name: 'receiveAnnouncementEmail')
   final bool? receiveAnnouncementEmail;
 
-  @JsonKey(name: 'alwaysMarkNsfw')
   final bool? alwaysMarkNsfw;
 
-  @JsonKey(name: 'carefulBot')
   final bool? carefulBot;
 
-  @JsonKey(name: 'autoAcceptFollowed')
   final bool? autoAcceptFollowed;
 
-  @JsonKey(name: 'noCrawle')
   final bool? noCrawle;
 
-  @JsonKey(name: 'isExplorable')
   final bool isExplorable;
 
-  @JsonKey(name: 'isDeleted')
   final bool isDeleted;
 
-  @JsonKey(name: 'hideOnlineStatus')
   final bool hideOnlineStatus;
 
-  @JsonKey(name: 'hasUnreadSpecifiedNotes')
   final bool hasUnreadSpecifiedNotes;
 
-  @JsonKey(name: 'hasUnreadMentions')
   final bool hasUnreadMentions;
 
-  @JsonKey(name: 'hasUnreadAnnouncement')
   final bool hasUnreadAnnouncement;
 
-  @JsonKey(name: 'hasUnreadAntenna')
   final bool hasUnreadAntenna;
 
-  @JsonKey(name: 'hasUnreadChannel')
   final bool hasUnreadChannel;
 
-  @JsonKey(name: 'hasUnreadMessagingMessage')
   final bool hasUnreadMessagingMessage;
 
-  @JsonKey(name: 'hasUnreadNotification')
   final bool hasUnreadNotification;
 
-  @JsonKey(name: 'hasPendingReceivedFollowRequest')
   final bool hasPendingReceivedFollowRequest;
 
-  @JsonKey(name: 'integrations')
-  final Map<String, dynamic>? integrations;
+  final Integration? integrations;
 
-  @JsonKey(name: 'mutedWords')
-  final Iterable<Iterable<String>> mutedWords;
+  final List<List<String>> mutedWords;
 
-  @JsonKey(name: 'mutedInstances')
-  final Iterable<String>? mutedInstances;
+  final List<String>? mutedInstances;
 
-  @JsonKey(name: 'mutingNotificationTypes')
-  final Iterable<String>? mutingNotificationTypes;
+  final List<String>? mutingNotificationTypes;
 
-  @JsonKey(name: 'emailNotificationTypes')
-  final Iterable<String>? emailNotificationTypes;
+  final List<String>? emailNotificationTypes;
 
-  @JsonKey(name: 'email')
   final String? email;
 
-  @JsonKey(name: 'emailVerified')
   final bool? emailVerified;
 
-  @JsonKey(name: 'securityKeysList')
-  final Iterable<Map<String, dynamic>>? securityKeysList;
+  final List<SecurityKeysList>? securityKeysList;
 
   const MeDetailedOnly({
     this.avatarId,

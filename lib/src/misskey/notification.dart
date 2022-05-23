@@ -5,43 +5,30 @@ part 'notification.g.dart';
 
 @JsonSerializable()
 class Notification {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'isRead')
   final bool isRead;
 
-  @JsonKey(name: 'type')
   final NotificationType type;
 
-  @JsonKey(name: 'user')
   final UserLite? user;
 
-  @JsonKey(name: 'userId')
   final String? userId;
 
-  @JsonKey(name: 'note')
   final Note? note;
 
-  @JsonKey(name: 'reaction')
   final String? reaction;
 
-  @JsonKey(name: 'choice')
   final int? choice;
 
-  @JsonKey(name: 'invitation')
-  final Map<String, dynamic>? invitation;
+  final Invitation? invitation;
 
-  @JsonKey(name: 'body')
   final String? body;
 
-  @JsonKey(name: 'header')
   final String? header;
 
-  @JsonKey(name: 'icon')
   final String? icon;
 
   const Notification({

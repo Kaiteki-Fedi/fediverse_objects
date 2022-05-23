@@ -6,44 +6,31 @@ part 'messaging_message.g.dart';
 
 @JsonSerializable()
 class MessagingMessage {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'userId')
   final String userId;
 
-  @JsonKey(name: 'user')
   final UserLite? user;
 
-  @JsonKey(name: 'text')
   final String? text;
 
-  @JsonKey(name: 'fileId')
   final String? fileId;
 
-  @JsonKey(name: 'file')
   final DriveFile? file;
 
-  @JsonKey(name: 'recipientId')
   final String? recipientId;
 
-  @JsonKey(name: 'recipient')
   final UserLite? recipient;
 
-  @JsonKey(name: 'groupId')
   final String? groupId;
 
-  @JsonKey(name: 'group')
   final UserGroup? group;
 
-  @JsonKey(name: 'isRead')
   final bool? isRead;
 
-  @JsonKey(name: 'reads')
-  final Iterable<String>? reads;
+  final List<String>? reads;
 
   const MessagingMessage({
     required this.id,

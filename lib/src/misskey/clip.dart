@@ -4,25 +4,18 @@ part 'clip.g.dart';
 
 @JsonSerializable()
 class Clip {
-  @JsonKey(name: 'id')
   final String id;
 
-  @JsonKey(name: 'createdAt')
   final DateTime createdAt;
 
-  @JsonKey(name: 'userId')
   final String userId;
 
-  @JsonKey(name: 'user')
   final UserLite user;
 
-  @JsonKey(name: 'name')
   final String name;
 
-  @JsonKey(name: 'description')
   final String? description;
 
-  @JsonKey(name: 'isPublic')
   final bool isPublic;
 
   const Clip({
