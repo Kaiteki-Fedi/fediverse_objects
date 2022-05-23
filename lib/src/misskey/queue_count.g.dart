@@ -12,7 +12,6 @@ QueueCount _$QueueCountFromJson(Map<String, dynamic> json) => QueueCount(
       completed: json['completed'] as int,
       failed: json['failed'] as int,
       delayed: json['delayed'] as int,
-      paused: json['paused'] as int,
     );
 
 Map<String, dynamic> _$QueueCountToJson(QueueCount instance) =>
@@ -22,5 +21,4 @@ Map<String, dynamic> _$QueueCountToJson(QueueCount instance) =>
       'completed': instance.completed,
       'failed': instance.failed,
       'delayed': instance.delayed,
-      'paused': instance.paused,
     };

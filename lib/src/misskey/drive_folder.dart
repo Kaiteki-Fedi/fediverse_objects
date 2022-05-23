@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-
 part 'drive_folder.g.dart';
 
 @JsonSerializable()
@@ -29,14 +28,12 @@ class DriveFolder {
     required this.id,
     required this.createdAt,
     required this.name,
-    required this.foldersCount,
-    required this.filesCount,
+    this.foldersCount,
+    this.filesCount,
     this.parentId,
     this.parent,
   });
 
-  factory DriveFolder.fromJson(Map<String, dynamic> json) =>
-      _$DriveFolderFromJson(json);
-
+  factory DriveFolder.fromJson(Map<String, dynamic> json) => _$DriveFolderFromJson(json);
   Map<String, dynamic> toJson() => _$DriveFolderToJson(this);
 }

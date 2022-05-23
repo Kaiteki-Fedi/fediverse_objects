@@ -10,7 +10,7 @@ Blocking _$BlockingFromJson(Map<String, dynamic> json) => Blocking(
       id: json['id'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
       blockeeId: json['blockeeId'] as String,
-      blockee: User.fromJson(json['blockee'] as Map<String, dynamic>),
+      blockee: json['blockee'],
     );
 
 Map<String, dynamic> _$BlockingToJson(Blocking instance) => <String, dynamic>{

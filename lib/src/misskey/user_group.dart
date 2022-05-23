@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-
 part 'user_group.g.dart';
 
 @JsonSerializable()
@@ -24,11 +23,9 @@ class UserGroup {
     required this.createdAt,
     required this.name,
     required this.ownerId,
-    required this.userIds,
+    this.userIds,
   });
 
-  factory UserGroup.fromJson(Map<String, dynamic> json) =>
-      _$UserGroupFromJson(json);
-
+  factory UserGroup.fromJson(Map<String, dynamic> json) => _$UserGroupFromJson(json);
   Map<String, dynamic> toJson() => _$UserGroupToJson(this);
 }

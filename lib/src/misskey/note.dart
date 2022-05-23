@@ -1,6 +1,9 @@
-import 'package:fediverse_objects/misskey.dart';
+import 'package:fediverse_objects/src/misskey/channel.dart';
+import 'package:fediverse_objects/src/misskey/emoji.dart';
+import 'package:fediverse_objects/src/misskey/note_reaction.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:fediverse_objects/src/misskey/user_lite.dart';
+import 'package:fediverse_objects/src/misskey/drive_file.dart';
 part 'note.g.dart';
 
 @JsonSerializable()
@@ -21,7 +24,7 @@ class Note {
   final String userId;
 
   @JsonKey(name: 'user')
-  final User user;
+  final UserLite user;
 
   @JsonKey(name: 'replyId')
   final String? replyId;
@@ -34,9 +37,6 @@ class Note {
 
   @JsonKey(name: 'renote')
   final Note? renote;
-
-  @JsonKey(name: 'viaMobile')
-  final bool? viaMobile;
 
   @JsonKey(name: 'isHidden')
   final bool? isHidden;
@@ -90,7 +90,7 @@ class Note {
   final String? url;
 
   @JsonKey(name: 'myReaction')
-  final String? myReaction;
+  final NoteReaction? myReaction;
 
   const Note({
     required this.id,
@@ -103,24 +103,23 @@ class Note {
     this.renoteId,
     this.reply,
     this.renote,
-    required this.viaMobile,
-    required this.isHidden,
+    this.isHidden,
     required this.visibility,
-    required this.mentions,
-    required this.visibleUserIds,
-    required this.fileIds,
-    required this.files,
-    required this.tags,
+    this.mentions,
+    this.visibleUserIds,
+    this.fileIds,
+    this.files,
+    this.tags,
     this.poll,
     this.channelId,
     this.channel,
-    required this.localOnly,
+    this.localOnly,
     required this.emojis,
     required this.reactions,
     required this.renoteCount,
     required this.repliesCount,
-    required this.uri,
-    required this.url,
+    this.uri,
+    this.url,
     this.myReaction,
   });
 

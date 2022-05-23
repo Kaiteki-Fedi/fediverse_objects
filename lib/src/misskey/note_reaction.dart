@@ -1,6 +1,5 @@
-import 'package:fediverse_objects/src/misskey/user.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:fediverse_objects/src/misskey/user_lite.dart';
 part 'note_reaction.g.dart';
 
 @JsonSerializable()
@@ -12,7 +11,7 @@ class NoteReaction {
   final DateTime createdAt;
 
   @JsonKey(name: 'user')
-  final User user;
+  final UserLite user;
 
   @JsonKey(name: 'type')
   final String type;
@@ -24,8 +23,6 @@ class NoteReaction {
     required this.type,
   });
 
-  factory NoteReaction.fromJson(Map<String, dynamic> json) =>
-      _$NoteReactionFromJson(json);
-
+  factory NoteReaction.fromJson(Map<String, dynamic> json) => _$NoteReactionFromJson(json);
   Map<String, dynamic> toJson() => _$NoteReactionToJson(this);
 }

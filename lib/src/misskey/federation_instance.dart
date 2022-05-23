@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-
 part 'federation_instance.g.dart';
 
 @JsonSerializable()
@@ -24,12 +23,6 @@ class FederationInstance {
 
   @JsonKey(name: 'followersCount')
   final int followersCount;
-
-  @JsonKey(name: 'driveUsage')
-  final int driveUsage;
-
-  @JsonKey(name: 'driveFiles')
-  final int driveFiles;
 
   @JsonKey(name: 'latestRequestSentAt')
   final DateTime? latestRequestSentAt;
@@ -78,8 +71,6 @@ class FederationInstance {
     required this.notesCount,
     required this.followingCount,
     required this.followersCount,
-    required this.driveUsage,
-    required this.driveFiles,
     this.latestRequestSentAt,
     required this.lastCommunicatedAt,
     required this.isNotResponding,
@@ -95,8 +86,6 @@ class FederationInstance {
     this.infoUpdatedAt,
   });
 
-  factory FederationInstance.fromJson(Map<String, dynamic> json) =>
-      _$FederationInstanceFromJson(json);
-
+  factory FederationInstance.fromJson(Map<String, dynamic> json) => _$FederationInstanceFromJson(json);
   Map<String, dynamic> toJson() => _$FederationInstanceToJson(this);
 }

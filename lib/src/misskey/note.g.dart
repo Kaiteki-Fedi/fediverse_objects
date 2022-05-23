@@ -12,7 +12,7 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       text: json['text'] as String?,
       cw: json['cw'] as String?,
       userId: json['userId'] as String,
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
+      user: UserLite.fromJson(json['user'] as Map<String, dynamic>),
       replyId: json['replyId'] as String?,
       renoteId: json['renoteId'] as String?,
       reply: json['reply'] == null
@@ -21,7 +21,6 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       renote: json['renote'] == null
           ? null
           : Note.fromJson(json['renote'] as Map<String, dynamic>),
-      viaMobile: json['viaMobile'] as bool?,
       isHidden: json['isHidden'] as bool?,
       visibility: json['visibility'] as String,
       mentions: (json['mentions'] as List<dynamic>?)?.map((e) => e as String),
@@ -44,7 +43,9 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       repliesCount: json['repliesCount'] as int,
       uri: json['uri'] as String?,
       url: json['url'] as String?,
-      myReaction: json['myReaction'] as String?,
+      myReaction: json['myReaction'] == null
+          ? null
+          : NoteReaction.fromJson(json['myReaction'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{
@@ -58,7 +59,6 @@ Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{
       'renoteId': instance.renoteId,
       'reply': instance.reply,
       'renote': instance.renote,
-      'viaMobile': instance.viaMobile,
       'isHidden': instance.isHidden,
       'visibility': instance.visibility,
       'mentions': instance.mentions?.toList(),

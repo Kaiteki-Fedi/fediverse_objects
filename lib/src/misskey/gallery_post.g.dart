@@ -13,7 +13,7 @@ GalleryPost _$GalleryPostFromJson(Map<String, dynamic> json) => GalleryPost(
       title: json['title'] as String,
       description: json['description'] as String?,
       userId: json['userId'] as String,
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
+      user: UserLite.fromJson(json['user'] as Map<String, dynamic>),
       fileIds: (json['fileIds'] as List<dynamic>?)?.map((e) => e as String),
       files: (json['files'] as List<dynamic>?)
           ?.map((e) => DriveFile.fromJson(e as Map<String, dynamic>)),

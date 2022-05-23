@@ -16,7 +16,7 @@ Page _$PageFromJson(Map<String, dynamic> json) => Page(
       content: json['content'] as List<dynamic>,
       variables: json['variables'] as List<dynamic>,
       userId: json['userId'] as String,
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
+      user: UserLite.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$PageToJson(Page instance) => <String, dynamic>{

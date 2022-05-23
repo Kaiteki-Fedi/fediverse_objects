@@ -13,7 +13,7 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
       type: $enumDecode(_$NotificationTypeEnumMap, json['type']),
       user: json['user'] == null
           ? null
-          : User.fromJson(json['user'] as Map<String, dynamic>),
+          : UserLite.fromJson(json['user'] as Map<String, dynamic>),
       userId: json['userId'] as String?,
       note: json['note'] == null
           ? null
@@ -51,6 +51,7 @@ const _$NotificationTypeEnumMap = {
   NotificationType.quote: 'quote',
   NotificationType.reaction: 'reaction',
   NotificationType.pollVote: 'pollVote',
+  NotificationType.pollEnded: 'pollEnded',
   NotificationType.receiveFollowRequest: 'receiveFollowRequest',
   NotificationType.followRequestAccepted: 'followRequestAccepted',
   NotificationType.groupInvited: 'groupInvited',

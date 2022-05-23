@@ -15,8 +15,6 @@ FederationInstance _$FederationInstanceFromJson(Map<String, dynamic> json) =>
       notesCount: json['notesCount'] as int,
       followingCount: json['followingCount'] as int,
       followersCount: json['followersCount'] as int,
-      driveUsage: json['driveUsage'] as int,
-      driveFiles: json['driveFiles'] as int,
       latestRequestSentAt: json['latestRequestSentAt'] == null
           ? null
           : DateTime.parse(json['latestRequestSentAt'] as String),
@@ -45,8 +43,6 @@ Map<String, dynamic> _$FederationInstanceToJson(FederationInstance instance) =>
       'notesCount': instance.notesCount,
       'followingCount': instance.followingCount,
       'followersCount': instance.followersCount,
-      'driveUsage': instance.driveUsage,
-      'driveFiles': instance.driveFiles,
       'latestRequestSentAt': instance.latestRequestSentAt?.toIso8601String(),
       'lastCommunicatedAt': instance.lastCommunicatedAt.toIso8601String(),
       'isNotResponding': instance.isNotResponding,

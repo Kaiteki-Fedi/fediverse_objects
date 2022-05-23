@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-
 part 'emoji.g.dart';
 
 @JsonSerializable()
@@ -16,6 +15,7 @@ class Emoji {
   @JsonKey(name: 'category')
   final String? category;
 
+  /// The local host is represented with `null`.
   @JsonKey(name: 'host')
   final String? host;
 
@@ -23,8 +23,8 @@ class Emoji {
   final String url;
 
   const Emoji({
-    required this.id,
-    required this.aliases,
+    this.id,
+    this.aliases,
     required this.name,
     this.category,
     this.host,

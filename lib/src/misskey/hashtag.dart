@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-
 part 'hashtag.g.dart';
 
 @JsonSerializable()
@@ -35,8 +34,6 @@ class Hashtag {
     required this.attachedRemoteUsersCount,
   });
 
-  factory Hashtag.fromJson(Map<String, dynamic> json) =>
-      _$HashtagFromJson(json);
-
+  factory Hashtag.fromJson(Map<String, dynamic> json) => _$HashtagFromJson(json);
   Map<String, dynamic> toJson() => _$HashtagToJson(this);
 }

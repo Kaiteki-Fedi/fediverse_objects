@@ -1,7 +1,6 @@
-import 'package:fediverse_objects/src/misskey/drive_folder.dart';
-import 'package:fediverse_objects/src/misskey/user.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:fediverse_objects/src/misskey/drive_folder.dart';
+import 'package:fediverse_objects/src/misskey/user_lite.dart';
 part 'drive_file.g.dart';
 
 @JsonSerializable()
@@ -52,7 +51,7 @@ class DriveFile {
   final String? userId;
 
   @JsonKey(name: 'user')
-  final User? user;
+  final UserLite? user;
 
   const DriveFile({
     required this.id,
@@ -73,8 +72,6 @@ class DriveFile {
     this.user,
   });
 
-  factory DriveFile.fromJson(Map<String, dynamic> json) =>
-      _$DriveFileFromJson(json);
-
+  factory DriveFile.fromJson(Map<String, dynamic> json) => _$DriveFileFromJson(json);
   Map<String, dynamic> toJson() => _$DriveFileToJson(this);
 }

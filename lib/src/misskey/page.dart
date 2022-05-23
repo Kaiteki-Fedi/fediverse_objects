@@ -1,6 +1,5 @@
-import 'package:fediverse_objects/src/misskey/user.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:fediverse_objects/src/misskey/user_lite.dart';
 part 'page.g.dart';
 
 @JsonSerializable()
@@ -33,7 +32,7 @@ class Page {
   final String userId;
 
   @JsonKey(name: 'user')
-  final User user;
+  final UserLite user;
 
   const Page({
     required this.id,
@@ -49,6 +48,5 @@ class Page {
   });
 
   factory Page.fromJson(Map<String, dynamic> json) => _$PageFromJson(json);
-
   Map<String, dynamic> toJson() => _$PageToJson(this);
 }

@@ -9,13 +9,17 @@ part of 'muting.dart';
 Muting _$MutingFromJson(Map<String, dynamic> json) => Muting(
       id: json['id'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
+      expiresAt: json['expiresAt'] == null
+          ? null
+          : DateTime.parse(json['expiresAt'] as String),
       muteeId: json['muteeId'] as String,
-      mutee: User.fromJson(json['mutee'] as Map<String, dynamic>),
+      mutee: json['mutee'],
     );
 
 Map<String, dynamic> _$MutingToJson(Muting instance) => <String, dynamic>{
       'id': instance.id,
       'createdAt': instance.createdAt.toIso8601String(),
+      'expiresAt': instance.expiresAt?.toIso8601String(),
       'muteeId': instance.muteeId,
       'mutee': instance.mutee,
     };

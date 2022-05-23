@@ -26,7 +26,7 @@ DriveFile _$DriveFileFromJson(Map<String, dynamic> json) => DriveFile(
       userId: json['userId'] as String?,
       user: json['user'] == null
           ? null
-          : User.fromJson(json['user'] as Map<String, dynamic>),
+          : UserLite.fromJson(json['user'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$DriveFileToJson(DriveFile instance) => <String, dynamic>{

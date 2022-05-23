@@ -9,7 +9,7 @@ part of 'note_reaction.dart';
 NoteReaction _$NoteReactionFromJson(Map<String, dynamic> json) => NoteReaction(
       id: json['id'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
+      user: UserLite.fromJson(json['user'] as Map<String, dynamic>),
       type: json['type'] as String,
     );
 

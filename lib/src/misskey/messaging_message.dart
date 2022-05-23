@@ -1,8 +1,7 @@
-import 'package:fediverse_objects/src/misskey/drive_file.dart';
-import 'package:fediverse_objects/src/misskey/user.dart';
-import 'package:fediverse_objects/src/misskey/user_group.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:fediverse_objects/src/misskey/user_lite.dart';
+import 'package:fediverse_objects/src/misskey/drive_file.dart';
+import 'package:fediverse_objects/src/misskey/user_group.dart';
 part 'messaging_message.g.dart';
 
 @JsonSerializable()
@@ -17,7 +16,7 @@ class MessagingMessage {
   final String userId;
 
   @JsonKey(name: 'user')
-  final User? user;
+  final UserLite? user;
 
   @JsonKey(name: 'text')
   final String? text;
@@ -32,7 +31,7 @@ class MessagingMessage {
   final String? recipientId;
 
   @JsonKey(name: 'recipient')
-  final User? recipient;
+  final UserLite? recipient;
 
   @JsonKey(name: 'groupId')
   final String? groupId;
@@ -50,7 +49,7 @@ class MessagingMessage {
     required this.id,
     required this.createdAt,
     required this.userId,
-    required this.user,
+    this.user,
     this.text,
     this.fileId,
     this.file,
@@ -58,11 +57,10 @@ class MessagingMessage {
     this.recipient,
     this.groupId,
     this.group,
-    required this.isRead,
-    required this.reads,
+    this.isRead,
+    this.reads,
   });
 
-  factory MessagingMessage.fromJson(Map<String, dynamic> json) =>
-      _$MessagingMessageFromJson(json);
+  factory MessagingMessage.fromJson(Map<String, dynamic> json) => _$MessagingMessageFromJson(json);
   Map<String, dynamic> toJson() => _$MessagingMessageToJson(this);
 }

@@ -1,6 +1,5 @@
-import 'package:fediverse_objects/src/misskey/user.dart';
 import 'package:json_annotation/json_annotation.dart';
-
+import 'package:fediverse_objects/src/misskey/user_lite.dart';
 part 'clip.g.dart';
 
 @JsonSerializable()
@@ -15,7 +14,7 @@ class Clip {
   final String userId;
 
   @JsonKey(name: 'user')
-  final User user;
+  final UserLite user;
 
   @JsonKey(name: 'name')
   final String name;
@@ -37,6 +36,5 @@ class Clip {
   });
 
   factory Clip.fromJson(Map<String, dynamic> json) => _$ClipFromJson(json);
-
   Map<String, dynamic> toJson() => _$ClipToJson(this);
 }

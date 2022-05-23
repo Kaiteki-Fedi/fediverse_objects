@@ -13,7 +13,7 @@ MessagingMessage _$MessagingMessageFromJson(Map<String, dynamic> json) =>
       userId: json['userId'] as String,
       user: json['user'] == null
           ? null
-          : User.fromJson(json['user'] as Map<String, dynamic>),
+          : UserLite.fromJson(json['user'] as Map<String, dynamic>),
       text: json['text'] as String?,
       fileId: json['fileId'] as String?,
       file: json['file'] == null
@@ -22,7 +22,7 @@ MessagingMessage _$MessagingMessageFromJson(Map<String, dynamic> json) =>
       recipientId: json['recipientId'] as String?,
       recipient: json['recipient'] == null
           ? null
-          : User.fromJson(json['recipient'] as Map<String, dynamic>),
+          : UserLite.fromJson(json['recipient'] as Map<String, dynamic>),
       groupId: json['groupId'] as String?,
       group: json['group'] == null
           ? null
