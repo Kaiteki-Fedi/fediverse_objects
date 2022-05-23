@@ -40,7 +40,7 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       channel: json['channel'] as Map<String, dynamic>?,
       localOnly: json['localOnly'] as bool?,
       emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => e as Map<String, dynamic>)
+          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
           .toList(),
       reactions:
           NoteReaction.fromJson(json['reactions'] as Map<String, dynamic>),

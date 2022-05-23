@@ -1,3 +1,4 @@
+import 'package:fediverse_objects/src/misskey/emoji.dart';
 import 'package:fediverse_objects/src/misskey/note_reaction.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:fediverse_objects/src/misskey/user_lite.dart';
@@ -48,7 +49,7 @@ class Note {
 
   final bool? localOnly;
 
-  final List<Map<String, dynamic>> emojis;
+  final List<Emoji> emojis;
 
   final NoteReaction reactions;
 
