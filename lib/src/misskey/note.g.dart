@@ -35,17 +35,22 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
           ?.map((e) => DriveFile.fromJson(e as Map<String, dynamic>))
           .toList(),
       tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      poll: json['poll'],
+      poll: json['poll'] as Map<String, dynamic>?,
       channelId: json['channelId'] as String?,
-      channel: json['channel'],
+      channel: json['channel'] as Map<String, dynamic>?,
       localOnly: json['localOnly'] as bool?,
-      emojis: json['emojis'] as List<dynamic>,
-      reactions: json['reactions'],
+      emojis: (json['emojis'] as List<dynamic>)
+          .map((e) => e as Map<String, dynamic>)
+          .toList(),
+      reactions:
+          NoteReaction.fromJson(json['reactions'] as Map<String, dynamic>),
       renoteCount: json['renoteCount'] as int,
       repliesCount: json['repliesCount'] as int,
       uri: json['uri'] as String?,
       url: json['url'] as String?,
-      myReaction: json['myReaction'],
+      myReaction: json['myReaction'] == null
+          ? null
+          : NoteReaction.fromJson(json['myReaction'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{

@@ -21,7 +21,7 @@ class DriveFile {
 
   final String? blurhash;
 
-  final Property properties;
+  final Map<String, dynamic> properties;
 
   final String? url;
 
@@ -56,6 +56,7 @@ class DriveFile {
     this.user,
   });
 
-  factory DriveFile.fromJson(Map<String, dynamic> json) => _$DriveFileFromJson(json);
+  factory DriveFile.fromJson(Map<String, dynamic> json) =>
+      _$DriveFileFromJson(json);
   Map<String, dynamic> toJson() => _$DriveFileToJson(this);
 }

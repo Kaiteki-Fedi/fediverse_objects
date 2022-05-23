@@ -1,3 +1,4 @@
+import 'package:fediverse_objects/src/misskey/note_reaction.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:fediverse_objects/src/misskey/user_lite.dart';
 import 'package:fediverse_objects/src/misskey/drive_file.dart';
@@ -39,17 +40,17 @@ class Note {
 
   final List<String>? tags;
 
-  final Poll? poll;
+  final Map<String, dynamic>? poll;
 
   final String? channelId;
 
-  final Channel? channel;
+  final Map<String, dynamic>? channel;
 
   final bool? localOnly;
 
-  final List<Emoji> emojis;
+  final List<Map<String, dynamic>> emojis;
 
-  final Reaction reactions;
+  final NoteReaction reactions;
 
   final int renoteCount;
 

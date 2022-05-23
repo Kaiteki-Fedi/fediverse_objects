@@ -1,3 +1,4 @@
+import 'package:fediverse_objects/src/misskey/emoji.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'user_lite.g.dart';
 
@@ -46,9 +47,11 @@ class UserLite {
     this.onlineStatus,
   });
 
-  factory UserLite.fromJson(Map<String, dynamic> json) => _$UserLiteFromJson(json);
+  factory UserLite.fromJson(Map<String, dynamic> json) =>
+      _$UserLiteFromJson(json);
   Map<String, dynamic> toJson() => _$UserLiteToJson(this);
 }
+
 enum UserLiteOnlineStatus {
   unknown,
   online,

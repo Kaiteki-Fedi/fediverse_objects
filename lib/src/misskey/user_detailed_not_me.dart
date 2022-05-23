@@ -1,3 +1,5 @@
+import 'package:fediverse_objects/src/misskey/emoji.dart';
+import 'package:fediverse_objects/src/misskey/manual/field.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:fediverse_objects/src/misskey/note.dart';
 import 'package:fediverse_objects/src/misskey/page.dart';
@@ -150,9 +152,11 @@ class UserDetailedNotMe {
     this.isMuted,
   });
 
-  factory UserDetailedNotMe.fromJson(Map<String, dynamic> json) => _$UserDetailedNotMeFromJson(json);
+  factory UserDetailedNotMe.fromJson(Map<String, dynamic> json) =>
+      _$UserDetailedNotMeFromJson(json);
   Map<String, dynamic> toJson() => _$UserDetailedNotMeToJson(this);
 }
+
 enum UserDetailedNotMeOnlineStatus {
   unknown,
   online,

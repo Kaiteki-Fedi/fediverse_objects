@@ -28,7 +28,7 @@ MeDetailedOnly _$MeDetailedOnlyFromJson(Map<String, dynamic> json) =>
       hasUnreadNotification: json['hasUnreadNotification'] as bool,
       hasPendingReceivedFollowRequest:
           json['hasPendingReceivedFollowRequest'] as bool,
-      integrations: json['integrations'],
+      integrations: json['integrations'] as Map<String, dynamic>?,
       mutedWords: (json['mutedWords'] as List<dynamic>)
           .map((e) => (e as List<dynamic>).map((e) => e as String).toList())
           .toList(),
@@ -44,7 +44,9 @@ MeDetailedOnly _$MeDetailedOnlyFromJson(Map<String, dynamic> json) =>
           .toList(),
       email: json['email'] as String?,
       emailVerified: json['emailVerified'] as bool?,
-      securityKeysList: json['securityKeysList'] as List<dynamic>?,
+      securityKeysList: (json['securityKeysList'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
     );
 
 Map<String, dynamic> _$MeDetailedOnlyToJson(MeDetailedOnly instance) =>

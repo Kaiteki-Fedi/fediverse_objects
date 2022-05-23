@@ -19,7 +19,9 @@ UserDetailedNotMe _$UserDetailedNotMeFromJson(Map<String, dynamic> json) =>
       isModerator: json['isModerator'] as bool?,
       isBot: json['isBot'] as bool?,
       isCat: json['isCat'] as bool?,
-      emojis: json['emojis'] as List<dynamic>,
+      emojis: (json['emojis'] as List<dynamic>)
+          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+          .toList(),
       onlineStatus: $enumDecodeNullable(
           _$UserDetailedNotMeOnlineStatusEnumMap, json['onlineStatus']),
       url: json['url'] as String?,
@@ -41,7 +43,9 @@ UserDetailedNotMe _$UserDetailedNotMeFromJson(Map<String, dynamic> json) =>
       location: json['location'] as String?,
       birthday: json['birthday'] as String?,
       lang: json['lang'] as String?,
-      fields: json['fields'] as List<dynamic>,
+      fields: (json['fields'] as List<dynamic>)
+          .map((e) => Field.fromJson(e as Map<String, dynamic>))
+          .toList(),
       followersCount: json['followersCount'] as int,
       followingCount: json['followingCount'] as int,
       notesCount: json['notesCount'] as int,

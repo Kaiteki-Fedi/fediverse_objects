@@ -36,8 +36,12 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       errorImageUrl: json['errorImageUrl'] as String,
       iconUrl: json['iconUrl'] as String?,
       maxNoteTextLength: json['maxNoteTextLength'] as int,
-      emojis: json['emojis'] as List<dynamic>,
-      ads: json['ads'] as List<dynamic>,
+      emojis: (json['emojis'] as List<dynamic>)
+          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      ads: (json['ads'] as List<dynamic>)
+          .map((e) => Ad.fromJson(e as Map<String, dynamic>))
+          .toList(),
       requireSetup: json['requireSetup'] as bool,
       enableEmail: json['enableEmail'] as bool,
       enableTwitterIntegration: json['enableTwitterIntegration'] as bool,
@@ -46,7 +50,7 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       enableServiceWorker: json['enableServiceWorker'] as bool,
       translatorAvailable: json['translatorAvailable'] as bool,
       proxyAccountName: json['proxyAccountName'] as String?,
-      features: json['features'],
+      features: json['features'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$MetaToJson(Meta instance) => <String, dynamic>{

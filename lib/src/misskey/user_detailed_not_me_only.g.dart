@@ -28,7 +28,9 @@ UserDetailedNotMeOnly _$UserDetailedNotMeOnlyFromJson(
       location: json['location'] as String?,
       birthday: json['birthday'] as String?,
       lang: json['lang'] as String?,
-      fields: json['fields'] as List<dynamic>,
+      fields: (json['fields'] as List<dynamic>)
+          .map((e) => Field.fromJson(e as Map<String, dynamic>))
+          .toList(),
       followersCount: json['followersCount'] as int,
       followingCount: json['followingCount'] as int,
       notesCount: json['notesCount'] as int,

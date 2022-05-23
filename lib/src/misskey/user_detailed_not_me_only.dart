@@ -1,3 +1,4 @@
+import 'package:fediverse_objects/src/misskey/manual/field.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:fediverse_objects/src/misskey/note.dart';
 import 'package:fediverse_objects/src/misskey/page.dart';
@@ -110,6 +111,7 @@ class UserDetailedNotMeOnly {
     this.isMuted,
   });
 
-  factory UserDetailedNotMeOnly.fromJson(Map<String, dynamic> json) => _$UserDetailedNotMeOnlyFromJson(json);
+  factory UserDetailedNotMeOnly.fromJson(Map<String, dynamic> json) =>
+      _$UserDetailedNotMeOnlyFromJson(json);
   Map<String, dynamic> toJson() => _$UserDetailedNotMeOnlyToJson(this);
 }

@@ -1,3 +1,5 @@
+import 'package:fediverse_objects/src/misskey/emoji.dart';
+import 'package:fediverse_objects/src/misskey/manual/field.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:fediverse_objects/src/misskey/note.dart';
 import 'package:fediverse_objects/src/misskey/page.dart';
@@ -138,7 +140,7 @@ class MeDetailed {
 
   final bool hasPendingReceivedFollowRequest;
 
-  final Integration? integrations;
+  final Map<String, dynamic>? integrations;
 
   final List<List<String>> mutedWords;
 
@@ -152,7 +154,7 @@ class MeDetailed {
 
   final bool? emailVerified;
 
-  final List<SecurityKeysList>? securityKeysList;
+  final List<Map<String, dynamic>>? securityKeysList;
 
   const MeDetailed({
     required this.id,
@@ -231,9 +233,11 @@ class MeDetailed {
     this.securityKeysList,
   });
 
-  factory MeDetailed.fromJson(Map<String, dynamic> json) => _$MeDetailedFromJson(json);
+  factory MeDetailed.fromJson(Map<String, dynamic> json) =>
+      _$MeDetailedFromJson(json);
   Map<String, dynamic> toJson() => _$MeDetailedToJson(this);
 }
+
 enum MeDetailedOnlineStatus {
   unknown,
   online,

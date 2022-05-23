@@ -15,7 +15,7 @@ DriveFile _$DriveFileFromJson(Map<String, dynamic> json) => DriveFile(
       size: json['size'] as int,
       isSensitive: json['isSensitive'] as bool,
       blurhash: json['blurhash'] as String?,
-      properties: json['properties'],
+      properties: json['properties'] as Map<String, dynamic>,
       url: json['url'] as String?,
       thumbnailUrl: json['thumbnailUrl'] as String?,
       comment: json['comment'] as String?,

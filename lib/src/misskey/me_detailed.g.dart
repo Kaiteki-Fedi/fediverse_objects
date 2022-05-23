@@ -18,7 +18,9 @@ MeDetailed _$MeDetailedFromJson(Map<String, dynamic> json) => MeDetailed(
       isModerator: json['isModerator'] as bool?,
       isBot: json['isBot'] as bool?,
       isCat: json['isCat'] as bool?,
-      emojis: json['emojis'] as List<dynamic>,
+      emojis: (json['emojis'] as List<dynamic>)
+          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+          .toList(),
       onlineStatus: $enumDecodeNullable(
           _$MeDetailedOnlineStatusEnumMap, json['onlineStatus']),
       url: json['url'] as String?,
@@ -40,7 +42,9 @@ MeDetailed _$MeDetailedFromJson(Map<String, dynamic> json) => MeDetailed(
       location: json['location'] as String?,
       birthday: json['birthday'] as String?,
       lang: json['lang'] as String?,
-      fields: json['fields'] as List<dynamic>,
+      fields: (json['fields'] as List<dynamic>)
+          .map((e) => Field.fromJson(e as Map<String, dynamic>))
+          .toList(),
       followersCount: json['followersCount'] as int,
       followingCount: json['followingCount'] as int,
       notesCount: json['notesCount'] as int,
@@ -87,7 +91,7 @@ MeDetailed _$MeDetailedFromJson(Map<String, dynamic> json) => MeDetailed(
       hasUnreadNotification: json['hasUnreadNotification'] as bool,
       hasPendingReceivedFollowRequest:
           json['hasPendingReceivedFollowRequest'] as bool,
-      integrations: json['integrations'],
+      integrations: json['integrations'] as Map<String, dynamic>?,
       mutedWords: (json['mutedWords'] as List<dynamic>)
           .map((e) => (e as List<dynamic>).map((e) => e as String).toList())
           .toList(),
@@ -103,7 +107,9 @@ MeDetailed _$MeDetailedFromJson(Map<String, dynamic> json) => MeDetailed(
           .toList(),
       email: json['email'] as String?,
       emailVerified: json['emailVerified'] as bool?,
-      securityKeysList: json['securityKeysList'] as List<dynamic>?,
+      securityKeysList: (json['securityKeysList'] as List<dynamic>?)
+          ?.map((e) => e as Map<String, dynamic>)
+          .toList(),
     );
 
 Map<String, dynamic> _$MeDetailedToJson(MeDetailed instance) =>

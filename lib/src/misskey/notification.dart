@@ -23,7 +23,7 @@ class Notification {
 
   final int? choice;
 
-  final Invitation? invitation;
+  final Map<String, dynamic>? invitation;
 
   final String? body;
 
@@ -47,9 +47,11 @@ class Notification {
     this.icon,
   });
 
-  factory Notification.fromJson(Map<String, dynamic> json) => _$NotificationFromJson(json);
+  factory Notification.fromJson(Map<String, dynamic> json) =>
+      _$NotificationFromJson(json);
   Map<String, dynamic> toJson() => _$NotificationToJson(this);
 }
+
 enum NotificationType {
   follow,
   mention,

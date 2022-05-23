@@ -41,7 +41,7 @@ class MeDetailedOnly {
 
   final bool hasPendingReceivedFollowRequest;
 
-  final Integration? integrations;
+  final Map<String, dynamic>? integrations;
 
   final List<List<String>> mutedWords;
 
@@ -55,7 +55,7 @@ class MeDetailedOnly {
 
   final bool? emailVerified;
 
-  final List<SecurityKeysList>? securityKeysList;
+  final List<Map<String, dynamic>>? securityKeysList;
 
   const MeDetailedOnly({
     this.avatarId,
@@ -87,6 +87,7 @@ class MeDetailedOnly {
     this.securityKeysList,
   });
 
-  factory MeDetailedOnly.fromJson(Map<String, dynamic> json) => _$MeDetailedOnlyFromJson(json);
+  factory MeDetailedOnly.fromJson(Map<String, dynamic> json) =>
+      _$MeDetailedOnlyFromJson(json);
   Map<String, dynamic> toJson() => _$MeDetailedOnlyToJson(this);
 }
