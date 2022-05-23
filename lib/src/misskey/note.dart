@@ -51,7 +51,7 @@ class Note {
 
   final List<Emoji> emojis;
 
-  final List<NoteReaction> reactions;
+  final Map<String, dynamic> reactions;
 
   final int renoteCount;
 
