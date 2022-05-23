@@ -39,7 +39,7 @@ class Meta {
 
   final int driveCapacityPerRemoteUserMb;
 
-  final bool cacheRemoteFiles;
+  final bool? cacheRemoteFiles;
 
   final bool emailRequiredForSignup;
 
@@ -67,7 +67,7 @@ class Meta {
 
   final List<Ad> ads;
 
-  final bool requireSetup;
+  final bool? requireSetup;
 
   final bool enableEmail;
 
@@ -103,7 +103,7 @@ class Meta {
     required this.disableGlobalTimeline,
     required this.driveCapacityPerLocalUserMb,
     required this.driveCapacityPerRemoteUserMb,
-    required this.cacheRemoteFiles,
+    this.cacheRemoteFiles,
     required this.emailRequiredForSignup,
     required this.enableHcaptcha,
     this.hcaptchaSiteKey,
@@ -117,7 +117,7 @@ class Meta {
     required this.maxNoteTextLength,
     required this.emojis,
     required this.ads,
-    required this.requireSetup,
+    this.requireSetup,
     required this.enableEmail,
     required this.enableTwitterIntegration,
     required this.enableGithubIntegration,

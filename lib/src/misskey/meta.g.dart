@@ -24,7 +24,7 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       disableGlobalTimeline: json['disableGlobalTimeline'] as bool,
       driveCapacityPerLocalUserMb: json['driveCapacityPerLocalUserMb'] as int,
       driveCapacityPerRemoteUserMb: json['driveCapacityPerRemoteUserMb'] as int,
-      cacheRemoteFiles: json['cacheRemoteFiles'] as bool,
+      cacheRemoteFiles: json['cacheRemoteFiles'] as bool?,
       emailRequiredForSignup: json['emailRequiredForSignup'] as bool,
       enableHcaptcha: json['enableHcaptcha'] as bool,
       hcaptchaSiteKey: json['hcaptchaSiteKey'] as String?,
@@ -42,7 +42,7 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       ads: (json['ads'] as List<dynamic>)
           .map((e) => Ad.fromJson(e as Map<String, dynamic>))
           .toList(),
-      requireSetup: json['requireSetup'] as bool,
+      requireSetup: json['requireSetup'] as bool?,
       enableEmail: json['enableEmail'] as bool,
       enableTwitterIntegration: json['enableTwitterIntegration'] as bool,
       enableGithubIntegration: json['enableGithubIntegration'] as bool,
