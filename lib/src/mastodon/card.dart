@@ -3,24 +3,15 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'card.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Card {
   final String description;
-
   final String? image;
-
-  final PleromaCard pleroma;
-
-  @JsonKey(name: 'provider_name')
+  final PleromaCard? pleroma;
   final String providerName;
-
-  @JsonKey(name: 'provider_url')
   final String providerUrl;
-
   final String title;
-
   final String type;
-
   final String url;
 
   const Card(

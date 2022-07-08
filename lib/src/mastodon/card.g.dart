@@ -9,7 +9,9 @@ part of 'card.dart';
 Card _$CardFromJson(Map<String, dynamic> json) => Card(
       json['description'] as String,
       json['image'] as String?,
-      PleromaCard.fromJson(json['pleroma'] as Map<String, dynamic>),
+      json['pleroma'] == null
+          ? null
+          : PleromaCard.fromJson(json['pleroma'] as Map<String, dynamic>),
       json['provider_name'] as String,
       json['provider_url'] as String,
       json['title'] as String,
