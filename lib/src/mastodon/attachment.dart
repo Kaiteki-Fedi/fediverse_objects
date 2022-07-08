@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'attachment.g.dart';
 
 /// Represents a file or media attachment that can be added to a status.
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Attachment {
   /// Alternate text that describes what is in the media attachment, to be used for the visually impaired or when media attachments do not load.
   final String? description;
@@ -14,17 +14,14 @@ class Attachment {
   // final dynamic pleroma;
 
   /// The location of a scaled-down preview of the attachment.
-  @JsonKey(name: 'preview_url')
-  final String previewUrl;
+  final String? previewUrl;
 
   /// The location of the full-size original attachment on the remote website.
   ///
   /// Null if the attachment is local
-  @JsonKey(name: 'remote_url')
   final String? remoteUrl;
 
   /// A shorter URL for the attachment.
-  @JsonKey(name: 'text_url')
   final String? textUrl;
 
   /// The type of the attachment.
@@ -47,7 +44,6 @@ class Attachment {
     required this.type,
     required this.url,
     required this.previewUrl,
-    // optional attributes
     this.remoteUrl,
     this.textUrl,
     this.description,
