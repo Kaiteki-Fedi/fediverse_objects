@@ -1,6 +1,7 @@
 import 'package:fediverse_objects/src/misskey/emoji.dart';
 import 'package:fediverse_objects/src/misskey/manual/ad.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 part 'meta.g.dart';
 
 @JsonSerializable()
@@ -55,7 +56,7 @@ class Meta {
 
   final String mascotImageUrl;
 
-  final String bannerUrl;
+  final String? bannerUrl;
 
   final String errorImageUrl;
 

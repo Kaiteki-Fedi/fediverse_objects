@@ -32,7 +32,7 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       recaptchaSiteKey: json['recaptchaSiteKey'] as String?,
       swPublickey: json['swPublickey'] as String?,
       mascotImageUrl: json['mascotImageUrl'] as String,
-      bannerUrl: json['bannerUrl'] as String,
+      bannerUrl: json['bannerUrl'] as String?,
       errorImageUrl: json['errorImageUrl'] as String,
       iconUrl: json['iconUrl'] as String?,
       maxNoteTextLength: json['maxNoteTextLength'] as int,
