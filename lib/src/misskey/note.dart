@@ -51,7 +51,7 @@ class Note {
 
   final List<Emoji> emojis;
 
-  final Map<String, dynamic> reactions;
+  final Map<String, int> reactions;
 
   final int renoteCount;
 
@@ -61,7 +61,7 @@ class Note {
 
   final String? url;
 
-  final NoteReaction? myReaction;
+  final String? myReaction;
 
   const Note({
     required this.id,

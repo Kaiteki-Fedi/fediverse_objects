@@ -42,14 +42,12 @@ Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       emojis: (json['emojis'] as List<dynamic>)
           .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
           .toList(),
-      reactions: json['reactions'] as Map<String, dynamic>,
+      reactions: Map<String, int>.from(json['reactions'] as Map),
       renoteCount: json['renoteCount'] as int,
       repliesCount: json['repliesCount'] as int,
       uri: json['uri'] as String?,
       url: json['url'] as String?,
-      myReaction: json['myReaction'] == null
-          ? null
-          : NoteReaction.fromJson(json['myReaction'] as Map<String, dynamic>),
+      myReaction: json['myReaction'] as String?,
     );
 
 Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{
