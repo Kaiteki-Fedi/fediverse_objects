@@ -19,6 +19,7 @@ class NoteReaction {
     required this.type,
   });
 
-  factory NoteReaction.fromJson(Map<String, dynamic> json) => _$NoteReactionFromJson(json);
+  factory NoteReaction.fromJson(Map<String, dynamic> json) =>
+      _$NoteReactionFromJson(json);
   Map<String, dynamic> toJson() => _$NoteReactionToJson(this);
 }

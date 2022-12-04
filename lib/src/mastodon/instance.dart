@@ -33,7 +33,7 @@ class Instance {
   final String email;
 
   /// Primary langauges of the website and its staff.
-  final Iterable<String> languages;
+  final List<String>? languages;
 
   /// (Added by Pleroma)
   @JsonKey(name: 'max_toot_chars')

@@ -12,7 +12,9 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => Instance(
       description: json['description'] as String,
       email: json['email'] as String,
       version: json['version'] as String,
-      languages: (json['languages'] as List<dynamic>).map((e) => e as String),
+      languages: (json['languages'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
       registrations: json['registrations'] as bool,
       approvalRequired: json['approval_required'] as bool,
       urls: InstanceUrls.fromJson(json['urls'] as Map<String, dynamic>),
@@ -40,7 +42,7 @@ Map<String, dynamic> _$InstanceToJson(Instance instance) => <String, dynamic>{
       'description': instance.description,
       'shortDescription': instance.shortDescription,
       'email': instance.email,
-      'languages': instance.languages.toList(),
+      'languages': instance.languages,
       'max_toot_chars': instance.maxTootChars,
       'poll_limits': instance.pollLimits,
       'registrations': instance.registrations,

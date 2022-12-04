@@ -33,7 +33,7 @@ Map<String, dynamic> _$AntennaToJson(Antenna instance) => <String, dynamic>{
       'name': instance.name,
       'keywords': instance.keywords,
       'excludeKeywords': instance.excludeKeywords,
-      'src': _$AntennaSrcEnumMap[instance.src],
+      'src': _$AntennaSrcEnumMap[instance.src]!,
       'userListId': instance.userListId,
       'userGroupId': instance.userGroupId,
       'users': instance.users,

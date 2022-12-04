@@ -1,5 +1,4 @@
 import 'package:fediverse_objects/src/misskey/emoji.dart';
-import 'package:fediverse_objects/src/misskey/note_reaction.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:fediverse_objects/src/misskey/user_lite.dart';
 import 'package:fediverse_objects/src/misskey/drive_file.dart';

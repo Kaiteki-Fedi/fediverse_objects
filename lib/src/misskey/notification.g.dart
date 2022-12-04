@@ -31,7 +31,7 @@ Map<String, dynamic> _$NotificationToJson(Notification instance) =>
       'id': instance.id,
       'createdAt': instance.createdAt.toIso8601String(),
       'isRead': instance.isRead,
-      'type': _$NotificationTypeEnumMap[instance.type],
+      'type': _$NotificationTypeEnumMap[instance.type]!,
       'user': instance.user,
       'userId': instance.userId,
       'note': instance.note,
