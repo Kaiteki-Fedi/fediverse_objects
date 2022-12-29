@@ -1,10 +1,18 @@
-import 'package:fediverse_objects/mastodon.dart';
 import 'package:fediverse_objects/src/pleroma/status.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'account.dart';
+import 'application.dart';
+import 'attachment.dart';
+import 'card.dart';
+import 'emoji.dart';
+import 'mention.dart';
+import 'poll.dart';
+import 'tag.dart';
+
 part 'status.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Status {
   final Account account;
 
@@ -19,38 +27,33 @@ class Status {
 
   final String content;
 
-  @JsonKey(name: 'created_at')
   final DateTime createdAt;
 
   /// Custom emoji to be used when rendering status content.
-  final Iterable<Emoji> emojis;
+  final List<Emoji> emojis;
 
   /// Have you favourited this status?
   final bool? favourited;
 
   /// How many favourites this status has received.
-  @JsonKey(name: 'favourites_count')
   final int favouritesCount;
 
   final String id;
 
   /// ID of the account being replied to.
-  @JsonKey(name: 'in_reply_to_account_id')
   final String? inReplyToAccountId;
 
   /// ID of the status being replied.
-  @JsonKey(name: 'in_reply_to_id')
   final String? inReplyToId;
 
   /// Primary language of this status.
   final String? language;
 
   /// Media that is attached to this status.
-  @JsonKey(name: 'media_attachments')
-  final Iterable<Attachment> mediaAttachments;
+  final List<Attachment> mediaAttachments;
 
   /// Mentions of users within the status content.
-  final Iterable<Mention> mentions;
+  final List<Mention> mentions;
 
   /// Have you muted notifications for this status's conversation?
   final bool? muted;
@@ -87,7 +90,7 @@ class Status {
   final String spoilerText;
 
   /// Hashtags used within the status content.
-  final Iterable<Tag> tags;
+  final List<Tag> tags;
 
   final String uri;
 

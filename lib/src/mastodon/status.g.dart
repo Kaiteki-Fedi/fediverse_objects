@@ -14,19 +14,23 @@ Status _$StatusFromJson(Map<String, dynamic> json) => Status(
       content: json['content'] as String,
       createdAt: DateTime.parse(json['created_at'] as String),
       emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>)),
+          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+          .toList(),
       favouritesCount: json['favourites_count'] as int,
       id: json['id'] as String,
       mediaAttachments: (json['media_attachments'] as List<dynamic>)
-          .map((e) => Attachment.fromJson(e as Map<String, dynamic>)),
+          .map((e) => Attachment.fromJson(e as Map<String, dynamic>))
+          .toList(),
       mentions: (json['mentions'] as List<dynamic>)
-          .map((e) => Mention.fromJson(e as Map<String, dynamic>)),
+          .map((e) => Mention.fromJson(e as Map<String, dynamic>))
+          .toList(),
       reblogsCount: json['reblogs_count'] as int,
       repliesCount: json['replies_count'] as int,
       sensitive: json['sensitive'] as bool,
       spoilerText: json['spoiler_text'] as String,
       tags: (json['tags'] as List<dynamic>)
-          .map((e) => Tag.fromJson(e as Map<String, dynamic>)),
+          .map((e) => Tag.fromJson(e as Map<String, dynamic>))
+          .toList(),
       uri: json['uri'] as String,
       visibility: json['visibility'] as String,
       bookmarked: json['bookmarked'] as bool?,
@@ -60,15 +64,15 @@ Map<String, dynamic> _$StatusToJson(Status instance) => <String, dynamic>{
       'card': instance.card,
       'content': instance.content,
       'created_at': instance.createdAt.toIso8601String(),
-      'emojis': instance.emojis.toList(),
+      'emojis': instance.emojis,
       'favourited': instance.favourited,
       'favourites_count': instance.favouritesCount,
       'id': instance.id,
       'in_reply_to_account_id': instance.inReplyToAccountId,
       'in_reply_to_id': instance.inReplyToId,
       'language': instance.language,
-      'media_attachments': instance.mediaAttachments.toList(),
-      'mentions': instance.mentions.toList(),
+      'media_attachments': instance.mediaAttachments,
+      'mentions': instance.mentions,
       'muted': instance.muted,
       'pinned': instance.pinned,
       'pleroma': instance.pleroma,
@@ -79,7 +83,7 @@ Map<String, dynamic> _$StatusToJson(Status instance) => <String, dynamic>{
       'poll': instance.poll,
       'sensitive': instance.sensitive,
       'spoiler_text': instance.spoilerText,
-      'tags': instance.tags.toList(),
+      'tags': instance.tags,
       'uri': instance.uri,
       'url': instance.url,
       'visibility': instance.visibility,
