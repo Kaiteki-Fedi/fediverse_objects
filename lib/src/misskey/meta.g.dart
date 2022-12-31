@@ -15,7 +15,7 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       description: json['description'] as String?,
       langs: (json['langs'] as List<dynamic>).map((e) => e as String).toList(),
       tosUrl: json['tosUrl'] as String?,
-      repositoryUrl: json['repositoryUrl'] as String,
+      repositoryUrl: json['repositoryUrl'] as String?,
       feedbackUrl: json['feedbackUrl'] as String,
       defaultDarkTheme: json['defaultDarkTheme'] as String?,
       defaultLightTheme: json['defaultLightTheme'] as String?,

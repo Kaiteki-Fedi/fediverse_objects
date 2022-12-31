@@ -22,7 +22,7 @@ class Meta {
 
   final String? tosUrl;
 
-  final String repositoryUrl;
+  final String? repositoryUrl;
 
   final String feedbackUrl;
 
