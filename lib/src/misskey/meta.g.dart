@@ -16,7 +16,7 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       langs: (json['langs'] as List<dynamic>).map((e) => e as String).toList(),
       tosUrl: json['tosUrl'] as String?,
       repositoryUrl: json['repositoryUrl'] as String?,
-      feedbackUrl: json['feedbackUrl'] as String,
+      feedbackUrl: json['feedbackUrl'] as String?,
       defaultDarkTheme: json['defaultDarkTheme'] as String?,
       defaultLightTheme: json['defaultLightTheme'] as String?,
       disableRegistration: json['disableRegistration'] as bool,
@@ -31,24 +31,24 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       enableRecaptcha: json['enableRecaptcha'] as bool,
       recaptchaSiteKey: json['recaptchaSiteKey'] as String?,
       swPublickey: json['swPublickey'] as String?,
-      mascotImageUrl: json['mascotImageUrl'] as String,
+      mascotImageUrl: json['mascotImageUrl'] as String?,
       bannerUrl: json['bannerUrl'] as String?,
-      errorImageUrl: json['errorImageUrl'] as String,
+      errorImageUrl: json['errorImageUrl'] as String?,
       iconUrl: json['iconUrl'] as String?,
       maxNoteTextLength: json['maxNoteTextLength'] as int,
       emojis: (json['emojis'] as List<dynamic>)
           .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
           .toList(),
-      ads: (json['ads'] as List<dynamic>)
-          .map((e) => Ad.fromJson(e as Map<String, dynamic>))
+      ads: (json['ads'] as List<dynamic>?)
+          ?.map((e) => Ad.fromJson(e as Map<String, dynamic>))
           .toList(),
       requireSetup: json['requireSetup'] as bool?,
       enableEmail: json['enableEmail'] as bool,
-      enableTwitterIntegration: json['enableTwitterIntegration'] as bool,
-      enableGithubIntegration: json['enableGithubIntegration'] as bool,
-      enableDiscordIntegration: json['enableDiscordIntegration'] as bool,
-      enableServiceWorker: json['enableServiceWorker'] as bool,
-      translatorAvailable: json['translatorAvailable'] as bool,
+      enableTwitterIntegration: json['enableTwitterIntegration'] as bool?,
+      enableGithubIntegration: json['enableGithubIntegration'] as bool?,
+      enableDiscordIntegration: json['enableDiscordIntegration'] as bool?,
+      enableServiceWorker: json['enableServiceWorker'] as bool?,
+      translatorAvailable: json['translatorAvailable'] as bool?,
       proxyAccountName: json['proxyAccountName'] as String?,
       features: json['features'] as Map<String, dynamic>?,
     );
