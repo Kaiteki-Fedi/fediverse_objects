@@ -7,7 +7,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'account.g.dart';
 
 /// Represents a user of Mastodon and their associated profile.
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Account {
   /// The Webfinger account URI.
   ///
@@ -20,7 +20,6 @@ class Account {
   /// A static version of the avatar.
   ///
   /// Equal to `avatar` if its value is a static image; different if `avatar` is an animated GIF.
-  @JsonKey(name: 'avatar_static')
   final String avatarStatic;
 
   /// A presentational flag.
@@ -29,11 +28,9 @@ class Account {
   final bool? bot;
 
   /// When the account was created.
-  @JsonKey(name: 'created_at')
   final DateTime createdAt;
 
   /// The profile's display name.
-  @JsonKey(name: 'display_name')
   final String displayName;
 
   /// Custom emoji entities to be used when rendering the profile.
@@ -45,11 +42,9 @@ class Account {
   final Iterable<Field>? fields;
 
   /// The reported followers of this profile.
-  @JsonKey(name: 'followers_count')
   final int followersCount;
 
   /// The reported follows of this profile.
-  @JsonKey(name: 'following_count')
   final int followingCount;
 
   /// An image banner that is shown above the profile and in profile cards.
@@ -58,7 +53,6 @@ class Account {
   /// A static version of the header.
   ///
   /// Equal to `header` if its value is a static image; different if `header` is an animated GIF.
-  @JsonKey(name: 'header_static')
   final String headerStatic;
 
   /// The account id.
@@ -77,7 +71,6 @@ class Account {
   final Source? source;
 
   /// How many statuses are attached to this account.
-  @JsonKey(name: 'statuses_count')
   final int statusesCount;
 
   /// The location of the user's profile page.
@@ -90,11 +83,10 @@ class Account {
   final bool? discoverable;
 
   /// When the most recent status was posted. (Nullable because of Pleroma)
-  @JsonKey(name: 'last_status_at')
   final DateTime? lastStatusAt;
 
   /// Indicates that the profile is currently inactive and that its user has moved to a new account.
-  final bool? moved;
+  final Account? moved;
 
   /// An extra entity returned when an account is suspended.
   final bool? suspended;
@@ -102,38 +94,45 @@ class Account {
   /// When a timed mute will expire, if applicable.
   final DateTime? muteExpiredAt;
 
-  const Account({
-    required this.id,
-    required this.username,
-    required this.url,
-    required this.acct,
+  /// Indicates that the account represents a Group actor.
+  /// (Nullable because of Pleroma support)
+  final bool? group;
 
-    // display attributes
-    required this.displayName,
-    required this.note,
+  /// An extra attribute returned only when an account is silenced. If true, indicates that the account should be hidden behind a warning screen.
+  final bool? limited;
+
+  /// Whether the local user has opted out of being indexed by search engines.
+  final bool? noindex;
+
+  const Account({
+    required this.acct,
     required this.avatar,
     required this.avatarStatic,
-    required this.header,
-    required this.headerStatic,
-    required this.locked,
-    required this.emojis,
-    this.discoverable,
-
-    // statistical attributes
     required this.createdAt,
-    this.lastStatusAt,
-    required this.statusesCount,
+    required this.displayName,
+    required this.emojis,
     required this.followersCount,
     required this.followingCount,
-
-    // optional
-    this.moved,
-    this.fields,
+    required this.group,
+    required this.header,
+    required this.headerStatic,
+    required this.id,
+    required this.locked,
+    required this.note,
+    required this.statusesCount,
+    required this.url,
+    required this.username,
     this.bot,
-    this.source,
-    this.pleroma,
-    this.suspended,
+    this.discoverable,
+    this.fields,
+    this.lastStatusAt,
+    this.limited,
+    this.moved,
     this.muteExpiredAt,
+    this.noindex,
+    this.pleroma,
+    this.source,
+    this.suspended,
   });
 
   factory Account.fromJson(Map<String, dynamic> json) =>
