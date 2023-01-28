@@ -64,7 +64,7 @@ class Meta {
 
   final int maxNoteTextLength;
 
-  final List<Emoji> emojis;
+  final List<Emoji>? emojis;
 
   final List<Ad> ads;
 
