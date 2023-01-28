@@ -18,8 +18,9 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       isModerator: json['isModerator'] as bool?,
       isBot: json['isBot'] as bool?,
       isCat: json['isCat'] as bool?,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>)),
+      emojis: (json['emojis'] as List<dynamic>?)
+          ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+          .toList(),
       url: json['url'] as String?,
       createdAt: json['createdAt'] == null
           ? null
@@ -94,7 +95,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'isModerator': instance.isModerator,
       'isBot': instance.isBot,
       'isCat': instance.isCat,
-      'emojis': instance.emojis.toList(),
+      'emojis': instance.emojis,
       'url': instance.url,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),

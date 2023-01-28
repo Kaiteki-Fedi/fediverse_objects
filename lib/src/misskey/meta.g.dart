@@ -36,8 +36,8 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       errorImageUrl: json['errorImageUrl'] as String,
       iconUrl: json['iconUrl'] as String?,
       maxNoteTextLength: json['maxNoteTextLength'] as int,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+      emojis: (json['emojis'] as List<dynamic>?)
+          ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
           .toList(),
       ads: (json['ads'] as List<dynamic>)
           .map((e) => Ad.fromJson(e as Map<String, dynamic>))
