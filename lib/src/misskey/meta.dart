@@ -36,9 +36,9 @@ class Meta {
 
   final bool? disableGlobalTimeline;
 
-  final int driveCapacityPerLocalUserMb;
+  final int? driveCapacityPerLocalUserMb;
 
-  final int driveCapacityPerRemoteUserMb;
+  final int? driveCapacityPerRemoteUserMb;
 
   final bool? cacheRemoteFiles;
 

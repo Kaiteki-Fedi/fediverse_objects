@@ -22,8 +22,9 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       disableRegistration: json['disableRegistration'] as bool,
       disableLocalTimeline: json['disableLocalTimeline'] as bool?,
       disableGlobalTimeline: json['disableGlobalTimeline'] as bool?,
-      driveCapacityPerLocalUserMb: json['driveCapacityPerLocalUserMb'] as int,
-      driveCapacityPerRemoteUserMb: json['driveCapacityPerRemoteUserMb'] as int,
+      driveCapacityPerLocalUserMb: json['driveCapacityPerLocalUserMb'] as int?,
+      driveCapacityPerRemoteUserMb:
+          json['driveCapacityPerRemoteUserMb'] as int?,
       cacheRemoteFiles: json['cacheRemoteFiles'] as bool?,
       emailRequiredForSignup: json['emailRequiredForSignup'] as bool,
       enableHcaptcha: json['enableHcaptcha'] as bool,
