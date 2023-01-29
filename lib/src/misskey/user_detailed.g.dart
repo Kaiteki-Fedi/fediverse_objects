@@ -97,8 +97,9 @@ UserDetailed _$UserDetailedFromJson(Map<String, dynamic> json) => UserDetailed(
       isModerator: json['isModerator'] as bool?,
       isBot: json['isBot'] as bool?,
       isCat: json['isCat'] as bool?,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>)),
+      emojis: (json['emojis'] as List<dynamic>?)
+          ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+          .toList(),
       onlineStatus: $enumDecodeNullable(
           _$UserLiteOnlineStatusEnumMap, json['onlineStatus']),
     );
@@ -178,7 +179,7 @@ Map<String, dynamic> _$UserDetailedToJson(UserDetailed instance) =>
       'isModerator': instance.isModerator,
       'isBot': instance.isBot,
       'isCat': instance.isCat,
-      'emojis': instance.emojis.toList(),
+      'emojis': instance.emojis,
       'onlineStatus': _$UserLiteOnlineStatusEnumMap[instance.onlineStatus],
     };
 

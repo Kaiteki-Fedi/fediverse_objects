@@ -19,8 +19,8 @@ UserDetailedNotMe _$UserDetailedNotMeFromJson(Map<String, dynamic> json) =>
       isModerator: json['isModerator'] as bool?,
       isBot: json['isBot'] as bool?,
       isCat: json['isCat'] as bool?,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+      emojis: (json['emojis'] as List<dynamic>?)
+          ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
           .toList(),
       onlineStatus: $enumDecodeNullable(
           _$UserDetailedNotMeOnlineStatusEnumMap, json['onlineStatus']),

@@ -224,7 +224,7 @@ class UserDetailed {
   final bool? isCat;
 
   @JsonKey(name: 'emojis')
-  final Iterable<Emoji> emojis;
+  final List<Emoji>? emojis;
 
   @JsonKey(name: 'onlineStatus')
   final UserLiteOnlineStatus? onlineStatus;

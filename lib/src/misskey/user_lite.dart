@@ -27,7 +27,7 @@ class UserLite {
 
   final bool? isCat;
 
-  final List<Emoji> emojis;
+  final List<Emoji>? emojis;
 
   final UserLiteOnlineStatus? onlineStatus;
 
@@ -43,7 +43,7 @@ class UserLite {
     this.isModerator,
     this.isBot,
     this.isCat,
-    required this.emojis,
+    this.emojis,
     this.onlineStatus,
   });
 
