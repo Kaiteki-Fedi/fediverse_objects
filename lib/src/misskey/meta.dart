@@ -32,9 +32,9 @@ class Meta {
 
   final bool disableRegistration;
 
-  final bool disableLocalTimeline;
+  final bool? disableLocalTimeline;
 
-  final bool disableGlobalTimeline;
+  final bool? disableGlobalTimeline;
 
   final int driveCapacityPerLocalUserMb;
 
