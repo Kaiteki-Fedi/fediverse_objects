@@ -32,13 +32,13 @@ class Meta {
 
   final bool disableRegistration;
 
-  final bool disableLocalTimeline;
+  final bool? disableLocalTimeline;
 
-  final bool disableGlobalTimeline;
+  final bool? disableGlobalTimeline;
 
-  final int driveCapacityPerLocalUserMb;
+  final int? driveCapacityPerLocalUserMb;
 
-  final int driveCapacityPerRemoteUserMb;
+  final int? driveCapacityPerRemoteUserMb;
 
   final bool? cacheRemoteFiles;
 
@@ -64,7 +64,7 @@ class Meta {
 
   final int maxNoteTextLength;
 
-  final List<Emoji> emojis;
+  final List<Emoji>? emojis;
 
   final List<Ad>? ads;
 

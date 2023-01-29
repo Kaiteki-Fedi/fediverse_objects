@@ -48,7 +48,7 @@ class Note {
 
   final bool? localOnly;
 
-  final List<Emoji> emojis;
+  final List<Emoji>? emojis;
 
   final Map<String, int> reactions;
 

@@ -20,10 +20,11 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       defaultDarkTheme: json['defaultDarkTheme'] as String?,
       defaultLightTheme: json['defaultLightTheme'] as String?,
       disableRegistration: json['disableRegistration'] as bool,
-      disableLocalTimeline: json['disableLocalTimeline'] as bool,
-      disableGlobalTimeline: json['disableGlobalTimeline'] as bool,
-      driveCapacityPerLocalUserMb: json['driveCapacityPerLocalUserMb'] as int,
-      driveCapacityPerRemoteUserMb: json['driveCapacityPerRemoteUserMb'] as int,
+      disableLocalTimeline: json['disableLocalTimeline'] as bool?,
+      disableGlobalTimeline: json['disableGlobalTimeline'] as bool?,
+      driveCapacityPerLocalUserMb: json['driveCapacityPerLocalUserMb'] as int?,
+      driveCapacityPerRemoteUserMb:
+          json['driveCapacityPerRemoteUserMb'] as int?,
       cacheRemoteFiles: json['cacheRemoteFiles'] as bool?,
       emailRequiredForSignup: json['emailRequiredForSignup'] as bool,
       enableHcaptcha: json['enableHcaptcha'] as bool,
@@ -36,8 +37,8 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
       errorImageUrl: json['errorImageUrl'] as String?,
       iconUrl: json['iconUrl'] as String?,
       maxNoteTextLength: json['maxNoteTextLength'] as int,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+      emojis: (json['emojis'] as List<dynamic>?)
+          ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
           .toList(),
       ads: (json['ads'] as List<dynamic>?)
           ?.map((e) => Ad.fromJson(e as Map<String, dynamic>))

@@ -56,4 +56,5 @@ const _$NotificationTypeEnumMap = {
   NotificationType.followRequestAccepted: 'followRequestAccepted',
   NotificationType.groupInvited: 'groupInvited',
   NotificationType.app: 'app',
+  NotificationType.achievementEarned: 'achievementEarned',
 };

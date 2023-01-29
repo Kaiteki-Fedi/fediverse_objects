@@ -65,4 +65,5 @@ enum NotificationType {
   followRequestAccepted,
   groupInvited,
   app,
+  achievementEarned,
 }
