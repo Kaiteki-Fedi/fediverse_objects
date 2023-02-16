@@ -23,12 +23,10 @@ UserLite _$UserLiteFromJson(Map<String, dynamic> json) => $checkedCreate(
           isBot: $checkedConvert('isBot', (v) => v as bool?),
           isCat: $checkedConvert('isCat', (v) => v as bool?),
           emojis: $checkedConvert(
-            'emojis',
-            (v) => (v as List<dynamic>)
-                .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
-                .toList(),
-            readValue: readEmojisValue,
-          ),
+              'emojis',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           onlineStatus: $checkedConvert('onlineStatus',
               (v) => $enumDecodeNullable(_$UserLiteOnlineStatusEnumMap, v)),
         );
