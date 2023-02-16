@@ -24,7 +24,7 @@ class Meta {
 
   final String? repositoryUrl;
 
-  final String feedbackUrl;
+  final String? feedbackUrl;
 
   final String? defaultDarkTheme;
 
@@ -32,13 +32,13 @@ class Meta {
 
   final bool disableRegistration;
 
-  final bool disableLocalTimeline;
+  final bool? disableLocalTimeline;
 
-  final bool disableGlobalTimeline;
+  final bool? disableGlobalTimeline;
 
-  final int driveCapacityPerLocalUserMb;
+  final int? driveCapacityPerLocalUserMb;
 
-  final int driveCapacityPerRemoteUserMb;
+  final int? driveCapacityPerRemoteUserMb;
 
   final bool? cacheRemoteFiles;
 
@@ -54,33 +54,33 @@ class Meta {
 
   final String? swPublickey;
 
-  final String mascotImageUrl;
+  final String? mascotImageUrl;
 
   final String? bannerUrl;
 
-  final String errorImageUrl;
+  final String? errorImageUrl;
 
   final String? iconUrl;
 
   final int maxNoteTextLength;
 
-  final List<Emoji> emojis;
+  final List<Emoji>? emojis;
 
-  final List<Ad> ads;
+  final List<Ad>? ads;
 
   final bool? requireSetup;
 
   final bool enableEmail;
 
-  final bool enableTwitterIntegration;
+  final bool? enableTwitterIntegration;
 
-  final bool enableGithubIntegration;
+  final bool? enableGithubIntegration;
 
-  final bool enableDiscordIntegration;
+  final bool? enableDiscordIntegration;
 
-  final bool enableServiceWorker;
+  final bool? enableServiceWorker;
 
-  final bool translatorAvailable;
+  final bool? translatorAvailable;
 
   final String? proxyAccountName;
 
@@ -96,7 +96,7 @@ class Meta {
     required this.langs,
     this.tosUrl,
     required this.repositoryUrl,
-    required this.feedbackUrl,
+    this.feedbackUrl,
     this.defaultDarkTheme,
     this.defaultLightTheme,
     required this.disableRegistration,
@@ -111,7 +111,7 @@ class Meta {
     required this.enableRecaptcha,
     this.recaptchaSiteKey,
     this.swPublickey,
-    required this.mascotImageUrl,
+    this.mascotImageUrl,
     required this.bannerUrl,
     required this.errorImageUrl,
     this.iconUrl,
@@ -120,11 +120,11 @@ class Meta {
     required this.ads,
     this.requireSetup,
     required this.enableEmail,
-    required this.enableTwitterIntegration,
-    required this.enableGithubIntegration,
-    required this.enableDiscordIntegration,
-    required this.enableServiceWorker,
-    required this.translatorAvailable,
+    this.enableTwitterIntegration,
+    this.enableGithubIntegration,
+    this.enableDiscordIntegration,
+    this.enableServiceWorker,
+    this.translatorAvailable,
     this.proxyAccountName,
     this.features,
   });

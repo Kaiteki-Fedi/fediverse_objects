@@ -25,8 +25,8 @@ UserDetailedNotMe _$UserDetailedNotMeFromJson(Map<String, dynamic> json) =>
           isCat: $checkedConvert('isCat', (v) => v as bool?),
           emojis: $checkedConvert(
               'emojis',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
                   .toList()),
           onlineStatus: $checkedConvert(
               'onlineStatus',

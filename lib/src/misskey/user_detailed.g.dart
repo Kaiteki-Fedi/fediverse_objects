@@ -125,8 +125,9 @@ UserDetailed _$UserDetailedFromJson(Map<String, dynamic> json) =>
           isCat: $checkedConvert('isCat', (v) => v as bool?),
           emojis: $checkedConvert(
               'emojis',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           onlineStatus: $checkedConvert('onlineStatus',
               (v) => $enumDecodeNullable(_$UserLiteOnlineStatusEnumMap, v)),
         );
@@ -209,7 +210,7 @@ Map<String, dynamic> _$UserDetailedToJson(UserDetailed instance) =>
       'isModerator': instance.isModerator,
       'isBot': instance.isBot,
       'isCat': instance.isCat,
-      'emojis': instance.emojis.toList(),
+      'emojis': instance.emojis,
       'onlineStatus': _$UserLiteOnlineStatusEnumMap[instance.onlineStatus],
     };
 

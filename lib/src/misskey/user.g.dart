@@ -24,8 +24,9 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
           isCat: $checkedConvert('isCat', (v) => v as bool?),
           emojis: $checkedConvert(
               'emojis',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           url: $checkedConvert('url', (v) => v as String?),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
@@ -118,7 +119,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'isModerator': instance.isModerator,
       'isBot': instance.isBot,
       'isCat': instance.isCat,
-      'emojis': instance.emojis.toList(),
+      'emojis': instance.emojis,
       'url': instance.url,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),

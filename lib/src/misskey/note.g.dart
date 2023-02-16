@@ -51,8 +51,8 @@ Note _$NoteFromJson(Map<String, dynamic> json) => $checkedCreate(
           localOnly: $checkedConvert('localOnly', (v) => v as bool?),
           emojis: $checkedConvert(
               'emojis',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
                   .toList()),
           reactions: $checkedConvert(
               'reactions', (v) => Map<String, int>.from(v as Map)),

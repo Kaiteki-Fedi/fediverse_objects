@@ -23,7 +23,7 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => $checkedCreate(
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           tosUrl: $checkedConvert('tosUrl', (v) => v as String?),
           repositoryUrl: $checkedConvert('repositoryUrl', (v) => v as String?),
-          feedbackUrl: $checkedConvert('feedbackUrl', (v) => v as String),
+          feedbackUrl: $checkedConvert('feedbackUrl', (v) => v as String?),
           defaultDarkTheme:
               $checkedConvert('defaultDarkTheme', (v) => v as String?),
           defaultLightTheme:
@@ -31,13 +31,13 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => $checkedCreate(
           disableRegistration:
               $checkedConvert('disableRegistration', (v) => v as bool),
           disableLocalTimeline:
-              $checkedConvert('disableLocalTimeline', (v) => v as bool),
+              $checkedConvert('disableLocalTimeline', (v) => v as bool?),
           disableGlobalTimeline:
-              $checkedConvert('disableGlobalTimeline', (v) => v as bool),
+              $checkedConvert('disableGlobalTimeline', (v) => v as bool?),
           driveCapacityPerLocalUserMb:
-              $checkedConvert('driveCapacityPerLocalUserMb', (v) => v as int),
+              $checkedConvert('driveCapacityPerLocalUserMb', (v) => v as int?),
           driveCapacityPerRemoteUserMb:
-              $checkedConvert('driveCapacityPerRemoteUserMb', (v) => v as int),
+              $checkedConvert('driveCapacityPerRemoteUserMb', (v) => v as int?),
           cacheRemoteFiles:
               $checkedConvert('cacheRemoteFiles', (v) => v as bool?),
           emailRequiredForSignup:
@@ -49,34 +49,35 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => $checkedCreate(
           recaptchaSiteKey:
               $checkedConvert('recaptchaSiteKey', (v) => v as String?),
           swPublickey: $checkedConvert('swPublickey', (v) => v as String?),
-          mascotImageUrl: $checkedConvert('mascotImageUrl', (v) => v as String),
+          mascotImageUrl:
+              $checkedConvert('mascotImageUrl', (v) => v as String?),
           bannerUrl: $checkedConvert('bannerUrl', (v) => v as String?),
-          errorImageUrl: $checkedConvert('errorImageUrl', (v) => v as String),
+          errorImageUrl: $checkedConvert('errorImageUrl', (v) => v as String?),
           iconUrl: $checkedConvert('iconUrl', (v) => v as String?),
           maxNoteTextLength:
               $checkedConvert('maxNoteTextLength', (v) => v as int),
           emojis: $checkedConvert(
               'emojis',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
                   .toList()),
           ads: $checkedConvert(
               'ads',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Ad.fromJson(e as Map<String, dynamic>))
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Ad.fromJson(e as Map<String, dynamic>))
                   .toList()),
           requireSetup: $checkedConvert('requireSetup', (v) => v as bool?),
           enableEmail: $checkedConvert('enableEmail', (v) => v as bool),
           enableTwitterIntegration:
-              $checkedConvert('enableTwitterIntegration', (v) => v as bool),
+              $checkedConvert('enableTwitterIntegration', (v) => v as bool?),
           enableGithubIntegration:
-              $checkedConvert('enableGithubIntegration', (v) => v as bool),
+              $checkedConvert('enableGithubIntegration', (v) => v as bool?),
           enableDiscordIntegration:
-              $checkedConvert('enableDiscordIntegration', (v) => v as bool),
+              $checkedConvert('enableDiscordIntegration', (v) => v as bool?),
           enableServiceWorker:
-              $checkedConvert('enableServiceWorker', (v) => v as bool),
+              $checkedConvert('enableServiceWorker', (v) => v as bool?),
           translatorAvailable:
-              $checkedConvert('translatorAvailable', (v) => v as bool),
+              $checkedConvert('translatorAvailable', (v) => v as bool?),
           proxyAccountName:
               $checkedConvert('proxyAccountName', (v) => v as String?),
           features:

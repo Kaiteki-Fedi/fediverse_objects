@@ -24,8 +24,8 @@ UserLite _$UserLiteFromJson(Map<String, dynamic> json) => $checkedCreate(
           isCat: $checkedConvert('isCat', (v) => v as bool?),
           emojis: $checkedConvert(
               'emojis',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
                   .toList()),
           onlineStatus: $checkedConvert('onlineStatus',
               (v) => $enumDecodeNullable(_$UserLiteOnlineStatusEnumMap, v)),

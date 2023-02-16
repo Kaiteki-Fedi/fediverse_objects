@@ -30,7 +30,7 @@ class UserDetailedNotMe {
 
   final bool? isCat;
 
-  final List<Emoji> emojis;
+  final List<Emoji>? emojis;
 
   final UserDetailedNotMeOnlineStatus? onlineStatus;
 

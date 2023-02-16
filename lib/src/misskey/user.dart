@@ -39,7 +39,7 @@ class User {
   final bool? isCat;
 
   @JsonKey(name: 'emojis')
-  final Iterable<Emoji> emojis;
+  final List<Emoji>? emojis;
 
   @JsonKey(name: 'url')
   final String? url;
