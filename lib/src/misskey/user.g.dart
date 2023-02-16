@@ -6,80 +6,104 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-User _$UserFromJson(Map<String, dynamic> json) => User(
-      id: json['id'] as String,
-      name: json['name'] as String?,
-      username: json['username'] as String,
-      host: json['host'] as String?,
-      avatarUrl: json['avatarUrl'] as String?,
-      avatarBlurhash: json['avatarBlurhash'],
-      avatarColor: json['avatarColor'],
-      isAdmin: json['isAdmin'] as bool?,
-      isModerator: json['isModerator'] as bool?,
-      isBot: json['isBot'] as bool?,
-      isCat: json['isCat'] as bool?,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>)),
-      url: json['url'] as String?,
-      createdAt: json['createdAt'] == null
-          ? null
-          : DateTime.parse(json['createdAt'] as String),
-      updatedAt: json['updatedAt'] == null
-          ? null
-          : DateTime.parse(json['updatedAt'] as String),
-      bannerUrl: json['bannerUrl'] as String?,
-      bannerBlurhash: json['bannerBlurhash'],
-      bannerColor: json['bannerColor'],
-      isLocked: json['isLocked'] as bool?,
-      isSuspended: json['isSuspended'] as bool?,
-      description: json['description'] as String?,
-      location: json['location'] as String?,
-      birthday: json['birthday'] as String?,
-      fields: (json['fields'] as List<dynamic>?)
-          ?.map((e) => e as Map<String, dynamic>),
-      followersCount: json['followersCount'] as int?,
-      followingCount: json['followingCount'] as int?,
-      notesCount: json['notesCount'] as int?,
-      pinnedNoteIds:
-          (json['pinnedNoteIds'] as List<dynamic>?)?.map((e) => e as String),
-      pinnedNotes: (json['pinnedNotes'] as List<dynamic>?)
-          ?.map((e) => Note.fromJson(e as Map<String, dynamic>)),
-      pinnedPageId: json['pinnedPageId'] as String?,
-      pinnedPage: json['pinnedPage'] == null
-          ? null
-          : Page.fromJson(json['pinnedPage'] as Map<String, dynamic>),
-      twoFactorEnabled: json['twoFactorEnabled'] as bool?,
-      usePasswordLessLogin: json['usePasswordLessLogin'] as bool?,
-      securityKeys: json['securityKeys'] as bool?,
-      avatarId: json['avatarId'] as String?,
-      bannerId: json['bannerId'] as String?,
-      autoWatch: json['autoWatch'] as bool?,
-      injectFeaturedNote: json['injectFeaturedNote'] as bool?,
-      alwaysMarkNsfw: json['alwaysMarkNsfw'] as bool?,
-      carefulBot: json['carefulBot'] as bool?,
-      autoAcceptFollowed: json['autoAcceptFollowed'] as bool?,
-      hasUnreadSpecifiedNotes: json['hasUnreadSpecifiedNotes'] as bool?,
-      hasUnreadMentions: json['hasUnreadMentions'] as bool?,
-      hasUnreadAnnouncement: json['hasUnreadAnnouncement'] as bool?,
-      hasUnreadAntenna: json['hasUnreadAntenna'] as bool?,
-      hasUnreadChannel: json['hasUnreadChannel'] as bool?,
-      hasUnreadMessagingMessage: json['hasUnreadMessagingMessage'] as bool?,
-      hasUnreadNotification: json['hasUnreadNotification'] as bool?,
-      hasPendingReceivedFollowRequest:
-          json['hasPendingReceivedFollowRequest'] as bool?,
-      integrations: json['integrations'] as Map<String, dynamic>?,
-      mutedWords: json['mutedWords'] as List<dynamic>?,
-      mutingNotificationTypes:
-          json['mutingNotificationTypes'] as List<dynamic>?,
-      isFollowing: json['isFollowing'] as bool?,
-      hasPendingFollowRequestFromYou:
-          json['hasPendingFollowRequestFromYou'] as bool?,
-      hasPendingFollowRequestToYou:
-          json['hasPendingFollowRequestToYou'] as bool?,
-      isFollowed: json['isFollowed'] as bool?,
-      isBlocking: json['isBlocking'] as bool?,
-      isBlocked: json['isBlocked'] as bool?,
-      isMuted: json['isMuted'] as bool?,
+User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'User',
+      json,
+      ($checkedConvert) {
+        final val = User(
+          id: $checkedConvert('id', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String?),
+          username: $checkedConvert('username', (v) => v as String),
+          host: $checkedConvert('host', (v) => v as String?),
+          avatarUrl: $checkedConvert('avatarUrl', (v) => v as String?),
+          avatarBlurhash: $checkedConvert('avatarBlurhash', (v) => v),
+          avatarColor: $checkedConvert('avatarColor', (v) => v),
+          isAdmin: $checkedConvert('isAdmin', (v) => v as bool?),
+          isModerator: $checkedConvert('isModerator', (v) => v as bool?),
+          isBot: $checkedConvert('isBot', (v) => v as bool?),
+          isCat: $checkedConvert('isCat', (v) => v as bool?),
+          emojis: $checkedConvert(
+              'emojis',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+          url: $checkedConvert('url', (v) => v as String?),
+          createdAt: $checkedConvert('createdAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          updatedAt: $checkedConvert('updatedAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          bannerUrl: $checkedConvert('bannerUrl', (v) => v as String?),
+          bannerBlurhash: $checkedConvert('bannerBlurhash', (v) => v),
+          bannerColor: $checkedConvert('bannerColor', (v) => v),
+          isLocked: $checkedConvert('isLocked', (v) => v as bool?),
+          isSuspended: $checkedConvert('isSuspended', (v) => v as bool?),
+          description: $checkedConvert('description', (v) => v as String?),
+          location: $checkedConvert('location', (v) => v as String?),
+          birthday: $checkedConvert('birthday', (v) => v as String?),
+          fields: $checkedConvert(
+              'fields',
+              (v) =>
+                  (v as List<dynamic>?)?.map((e) => e as Map<String, dynamic>)),
+          followersCount: $checkedConvert('followersCount', (v) => v as int?),
+          followingCount: $checkedConvert('followingCount', (v) => v as int?),
+          notesCount: $checkedConvert('notesCount', (v) => v as int?),
+          pinnedNoteIds: $checkedConvert('pinnedNoteIds',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String)),
+          pinnedNotes: $checkedConvert(
+              'pinnedNotes',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Note.fromJson(e as Map<String, dynamic>))),
+          pinnedPageId: $checkedConvert('pinnedPageId', (v) => v as String?),
+          pinnedPage: $checkedConvert(
+              'pinnedPage',
+              (v) =>
+                  v == null ? null : Page.fromJson(v as Map<String, dynamic>)),
+          twoFactorEnabled:
+              $checkedConvert('twoFactorEnabled', (v) => v as bool?),
+          usePasswordLessLogin:
+              $checkedConvert('usePasswordLessLogin', (v) => v as bool?),
+          securityKeys: $checkedConvert('securityKeys', (v) => v as bool?),
+          avatarId: $checkedConvert('avatarId', (v) => v as String?),
+          bannerId: $checkedConvert('bannerId', (v) => v as String?),
+          autoWatch: $checkedConvert('autoWatch', (v) => v as bool?),
+          injectFeaturedNote:
+              $checkedConvert('injectFeaturedNote', (v) => v as bool?),
+          alwaysMarkNsfw: $checkedConvert('alwaysMarkNsfw', (v) => v as bool?),
+          carefulBot: $checkedConvert('carefulBot', (v) => v as bool?),
+          autoAcceptFollowed:
+              $checkedConvert('autoAcceptFollowed', (v) => v as bool?),
+          hasUnreadSpecifiedNotes:
+              $checkedConvert('hasUnreadSpecifiedNotes', (v) => v as bool?),
+          hasUnreadMentions:
+              $checkedConvert('hasUnreadMentions', (v) => v as bool?),
+          hasUnreadAnnouncement:
+              $checkedConvert('hasUnreadAnnouncement', (v) => v as bool?),
+          hasUnreadAntenna:
+              $checkedConvert('hasUnreadAntenna', (v) => v as bool?),
+          hasUnreadChannel:
+              $checkedConvert('hasUnreadChannel', (v) => v as bool?),
+          hasUnreadMessagingMessage:
+              $checkedConvert('hasUnreadMessagingMessage', (v) => v as bool?),
+          hasUnreadNotification:
+              $checkedConvert('hasUnreadNotification', (v) => v as bool?),
+          hasPendingReceivedFollowRequest: $checkedConvert(
+              'hasPendingReceivedFollowRequest', (v) => v as bool?),
+          integrations: $checkedConvert(
+              'integrations', (v) => v as Map<String, dynamic>?),
+          mutedWords: $checkedConvert('mutedWords', (v) => v as List<dynamic>?),
+          mutingNotificationTypes: $checkedConvert(
+              'mutingNotificationTypes', (v) => v as List<dynamic>?),
+          isFollowing: $checkedConvert('isFollowing', (v) => v as bool?),
+          hasPendingFollowRequestFromYou: $checkedConvert(
+              'hasPendingFollowRequestFromYou', (v) => v as bool?),
+          hasPendingFollowRequestToYou: $checkedConvert(
+              'hasPendingFollowRequestToYou', (v) => v as bool?),
+          isFollowed: $checkedConvert('isFollowed', (v) => v as bool?),
+          isBlocking: $checkedConvert('isBlocking', (v) => v as bool?),
+          isBlocked: $checkedConvert('isBlocked', (v) => v as bool?),
+          isMuted: $checkedConvert('isMuted', (v) => v as bool?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{

@@ -8,22 +8,34 @@ part of 'scheduled_status_params.dart';
 
 ScheduledStatusParams _$ScheduledStatusParamsFromJson(
         Map<String, dynamic> json) =>
-    ScheduledStatusParams(
-      text: json['text'] as String,
-      visibility: json['visibility'] as String,
-      poll: json['poll'] == null
-          ? null
-          : Poll.fromJson(json['poll'] as Map<String, dynamic>),
-      idempotency: json['idempotency'],
-      inReplyToId: json['in_reply_to_id'] as String?,
-      mediaIds: (json['media_ids'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      scheduledAt: json['scheduled_at'] == null
-          ? null
-          : DateTime.parse(json['scheduled_at'] as String),
-      sensitive: json['sensitive'] as bool?,
-      spoilerText: json['spoiler_text'] as String?,
+    $checkedCreate(
+      'ScheduledStatusParams',
+      json,
+      ($checkedConvert) {
+        final val = ScheduledStatusParams(
+          text: $checkedConvert('text', (v) => v as String),
+          visibility: $checkedConvert('visibility', (v) => v as String),
+          poll: $checkedConvert(
+              'poll',
+              (v) =>
+                  v == null ? null : Poll.fromJson(v as Map<String, dynamic>)),
+          idempotency: $checkedConvert('idempotency', (v) => v),
+          inReplyToId: $checkedConvert('in_reply_to_id', (v) => v as String?),
+          mediaIds: $checkedConvert('media_ids',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          scheduledAt: $checkedConvert('scheduled_at',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          sensitive: $checkedConvert('sensitive', (v) => v as bool?),
+          spoilerText: $checkedConvert('spoiler_text', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'inReplyToId': 'in_reply_to_id',
+        'mediaIds': 'media_ids',
+        'scheduledAt': 'scheduled_at',
+        'spoilerText': 'spoiler_text'
+      },
     );
 
 Map<String, dynamic> _$ScheduledStatusParamsToJson(

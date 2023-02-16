@@ -6,14 +6,21 @@ part of 'muting.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Muting _$MutingFromJson(Map<String, dynamic> json) => Muting(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      expiresAt: json['expiresAt'] == null
-          ? null
-          : DateTime.parse(json['expiresAt'] as String),
-      muteeId: json['muteeId'] as String,
-      mutee: json['mutee'],
+Muting _$MutingFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Muting',
+      json,
+      ($checkedConvert) {
+        final val = Muting(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          expiresAt: $checkedConvert('expiresAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          muteeId: $checkedConvert('muteeId', (v) => v as String),
+          mutee: $checkedConvert('mutee', (v) => v),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$MutingToJson(Muting instance) => <String, dynamic>{

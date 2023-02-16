@@ -6,48 +6,64 @@ part of 'note.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Note _$NoteFromJson(Map<String, dynamic> json) => Note(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      text: json['text'] as String?,
-      cw: json['cw'] as String?,
-      userId: json['userId'] as String,
-      user: UserLite.fromJson(json['user'] as Map<String, dynamic>),
-      replyId: json['replyId'] as String?,
-      renoteId: json['renoteId'] as String?,
-      reply: json['reply'] == null
-          ? null
-          : Note.fromJson(json['reply'] as Map<String, dynamic>),
-      renote: json['renote'] == null
-          ? null
-          : Note.fromJson(json['renote'] as Map<String, dynamic>),
-      isHidden: json['isHidden'] as bool?,
-      visibility: json['visibility'] as String,
-      mentions: (json['mentions'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      visibleUserIds: (json['visibleUserIds'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      fileIds:
-          (json['fileIds'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      files: (json['files'] as List<dynamic>?)
-          ?.map((e) => DriveFile.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      poll: json['poll'] as Map<String, dynamic>?,
-      channelId: json['channelId'] as String?,
-      channel: json['channel'] as Map<String, dynamic>?,
-      localOnly: json['localOnly'] as bool?,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      reactions: Map<String, int>.from(json['reactions'] as Map),
-      renoteCount: json['renoteCount'] as int,
-      repliesCount: json['repliesCount'] as int,
-      uri: json['uri'] as String?,
-      url: json['url'] as String?,
-      myReaction: json['myReaction'] as String?,
+Note _$NoteFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Note',
+      json,
+      ($checkedConvert) {
+        final val = Note(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          text: $checkedConvert('text', (v) => v as String?),
+          cw: $checkedConvert('cw', (v) => v as String?),
+          userId: $checkedConvert('userId', (v) => v as String),
+          user: $checkedConvert(
+              'user', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+          replyId: $checkedConvert('replyId', (v) => v as String?),
+          renoteId: $checkedConvert('renoteId', (v) => v as String?),
+          reply: $checkedConvert(
+              'reply',
+              (v) =>
+                  v == null ? null : Note.fromJson(v as Map<String, dynamic>)),
+          renote: $checkedConvert(
+              'renote',
+              (v) =>
+                  v == null ? null : Note.fromJson(v as Map<String, dynamic>)),
+          isHidden: $checkedConvert('isHidden', (v) => v as bool?),
+          visibility: $checkedConvert('visibility', (v) => v as String),
+          mentions: $checkedConvert('mentions',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          visibleUserIds: $checkedConvert('visibleUserIds',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          fileIds: $checkedConvert('fileIds',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          files: $checkedConvert(
+              'files',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => DriveFile.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          tags: $checkedConvert('tags',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          poll: $checkedConvert('poll', (v) => v as Map<String, dynamic>?),
+          channelId: $checkedConvert('channelId', (v) => v as String?),
+          channel:
+              $checkedConvert('channel', (v) => v as Map<String, dynamic>?),
+          localOnly: $checkedConvert('localOnly', (v) => v as bool?),
+          emojis: $checkedConvert(
+              'emojis',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          reactions: $checkedConvert(
+              'reactions', (v) => Map<String, int>.from(v as Map)),
+          renoteCount: $checkedConvert('renoteCount', (v) => v as int),
+          repliesCount: $checkedConvert('repliesCount', (v) => v as int),
+          uri: $checkedConvert('uri', (v) => v as String?),
+          url: $checkedConvert('url', (v) => v as String?),
+          myReaction: $checkedConvert('myReaction', (v) => v as String?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{

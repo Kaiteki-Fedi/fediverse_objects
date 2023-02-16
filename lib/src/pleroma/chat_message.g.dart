@@ -6,21 +6,39 @@ part of 'chat_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) => ChatMessage(
-      accountId: json['account_id'] as String,
-      chatId: json['chat_id'] as String,
-      createdAt: DateTime.parse(json['created_at'] as String),
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>)),
-      id: json['id'] as String,
-      unread: json['unread'] as bool,
-      attachment: json['attachment'] == null
-          ? null
-          : Attachment.fromJson(json['attachment'] as Map<String, dynamic>),
-      card: json['card'] == null
-          ? null
-          : Card.fromJson(json['card'] as Map<String, dynamic>),
-      content: json['content'] as String?,
+ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'ChatMessage',
+      json,
+      ($checkedConvert) {
+        final val = ChatMessage(
+          accountId: $checkedConvert('account_id', (v) => v as String),
+          chatId: $checkedConvert('chat_id', (v) => v as String),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          emojis: $checkedConvert(
+              'emojis',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+          id: $checkedConvert('id', (v) => v as String),
+          unread: $checkedConvert('unread', (v) => v as bool),
+          attachment: $checkedConvert(
+              'attachment',
+              (v) => v == null
+                  ? null
+                  : Attachment.fromJson(v as Map<String, dynamic>)),
+          card: $checkedConvert(
+              'card',
+              (v) =>
+                  v == null ? null : Card.fromJson(v as Map<String, dynamic>)),
+          content: $checkedConvert('content', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'accountId': 'account_id',
+        'chatId': 'chat_id',
+        'createdAt': 'created_at'
+      },
     );
 
 Map<String, dynamic> _$ChatMessageToJson(ChatMessage instance) =>

@@ -7,46 +7,66 @@ part of 'me_detailed_only.dart';
 // **************************************************************************
 
 MeDetailedOnly _$MeDetailedOnlyFromJson(Map<String, dynamic> json) =>
-    MeDetailedOnly(
-      avatarId: json['avatarId'] as String?,
-      bannerId: json['bannerId'] as String?,
-      injectFeaturedNote: json['injectFeaturedNote'] as bool?,
-      receiveAnnouncementEmail: json['receiveAnnouncementEmail'] as bool?,
-      alwaysMarkNsfw: json['alwaysMarkNsfw'] as bool?,
-      carefulBot: json['carefulBot'] as bool?,
-      autoAcceptFollowed: json['autoAcceptFollowed'] as bool?,
-      noCrawle: json['noCrawle'] as bool?,
-      isExplorable: json['isExplorable'] as bool,
-      isDeleted: json['isDeleted'] as bool,
-      hideOnlineStatus: json['hideOnlineStatus'] as bool,
-      hasUnreadSpecifiedNotes: json['hasUnreadSpecifiedNotes'] as bool,
-      hasUnreadMentions: json['hasUnreadMentions'] as bool,
-      hasUnreadAnnouncement: json['hasUnreadAnnouncement'] as bool,
-      hasUnreadAntenna: json['hasUnreadAntenna'] as bool,
-      hasUnreadChannel: json['hasUnreadChannel'] as bool,
-      hasUnreadMessagingMessage: json['hasUnreadMessagingMessage'] as bool,
-      hasUnreadNotification: json['hasUnreadNotification'] as bool,
-      hasPendingReceivedFollowRequest:
-          json['hasPendingReceivedFollowRequest'] as bool,
-      integrations: json['integrations'] as Map<String, dynamic>?,
-      mutedWords: (json['mutedWords'] as List<dynamic>)
-          .map((e) => (e as List<dynamic>).map((e) => e as String).toList())
-          .toList(),
-      mutedInstances: (json['mutedInstances'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      mutingNotificationTypes:
-          (json['mutingNotificationTypes'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList(),
-      emailNotificationTypes: (json['emailNotificationTypes'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      email: json['email'] as String?,
-      emailVerified: json['emailVerified'] as bool?,
-      securityKeysList: (json['securityKeysList'] as List<dynamic>?)
-          ?.map((e) => e as Map<String, dynamic>)
-          .toList(),
+    $checkedCreate(
+      'MeDetailedOnly',
+      json,
+      ($checkedConvert) {
+        final val = MeDetailedOnly(
+          avatarId: $checkedConvert('avatarId', (v) => v as String?),
+          bannerId: $checkedConvert('bannerId', (v) => v as String?),
+          injectFeaturedNote:
+              $checkedConvert('injectFeaturedNote', (v) => v as bool?),
+          receiveAnnouncementEmail:
+              $checkedConvert('receiveAnnouncementEmail', (v) => v as bool?),
+          alwaysMarkNsfw: $checkedConvert('alwaysMarkNsfw', (v) => v as bool?),
+          carefulBot: $checkedConvert('carefulBot', (v) => v as bool?),
+          autoAcceptFollowed:
+              $checkedConvert('autoAcceptFollowed', (v) => v as bool?),
+          noCrawle: $checkedConvert('noCrawle', (v) => v as bool?),
+          isExplorable: $checkedConvert('isExplorable', (v) => v as bool),
+          isDeleted: $checkedConvert('isDeleted', (v) => v as bool),
+          hideOnlineStatus:
+              $checkedConvert('hideOnlineStatus', (v) => v as bool),
+          hasUnreadSpecifiedNotes:
+              $checkedConvert('hasUnreadSpecifiedNotes', (v) => v as bool),
+          hasUnreadMentions:
+              $checkedConvert('hasUnreadMentions', (v) => v as bool),
+          hasUnreadAnnouncement:
+              $checkedConvert('hasUnreadAnnouncement', (v) => v as bool),
+          hasUnreadAntenna:
+              $checkedConvert('hasUnreadAntenna', (v) => v as bool),
+          hasUnreadChannel:
+              $checkedConvert('hasUnreadChannel', (v) => v as bool),
+          hasUnreadMessagingMessage:
+              $checkedConvert('hasUnreadMessagingMessage', (v) => v as bool),
+          hasUnreadNotification:
+              $checkedConvert('hasUnreadNotification', (v) => v as bool),
+          hasPendingReceivedFollowRequest: $checkedConvert(
+              'hasPendingReceivedFollowRequest', (v) => v as bool),
+          integrations: $checkedConvert(
+              'integrations', (v) => v as Map<String, dynamic>?),
+          mutedWords: $checkedConvert(
+              'mutedWords',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      (e as List<dynamic>).map((e) => e as String).toList())
+                  .toList()),
+          mutedInstances: $checkedConvert('mutedInstances',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          mutingNotificationTypes: $checkedConvert('mutingNotificationTypes',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          emailNotificationTypes: $checkedConvert('emailNotificationTypes',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          email: $checkedConvert('email', (v) => v as String?),
+          emailVerified: $checkedConvert('emailVerified', (v) => v as bool?),
+          securityKeysList: $checkedConvert(
+              'securityKeysList',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => e as Map<String, dynamic>)
+                  .toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$MeDetailedOnlyToJson(MeDetailedOnly instance) =>

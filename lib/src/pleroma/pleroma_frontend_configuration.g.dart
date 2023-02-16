@@ -8,9 +8,16 @@ part of 'pleroma_frontend_configuration.dart';
 
 PleromaFrontendConfiguration _$PleromaFrontendConfigurationFromJson(
         Map<String, dynamic> json) =>
-    PleromaFrontendConfiguration(
-      logo: json['logo'] as String,
-      background: json['background'] as String,
+    $checkedCreate(
+      'PleromaFrontendConfiguration',
+      json,
+      ($checkedConvert) {
+        final val = PleromaFrontendConfiguration(
+          logo: $checkedConvert('logo', (v) => v as String),
+          background: $checkedConvert('background', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$PleromaFrontendConfigurationToJson(

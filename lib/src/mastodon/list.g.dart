@@ -6,11 +6,19 @@ part of 'list.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-List _$ListFromJson(Map<String, dynamic> json) => List(
-      id: json['id'] as String,
-      title: json['title'] as String,
-      repliesPolicy:
-          $enumDecodeNullable(_$RepliesPolicyEnumMap, json['replies_policy']),
+List _$ListFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'List',
+      json,
+      ($checkedConvert) {
+        final val = List(
+          id: $checkedConvert('id', (v) => v as String),
+          title: $checkedConvert('title', (v) => v as String),
+          repliesPolicy: $checkedConvert('replies_policy',
+              (v) => $enumDecodeNullable(_$RepliesPolicyEnumMap, v)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'repliesPolicy': 'replies_policy'},
     );
 
 Map<String, dynamic> _$ListToJson(List instance) => <String, dynamic>{

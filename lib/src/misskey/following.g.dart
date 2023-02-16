@@ -6,13 +6,21 @@ part of 'following.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Following _$FollowingFromJson(Map<String, dynamic> json) => Following(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      followeeId: json['followeeId'] as String,
-      followee: json['followee'],
-      followerId: json['followerId'] as String,
-      follower: json['follower'],
+Following _$FollowingFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Following',
+      json,
+      ($checkedConvert) {
+        final val = Following(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          followeeId: $checkedConvert('followeeId', (v) => v as String),
+          followee: $checkedConvert('followee', (v) => v),
+          followerId: $checkedConvert('followerId', (v) => v as String),
+          follower: $checkedConvert('follower', (v) => v),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$FollowingToJson(Following instance) => <String, dynamic>{

@@ -6,15 +6,21 @@ part of 'app.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-App _$AppFromJson(Map<String, dynamic> json) => App(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      callbackUrl: json['callbackUrl'] as String?,
-      permission: (json['permission'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      secret: json['secret'] as String?,
-      isAuthorized: json['isAuthorized'] as bool?,
+App _$AppFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'App',
+      json,
+      ($checkedConvert) {
+        final val = App(
+          id: $checkedConvert('id', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          callbackUrl: $checkedConvert('callbackUrl', (v) => v as String?),
+          permission: $checkedConvert('permission',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          secret: $checkedConvert('secret', (v) => v as String?),
+          isAuthorized: $checkedConvert('isAuthorized', (v) => v as bool?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$AppToJson(App instance) => <String, dynamic>{

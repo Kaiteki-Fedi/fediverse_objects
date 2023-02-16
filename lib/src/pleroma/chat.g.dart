@@ -6,12 +6,26 @@ part of 'chat.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Chat _$ChatFromJson(Map<String, dynamic> json) => Chat(
-      Account.fromJson(json['account'] as Map<String, dynamic>),
-      json['id'] as String,
-      json['last_message'] == null
-          ? null
-          : ChatMessage.fromJson(json['last_message'] as Map<String, dynamic>),
-      json['unread'] as int,
-      DateTime.parse(json['updated_at'] as String),
+Chat _$ChatFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Chat',
+      json,
+      ($checkedConvert) {
+        final val = Chat(
+          $checkedConvert(
+              'account', (v) => Account.fromJson(v as Map<String, dynamic>)),
+          $checkedConvert('id', (v) => v as String),
+          $checkedConvert(
+              'last_message',
+              (v) => v == null
+                  ? null
+                  : ChatMessage.fromJson(v as Map<String, dynamic>)),
+          $checkedConvert('unread', (v) => v as int),
+          $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'lastMessage': 'last_message',
+        'updatedAt': 'updated_at'
+      },
     );

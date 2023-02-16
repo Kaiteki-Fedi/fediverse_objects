@@ -6,25 +6,41 @@ part of 'antenna.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Antenna _$AntennaFromJson(Map<String, dynamic> json) => Antenna(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      name: json['name'] as String,
-      keywords: (json['keywords'] as List<dynamic>)
-          .map((e) => (e as List<dynamic>).map((e) => e as String).toList())
-          .toList(),
-      excludeKeywords: (json['excludeKeywords'] as List<dynamic>)
-          .map((e) => (e as List<dynamic>).map((e) => e as String).toList())
-          .toList(),
-      src: $enumDecode(_$AntennaSrcEnumMap, json['src']),
-      userListId: json['userListId'] as String?,
-      userGroupId: json['userGroupId'] as String?,
-      users: (json['users'] as List<dynamic>).map((e) => e as String).toList(),
-      caseSensitive: json['caseSensitive'] as bool,
-      notify: json['notify'] as bool,
-      withReplies: json['withReplies'] as bool,
-      withFile: json['withFile'] as bool,
-      hasUnreadNote: json['hasUnreadNote'] as bool,
+Antenna _$AntennaFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Antenna',
+      json,
+      ($checkedConvert) {
+        final val = Antenna(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          name: $checkedConvert('name', (v) => v as String),
+          keywords: $checkedConvert(
+              'keywords',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      (e as List<dynamic>).map((e) => e as String).toList())
+                  .toList()),
+          excludeKeywords: $checkedConvert(
+              'excludeKeywords',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      (e as List<dynamic>).map((e) => e as String).toList())
+                  .toList()),
+          src: $checkedConvert(
+              'src', (v) => $enumDecode(_$AntennaSrcEnumMap, v)),
+          userListId: $checkedConvert('userListId', (v) => v as String?),
+          userGroupId: $checkedConvert('userGroupId', (v) => v as String?),
+          users: $checkedConvert('users',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          caseSensitive: $checkedConvert('caseSensitive', (v) => v as bool),
+          notify: $checkedConvert('notify', (v) => v as bool),
+          withReplies: $checkedConvert('withReplies', (v) => v as bool),
+          withFile: $checkedConvert('withFile', (v) => v as bool),
+          hasUnreadNote: $checkedConvert('hasUnreadNote', (v) => v as bool),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$AntennaToJson(Antenna instance) => <String, dynamic>{

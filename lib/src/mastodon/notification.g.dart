@@ -6,20 +6,35 @@ part of 'notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
-      createdAt: DateTime.parse(json['created_at'] as String),
-      id: json['id'] as String,
-      type: json['type'] as String,
-      account: json['account'] == null
-          ? null
-          : Account.fromJson(json['account'] as Map<String, dynamic>),
-      pleroma: json['pleroma'] == null
-          ? null
-          : PleromaNotification.fromJson(
-              json['pleroma'] as Map<String, dynamic>),
-      status: json['status'] == null
-          ? null
-          : Status.fromJson(json['status'] as Map<String, dynamic>),
+Notification _$NotificationFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'Notification',
+      json,
+      ($checkedConvert) {
+        final val = Notification(
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          id: $checkedConvert('id', (v) => v as String),
+          type: $checkedConvert('type', (v) => v as String),
+          account: $checkedConvert(
+              'account',
+              (v) => v == null
+                  ? null
+                  : Account.fromJson(v as Map<String, dynamic>)),
+          pleroma: $checkedConvert(
+              'pleroma',
+              (v) => v == null
+                  ? null
+                  : PleromaNotification.fromJson(v as Map<String, dynamic>)),
+          status: $checkedConvert(
+              'status',
+              (v) => v == null
+                  ? null
+                  : Status.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'createdAt': 'created_at'},
     );
 
 Map<String, dynamic> _$NotificationToJson(Notification instance) =>

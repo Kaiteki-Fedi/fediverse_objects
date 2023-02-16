@@ -7,12 +7,22 @@ part of 'push_subscription.dart';
 // **************************************************************************
 
 PushSubscription _$PushSubscriptionFromJson(Map<String, dynamic> json) =>
-    PushSubscription(
-      alerts: PushSubscriptionAlerts.fromJson(
-          json['alerts'] as Map<String, dynamic>),
-      endpoint: json['endpoint'] as String,
-      id: json['id'] as String,
-      serverKey: json['server_key'] as String,
+    $checkedCreate(
+      'PushSubscription',
+      json,
+      ($checkedConvert) {
+        final val = PushSubscription(
+          alerts: $checkedConvert(
+              'alerts',
+              (v) =>
+                  PushSubscriptionAlerts.fromJson(v as Map<String, dynamic>)),
+          endpoint: $checkedConvert('endpoint', (v) => v as String),
+          id: $checkedConvert('id', (v) => v as String),
+          serverKey: $checkedConvert('server_key', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'serverKey': 'server_key'},
     );
 
 Map<String, dynamic> _$PushSubscriptionToJson(PushSubscription instance) =>

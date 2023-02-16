@@ -7,29 +7,45 @@ part of 'messaging_message.dart';
 // **************************************************************************
 
 MessagingMessage _$MessagingMessageFromJson(Map<String, dynamic> json) =>
-    MessagingMessage(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      userId: json['userId'] as String,
-      user: json['user'] == null
-          ? null
-          : UserLite.fromJson(json['user'] as Map<String, dynamic>),
-      text: json['text'] as String?,
-      fileId: json['fileId'] as String?,
-      file: json['file'] == null
-          ? null
-          : DriveFile.fromJson(json['file'] as Map<String, dynamic>),
-      recipientId: json['recipientId'] as String?,
-      recipient: json['recipient'] == null
-          ? null
-          : UserLite.fromJson(json['recipient'] as Map<String, dynamic>),
-      groupId: json['groupId'] as String?,
-      group: json['group'] == null
-          ? null
-          : UserGroup.fromJson(json['group'] as Map<String, dynamic>),
-      isRead: json['isRead'] as bool?,
-      reads:
-          (json['reads'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    $checkedCreate(
+      'MessagingMessage',
+      json,
+      ($checkedConvert) {
+        final val = MessagingMessage(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          userId: $checkedConvert('userId', (v) => v as String),
+          user: $checkedConvert(
+              'user',
+              (v) => v == null
+                  ? null
+                  : UserLite.fromJson(v as Map<String, dynamic>)),
+          text: $checkedConvert('text', (v) => v as String?),
+          fileId: $checkedConvert('fileId', (v) => v as String?),
+          file: $checkedConvert(
+              'file',
+              (v) => v == null
+                  ? null
+                  : DriveFile.fromJson(v as Map<String, dynamic>)),
+          recipientId: $checkedConvert('recipientId', (v) => v as String?),
+          recipient: $checkedConvert(
+              'recipient',
+              (v) => v == null
+                  ? null
+                  : UserLite.fromJson(v as Map<String, dynamic>)),
+          groupId: $checkedConvert('groupId', (v) => v as String?),
+          group: $checkedConvert(
+              'group',
+              (v) => v == null
+                  ? null
+                  : UserGroup.fromJson(v as Map<String, dynamic>)),
+          isRead: $checkedConvert('isRead', (v) => v as bool?),
+          reads: $checkedConvert('reads',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$MessagingMessageToJson(MessagingMessage instance) =>

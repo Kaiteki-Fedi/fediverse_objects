@@ -7,15 +7,31 @@ part of 'emoji_pack_metadata.dart';
 // **************************************************************************
 
 EmojiPackMetadata _$EmojiPackMetadataFromJson(Map<String, dynamic> json) =>
-    EmojiPackMetadata(
-      canDownload: json['can-download'] as bool,
-      description: json['description'] as String,
-      downloadSha256: json['download-sha256'] as String,
-      fallbackSource: json['fallback-src'] as String,
-      fallbackSourceSha256: json['fallback-src-sha256'] as String,
-      homepage: json['homepage'] as String,
-      license: json['license'] as String,
-      shareFiles: json['share-files'] as bool,
+    $checkedCreate(
+      'EmojiPackMetadata',
+      json,
+      ($checkedConvert) {
+        final val = EmojiPackMetadata(
+          canDownload: $checkedConvert('can-download', (v) => v as bool),
+          description: $checkedConvert('description', (v) => v as String),
+          downloadSha256:
+              $checkedConvert('download-sha256', (v) => v as String),
+          fallbackSource: $checkedConvert('fallback-src', (v) => v as String),
+          fallbackSourceSha256:
+              $checkedConvert('fallback-src-sha256', (v) => v as String),
+          homepage: $checkedConvert('homepage', (v) => v as String),
+          license: $checkedConvert('license', (v) => v as String),
+          shareFiles: $checkedConvert('share-files', (v) => v as bool),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'canDownload': 'can-download',
+        'downloadSha256': 'download-sha256',
+        'fallbackSource': 'fallback-src',
+        'fallbackSourceSha256': 'fallback-src-sha256',
+        'shareFiles': 'share-files'
+      },
     );
 
 Map<String, dynamic> _$EmojiPackMetadataToJson(EmojiPackMetadata instance) =>

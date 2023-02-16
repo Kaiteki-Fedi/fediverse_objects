@@ -6,51 +6,84 @@ part of 'meta.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Meta _$MetaFromJson(Map<String, dynamic> json) => Meta(
-      maintainerName: json['maintainerName'] as String?,
-      maintainerEmail: json['maintainerEmail'] as String?,
-      version: json['version'] as String,
-      name: json['name'] as String,
-      uri: json['uri'] as String,
-      description: json['description'] as String?,
-      langs: (json['langs'] as List<dynamic>).map((e) => e as String).toList(),
-      tosUrl: json['tosUrl'] as String?,
-      repositoryUrl: json['repositoryUrl'] as String?,
-      feedbackUrl: json['feedbackUrl'] as String,
-      defaultDarkTheme: json['defaultDarkTheme'] as String?,
-      defaultLightTheme: json['defaultLightTheme'] as String?,
-      disableRegistration: json['disableRegistration'] as bool,
-      disableLocalTimeline: json['disableLocalTimeline'] as bool,
-      disableGlobalTimeline: json['disableGlobalTimeline'] as bool,
-      driveCapacityPerLocalUserMb: json['driveCapacityPerLocalUserMb'] as int,
-      driveCapacityPerRemoteUserMb: json['driveCapacityPerRemoteUserMb'] as int,
-      cacheRemoteFiles: json['cacheRemoteFiles'] as bool?,
-      emailRequiredForSignup: json['emailRequiredForSignup'] as bool,
-      enableHcaptcha: json['enableHcaptcha'] as bool,
-      hcaptchaSiteKey: json['hcaptchaSiteKey'] as String?,
-      enableRecaptcha: json['enableRecaptcha'] as bool,
-      recaptchaSiteKey: json['recaptchaSiteKey'] as String?,
-      swPublickey: json['swPublickey'] as String?,
-      mascotImageUrl: json['mascotImageUrl'] as String,
-      bannerUrl: json['bannerUrl'] as String?,
-      errorImageUrl: json['errorImageUrl'] as String,
-      iconUrl: json['iconUrl'] as String?,
-      maxNoteTextLength: json['maxNoteTextLength'] as int,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      ads: (json['ads'] as List<dynamic>)
-          .map((e) => Ad.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      requireSetup: json['requireSetup'] as bool?,
-      enableEmail: json['enableEmail'] as bool,
-      enableTwitterIntegration: json['enableTwitterIntegration'] as bool,
-      enableGithubIntegration: json['enableGithubIntegration'] as bool,
-      enableDiscordIntegration: json['enableDiscordIntegration'] as bool,
-      enableServiceWorker: json['enableServiceWorker'] as bool,
-      translatorAvailable: json['translatorAvailable'] as bool,
-      proxyAccountName: json['proxyAccountName'] as String?,
-      features: json['features'] as Map<String, dynamic>?,
+Meta _$MetaFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Meta',
+      json,
+      ($checkedConvert) {
+        final val = Meta(
+          maintainerName:
+              $checkedConvert('maintainerName', (v) => v as String?),
+          maintainerEmail:
+              $checkedConvert('maintainerEmail', (v) => v as String?),
+          version: $checkedConvert('version', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          uri: $checkedConvert('uri', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
+          langs: $checkedConvert('langs',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          tosUrl: $checkedConvert('tosUrl', (v) => v as String?),
+          repositoryUrl: $checkedConvert('repositoryUrl', (v) => v as String?),
+          feedbackUrl: $checkedConvert('feedbackUrl', (v) => v as String),
+          defaultDarkTheme:
+              $checkedConvert('defaultDarkTheme', (v) => v as String?),
+          defaultLightTheme:
+              $checkedConvert('defaultLightTheme', (v) => v as String?),
+          disableRegistration:
+              $checkedConvert('disableRegistration', (v) => v as bool),
+          disableLocalTimeline:
+              $checkedConvert('disableLocalTimeline', (v) => v as bool),
+          disableGlobalTimeline:
+              $checkedConvert('disableGlobalTimeline', (v) => v as bool),
+          driveCapacityPerLocalUserMb:
+              $checkedConvert('driveCapacityPerLocalUserMb', (v) => v as int),
+          driveCapacityPerRemoteUserMb:
+              $checkedConvert('driveCapacityPerRemoteUserMb', (v) => v as int),
+          cacheRemoteFiles:
+              $checkedConvert('cacheRemoteFiles', (v) => v as bool?),
+          emailRequiredForSignup:
+              $checkedConvert('emailRequiredForSignup', (v) => v as bool),
+          enableHcaptcha: $checkedConvert('enableHcaptcha', (v) => v as bool),
+          hcaptchaSiteKey:
+              $checkedConvert('hcaptchaSiteKey', (v) => v as String?),
+          enableRecaptcha: $checkedConvert('enableRecaptcha', (v) => v as bool),
+          recaptchaSiteKey:
+              $checkedConvert('recaptchaSiteKey', (v) => v as String?),
+          swPublickey: $checkedConvert('swPublickey', (v) => v as String?),
+          mascotImageUrl: $checkedConvert('mascotImageUrl', (v) => v as String),
+          bannerUrl: $checkedConvert('bannerUrl', (v) => v as String?),
+          errorImageUrl: $checkedConvert('errorImageUrl', (v) => v as String),
+          iconUrl: $checkedConvert('iconUrl', (v) => v as String?),
+          maxNoteTextLength:
+              $checkedConvert('maxNoteTextLength', (v) => v as int),
+          emojis: $checkedConvert(
+              'emojis',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          ads: $checkedConvert(
+              'ads',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Ad.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          requireSetup: $checkedConvert('requireSetup', (v) => v as bool?),
+          enableEmail: $checkedConvert('enableEmail', (v) => v as bool),
+          enableTwitterIntegration:
+              $checkedConvert('enableTwitterIntegration', (v) => v as bool),
+          enableGithubIntegration:
+              $checkedConvert('enableGithubIntegration', (v) => v as bool),
+          enableDiscordIntegration:
+              $checkedConvert('enableDiscordIntegration', (v) => v as bool),
+          enableServiceWorker:
+              $checkedConvert('enableServiceWorker', (v) => v as bool),
+          translatorAvailable:
+              $checkedConvert('translatorAvailable', (v) => v as bool),
+          proxyAccountName:
+              $checkedConvert('proxyAccountName', (v) => v as String?),
+          features:
+              $checkedConvert('features', (v) => v as Map<String, dynamic>?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$MetaToJson(Meta instance) => <String, dynamic>{

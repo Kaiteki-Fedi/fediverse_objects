@@ -8,9 +8,20 @@ part of 'notification_settings.dart';
 
 NotificationSettings _$NotificationSettingsFromJson(
         Map<String, dynamic> json) =>
-    NotificationSettings(
-      json['block_from_strangers'] as bool,
-      json['hide_notification_contents'] as bool,
+    $checkedCreate(
+      'NotificationSettings',
+      json,
+      ($checkedConvert) {
+        final val = NotificationSettings(
+          $checkedConvert('block_from_strangers', (v) => v as bool),
+          $checkedConvert('hide_notification_contents', (v) => v as bool),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'blockFromStrangers': 'block_from_strangers',
+        'hideNotificationContents': 'hide_notification_contents'
+      },
     );
 
 Map<String, dynamic> _$NotificationSettingsToJson(

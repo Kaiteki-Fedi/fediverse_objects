@@ -7,23 +7,44 @@ part of 'status.dart';
 // **************************************************************************
 
 PleromaStatus _$PleromaStatusFromJson(Map<String, dynamic> json) =>
-    PleromaStatus(
-      (json['content'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      json['conversation_id'] as int?,
-      (json['emoji_reactions'] as List<dynamic>?)
-          ?.map((e) => EmojiReaction.fromJson(e as Map<String, dynamic>)),
-      json['expires_at'] == null
-          ? null
-          : DateTime.parse(json['expires_at'] as String),
-      json['in_reply_to_account_acct'] as String?,
-      json['local'] as bool,
-      json['parent_visible'] as bool?,
-      (json['spoiler_text'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, e as String),
-      ),
-      json['thread_muted'] as bool?,
+    $checkedCreate(
+      'PleromaStatus',
+      json,
+      ($checkedConvert) {
+        final val = PleromaStatus(
+          $checkedConvert(
+              'content',
+              (v) => (v as Map<String, dynamic>?)?.map(
+                    (k, e) => MapEntry(k, e as String),
+                  )),
+          $checkedConvert('conversation_id', (v) => v as int?),
+          $checkedConvert(
+              'emoji_reactions',
+              (v) => (v as List<dynamic>?)?.map(
+                  (e) => EmojiReaction.fromJson(e as Map<String, dynamic>))),
+          $checkedConvert('expires_at',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          $checkedConvert('in_reply_to_account_acct', (v) => v as String?),
+          $checkedConvert('local', (v) => v as bool),
+          $checkedConvert('parent_visible', (v) => v as bool?),
+          $checkedConvert(
+              'spoiler_text',
+              (v) => (v as Map<String, dynamic>?)?.map(
+                    (k, e) => MapEntry(k, e as String),
+                  )),
+          $checkedConvert('thread_muted', (v) => v as bool?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'conversationId': 'conversation_id',
+        'emojiReactions': 'emoji_reactions',
+        'expiresAt': 'expires_at',
+        'inReplyToAccountAcct': 'in_reply_to_account_acct',
+        'parentVisible': 'parent_visible',
+        'spoilerText': 'spoiler_text',
+        'threadMuted': 'thread_muted'
+      },
     );
 
 Map<String, dynamic> _$PleromaStatusToJson(PleromaStatus instance) =>

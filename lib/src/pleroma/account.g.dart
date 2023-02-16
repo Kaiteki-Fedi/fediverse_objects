@@ -7,30 +7,58 @@ part of 'account.dart';
 // **************************************************************************
 
 PleromaAccount _$PleromaAccountFromJson(Map<String, dynamic> json) =>
-    PleromaAccount(
-      json['accepts_chat_messages'] as bool?,
-      json['allow_following_move'] as bool?,
-      json['chat_token'] as String?,
-      json['confirmation_pending'] as bool?,
-      json['hide_favorites'] as bool,
-      json['hide_followers'] as bool,
-      json['hide_followers_count'] as bool,
-      json['hide_follows'] as bool,
-      json['hide_follows_count'] as bool,
-      json['is_admin'] as bool,
-      json['is_moderator'] as bool,
-      json['is_confirmed'] as bool?,
-      json['notification_settings'] == null
-          ? null
-          : NotificationSettings.fromJson(
-              json['notification_settings'] as Map<String, dynamic>),
-      json['relationship'] == null
-          ? null
-          : Relationship.fromJson(json['relationship'] as Map<String, dynamic>),
-      json['skip_thread_containment'] as bool,
-      json['unread_conversation_count'] as int?,
-      json['favicon'] as String?,
-      json['settings_store'] as Map<String, dynamic>?,
+    $checkedCreate(
+      'PleromaAccount',
+      json,
+      ($checkedConvert) {
+        final val = PleromaAccount(
+          $checkedConvert('accepts_chat_messages', (v) => v as bool?),
+          $checkedConvert('allow_following_move', (v) => v as bool?),
+          $checkedConvert('chat_token', (v) => v as String?),
+          $checkedConvert('confirmation_pending', (v) => v as bool?),
+          $checkedConvert('hide_favorites', (v) => v as bool),
+          $checkedConvert('hide_followers', (v) => v as bool),
+          $checkedConvert('hide_followers_count', (v) => v as bool),
+          $checkedConvert('hide_follows', (v) => v as bool),
+          $checkedConvert('hide_follows_count', (v) => v as bool),
+          $checkedConvert('is_admin', (v) => v as bool),
+          $checkedConvert('is_moderator', (v) => v as bool),
+          $checkedConvert('is_confirmed', (v) => v as bool?),
+          $checkedConvert(
+              'notification_settings',
+              (v) => v == null
+                  ? null
+                  : NotificationSettings.fromJson(v as Map<String, dynamic>)),
+          $checkedConvert(
+              'relationship',
+              (v) => v == null
+                  ? null
+                  : Relationship.fromJson(v as Map<String, dynamic>)),
+          $checkedConvert('skip_thread_containment', (v) => v as bool),
+          $checkedConvert('unread_conversation_count', (v) => v as int?),
+          $checkedConvert('favicon', (v) => v as String?),
+          $checkedConvert('settings_store', (v) => v as Map<String, dynamic>?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'acceptsChatMessages': 'accepts_chat_messages',
+        'allowFollowingMove': 'allow_following_move',
+        'chatToken': 'chat_token',
+        'confirmationPending': 'confirmation_pending',
+        'hideFavorites': 'hide_favorites',
+        'hideFollowers': 'hide_followers',
+        'hideFollowersCount': 'hide_followers_count',
+        'hideFollows': 'hide_follows',
+        'hideFollowsCount': 'hide_follows_count',
+        'isAdmin': 'is_admin',
+        'isModerator': 'is_moderator',
+        'isConfirmed': 'is_confirmed',
+        'notificationSettings': 'notification_settings',
+        'skipThreadContainment': 'skip_thread_containment',
+        'unreadConversationCount': 'unread_conversation_count',
+        'settingsStore': 'settings_store'
+      },
     );
 
 Map<String, dynamic> _$PleromaAccountToJson(PleromaAccount instance) =>

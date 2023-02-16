@@ -6,13 +6,21 @@ part of 'user_group.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserGroup _$UserGroupFromJson(Map<String, dynamic> json) => UserGroup(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      name: json['name'] as String,
-      ownerId: json['ownerId'] as String,
-      userIds:
-          (json['userIds'] as List<dynamic>?)?.map((e) => e as String).toList(),
+UserGroup _$UserGroupFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'UserGroup',
+      json,
+      ($checkedConvert) {
+        final val = UserGroup(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          name: $checkedConvert('name', (v) => v as String),
+          ownerId: $checkedConvert('ownerId', (v) => v as String),
+          userIds: $checkedConvert('userIds',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$UserGroupToJson(UserGroup instance) => <String, dynamic>{

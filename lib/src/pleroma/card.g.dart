@@ -6,8 +6,15 @@ part of 'card.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PleromaCard _$PleromaCardFromJson(Map<String, dynamic> json) => PleromaCard(
-      json['opengraph'] as Map<String, dynamic>,
+PleromaCard _$PleromaCardFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'PleromaCard',
+      json,
+      ($checkedConvert) {
+        final val = PleromaCard(
+          $checkedConvert('opengraph', (v) => v as Map<String, dynamic>),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$PleromaCardToJson(PleromaCard instance) =>

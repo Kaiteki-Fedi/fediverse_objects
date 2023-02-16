@@ -6,27 +6,40 @@ part of 'drive_file.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-DriveFile _$DriveFileFromJson(Map<String, dynamic> json) => DriveFile(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      name: json['name'] as String,
-      type: json['type'] as String,
-      md5: json['md5'] as String,
-      size: json['size'] as int,
-      isSensitive: json['isSensitive'] as bool,
-      blurhash: json['blurhash'] as String?,
-      properties: json['properties'] as Map<String, dynamic>,
-      url: json['url'] as String?,
-      thumbnailUrl: json['thumbnailUrl'] as String?,
-      comment: json['comment'] as String?,
-      folderId: json['folderId'] as String?,
-      folder: json['folder'] == null
-          ? null
-          : DriveFolder.fromJson(json['folder'] as Map<String, dynamic>),
-      userId: json['userId'] as String?,
-      user: json['user'] == null
-          ? null
-          : UserLite.fromJson(json['user'] as Map<String, dynamic>),
+DriveFile _$DriveFileFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'DriveFile',
+      json,
+      ($checkedConvert) {
+        final val = DriveFile(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          name: $checkedConvert('name', (v) => v as String),
+          type: $checkedConvert('type', (v) => v as String),
+          md5: $checkedConvert('md5', (v) => v as String),
+          size: $checkedConvert('size', (v) => v as int),
+          isSensitive: $checkedConvert('isSensitive', (v) => v as bool),
+          blurhash: $checkedConvert('blurhash', (v) => v as String?),
+          properties:
+              $checkedConvert('properties', (v) => v as Map<String, dynamic>),
+          url: $checkedConvert('url', (v) => v as String?),
+          thumbnailUrl: $checkedConvert('thumbnailUrl', (v) => v as String?),
+          comment: $checkedConvert('comment', (v) => v as String?),
+          folderId: $checkedConvert('folderId', (v) => v as String?),
+          folder: $checkedConvert(
+              'folder',
+              (v) => v == null
+                  ? null
+                  : DriveFolder.fromJson(v as Map<String, dynamic>)),
+          userId: $checkedConvert('userId', (v) => v as String?),
+          user: $checkedConvert(
+              'user',
+              (v) => v == null
+                  ? null
+                  : UserLite.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$DriveFileToJson(DriveFile instance) => <String, dynamic>{

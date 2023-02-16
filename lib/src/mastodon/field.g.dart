@@ -6,12 +6,19 @@ part of 'field.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Field _$FieldFromJson(Map<String, dynamic> json) => Field(
-      name: json['name'] as String,
-      value: json['value'] as String,
-      verifiedAt: json['verified_at'] == null
-          ? null
-          : DateTime.parse(json['verified_at'] as String),
+Field _$FieldFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Field',
+      json,
+      ($checkedConvert) {
+        final val = Field(
+          name: $checkedConvert('name', (v) => v as String),
+          value: $checkedConvert('value', (v) => v as String),
+          verifiedAt: $checkedConvert('verified_at',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'verifiedAt': 'verified_at'},
     );
 
 Map<String, dynamic> _$FieldToJson(Field instance) => <String, dynamic>{

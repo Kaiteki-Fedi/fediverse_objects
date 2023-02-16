@@ -6,32 +6,60 @@ part of 'instance.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Instance _$InstanceFromJson(Map<String, dynamic> json) => Instance(
-      uri: json['uri'] as String,
-      title: json['title'] as String,
-      description: json['description'] as String,
-      email: json['email'] as String,
-      version: json['version'] as String,
-      languages: (json['languages'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      registrations: json['registrations'] as bool,
-      approvalRequired: json['approval_required'] as bool,
-      urls: InstanceUrls.fromJson(json['urls'] as Map<String, dynamic>),
-      stats: InstanceStatistics.fromJson(json['stats'] as Map<String, dynamic>),
-      shortDescription: json['shortDescription'] as String?,
-      invitesEnabled: json['invites_enabled'] as bool?,
-      thumbnail: json['thumbnail'] as String?,
-      contactAccount: json['contact_account'] == null
-          ? null
-          : Account.fromJson(json['contact_account'] as Map<String, dynamic>),
-      avatarUploadLimit: json['avatar_upload_limit'] as int?,
-      backgroundImage: json['background_image'] as String?,
-      backgroundUploadLimit: json['background_upload_limit'] as int?,
-      bannerUploadLimit: json['banner_upload_limit'] as int?,
-      maxTootChars: json['max_toot_chars'] as int?,
-      pollLimits: json['poll_limits'],
-      uploadLimit: json['upload_limit'] as int?,
+Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Instance',
+      json,
+      ($checkedConvert) {
+        final val = Instance(
+          uri: $checkedConvert('uri', (v) => v as String),
+          title: $checkedConvert('title', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String),
+          version: $checkedConvert('version', (v) => v as String),
+          languages: $checkedConvert('languages',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          registrations: $checkedConvert('registrations', (v) => v as bool),
+          approvalRequired:
+              $checkedConvert('approval_required', (v) => v as bool),
+          urls: $checkedConvert(
+              'urls', (v) => InstanceUrls.fromJson(v as Map<String, dynamic>)),
+          stats: $checkedConvert('stats',
+              (v) => InstanceStatistics.fromJson(v as Map<String, dynamic>)),
+          shortDescription:
+              $checkedConvert('shortDescription', (v) => v as String?),
+          invitesEnabled: $checkedConvert('invites_enabled', (v) => v as bool?),
+          thumbnail: $checkedConvert('thumbnail', (v) => v as String?),
+          contactAccount: $checkedConvert(
+              'contact_account',
+              (v) => v == null
+                  ? null
+                  : Account.fromJson(v as Map<String, dynamic>)),
+          avatarUploadLimit:
+              $checkedConvert('avatar_upload_limit', (v) => v as int?),
+          backgroundImage:
+              $checkedConvert('background_image', (v) => v as String?),
+          backgroundUploadLimit:
+              $checkedConvert('background_upload_limit', (v) => v as int?),
+          bannerUploadLimit:
+              $checkedConvert('banner_upload_limit', (v) => v as int?),
+          maxTootChars: $checkedConvert('max_toot_chars', (v) => v as int?),
+          pollLimits: $checkedConvert('poll_limits', (v) => v),
+          uploadLimit: $checkedConvert('upload_limit', (v) => v as int?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'approvalRequired': 'approval_required',
+        'invitesEnabled': 'invites_enabled',
+        'contactAccount': 'contact_account',
+        'avatarUploadLimit': 'avatar_upload_limit',
+        'backgroundImage': 'background_image',
+        'backgroundUploadLimit': 'background_upload_limit',
+        'bannerUploadLimit': 'banner_upload_limit',
+        'maxTootChars': 'max_toot_chars',
+        'pollLimits': 'poll_limits',
+        'uploadLimit': 'upload_limit'
+      },
     );
 
 Map<String, dynamic> _$InstanceToJson(Instance instance) => <String, dynamic>{

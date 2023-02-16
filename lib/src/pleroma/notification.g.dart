@@ -7,9 +7,17 @@ part of 'notification.dart';
 // **************************************************************************
 
 PleromaNotification _$PleromaNotificationFromJson(Map<String, dynamic> json) =>
-    PleromaNotification(
-      isMuted: json['is_muted'] as bool,
-      isSeen: json['is_seen'] as bool,
+    $checkedCreate(
+      'PleromaNotification',
+      json,
+      ($checkedConvert) {
+        final val = PleromaNotification(
+          isMuted: $checkedConvert('is_muted', (v) => v as bool),
+          isSeen: $checkedConvert('is_seen', (v) => v as bool),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'isMuted': 'is_muted', 'isSeen': 'is_seen'},
     );
 
 Map<String, dynamic> _$PleromaNotificationToJson(

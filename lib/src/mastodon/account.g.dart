@@ -6,47 +6,74 @@ part of 'account.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Account _$AccountFromJson(Map<String, dynamic> json) => Account(
-      acct: json['acct'] as String,
-      avatar: json['avatar'] as String,
-      avatarStatic: json['avatar_static'] as String,
-      createdAt: DateTime.parse(json['created_at'] as String),
-      displayName: json['display_name'] as String,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>)),
-      followersCount: json['followers_count'] as int,
-      followingCount: json['following_count'] as int,
-      group: json['group'] as bool?,
-      header: json['header'] as String,
-      headerStatic: json['header_static'] as String,
-      id: json['id'] as String,
-      locked: json['locked'] as bool,
-      note: json['note'] as String,
-      statusesCount: json['statuses_count'] as int,
-      url: json['url'] as String,
-      username: json['username'] as String,
-      bot: json['bot'] as bool?,
-      discoverable: json['discoverable'] as bool?,
-      fields: (json['fields'] as List<dynamic>?)
-          ?.map((e) => Field.fromJson(e as Map<String, dynamic>)),
-      lastStatusAt: json['last_status_at'] == null
-          ? null
-          : DateTime.parse(json['last_status_at'] as String),
-      limited: json['limited'] as bool?,
-      moved: json['moved'] == null
-          ? null
-          : Account.fromJson(json['moved'] as Map<String, dynamic>),
-      muteExpiredAt: json['mute_expired_at'] == null
-          ? null
-          : DateTime.parse(json['mute_expired_at'] as String),
-      noindex: json['noindex'] as bool?,
-      pleroma: json['pleroma'] == null
-          ? null
-          : PleromaAccount.fromJson(json['pleroma'] as Map<String, dynamic>),
-      source: json['source'] == null
-          ? null
-          : Source.fromJson(json['source'] as Map<String, dynamic>),
-      suspended: json['suspended'] as bool?,
+Account _$AccountFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Account',
+      json,
+      ($checkedConvert) {
+        final val = Account(
+          acct: $checkedConvert('acct', (v) => v as String),
+          avatar: $checkedConvert('avatar', (v) => v as String),
+          avatarStatic: $checkedConvert('avatar_static', (v) => v as String),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          displayName: $checkedConvert('display_name', (v) => v as String),
+          emojis: $checkedConvert(
+              'emojis',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+          followersCount: $checkedConvert('followers_count', (v) => v as int),
+          followingCount: $checkedConvert('following_count', (v) => v as int),
+          group: $checkedConvert('group', (v) => v as bool?),
+          header: $checkedConvert('header', (v) => v as String),
+          headerStatic: $checkedConvert('header_static', (v) => v as String),
+          id: $checkedConvert('id', (v) => v as String),
+          locked: $checkedConvert('locked', (v) => v as bool),
+          note: $checkedConvert('note', (v) => v as String),
+          statusesCount: $checkedConvert('statuses_count', (v) => v as int),
+          url: $checkedConvert('url', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          bot: $checkedConvert('bot', (v) => v as bool?),
+          discoverable: $checkedConvert('discoverable', (v) => v as bool?),
+          fields: $checkedConvert(
+              'fields',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Field.fromJson(e as Map<String, dynamic>))),
+          lastStatusAt: $checkedConvert('last_status_at',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          limited: $checkedConvert('limited', (v) => v as bool?),
+          moved: $checkedConvert(
+              'moved',
+              (v) => v == null
+                  ? null
+                  : Account.fromJson(v as Map<String, dynamic>)),
+          muteExpiredAt: $checkedConvert('mute_expired_at',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          noindex: $checkedConvert('noindex', (v) => v as bool?),
+          pleroma: $checkedConvert(
+              'pleroma',
+              (v) => v == null
+                  ? null
+                  : PleromaAccount.fromJson(v as Map<String, dynamic>)),
+          source: $checkedConvert(
+              'source',
+              (v) => v == null
+                  ? null
+                  : Source.fromJson(v as Map<String, dynamic>)),
+          suspended: $checkedConvert('suspended', (v) => v as bool?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'avatarStatic': 'avatar_static',
+        'createdAt': 'created_at',
+        'displayName': 'display_name',
+        'followersCount': 'followers_count',
+        'followingCount': 'following_count',
+        'headerStatic': 'header_static',
+        'statusesCount': 'statuses_count',
+        'lastStatusAt': 'last_status_at',
+        'muteExpiredAt': 'mute_expired_at'
+      },
     );
 
 Map<String, dynamic> _$AccountToJson(Account instance) => <String, dynamic>{

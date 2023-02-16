@@ -6,35 +6,49 @@ part of 'reversi_game.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ReversiGame _$ReversiGameFromJson(Map<String, dynamic> json) => ReversiGame(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      startedAt: json['startedAt'] == null
-          ? null
-          : DateTime.parse(json['startedAt'] as String),
-      isStarted: json['isStarted'] as bool,
-      isEnded: json['isEnded'] as bool,
-      form1: json['form1'],
-      form2: json['form2'],
-      user1Accepted: json['user1Accepted'] as bool,
-      user2Accepted: json['user2Accepted'] as bool,
-      user1Id: json['user1Id'] as String,
-      user2Id: json['user2Id'] as String,
-      user1: User.fromJson(json['user1'] as Map<String, dynamic>),
-      user2: User.fromJson(json['user2'] as Map<String, dynamic>),
-      winnerId: json['winnerId'] as String?,
-      winner: json['winner'] == null
-          ? null
-          : User.fromJson(json['winner'] as Map<String, dynamic>),
-      surrendered: json['surrendered'] as String?,
-      black: json['black'] as int?,
-      bw: json['bw'] as String,
-      isLlotheo: json['isLlotheo'] as bool,
-      canPutEverywhere: json['canPutEverywhere'] as bool,
-      loopedBoard: json['loopedBoard'] as bool,
-      logs: (json['logs'] as List<dynamic>?)
-          ?.map((e) => e as Map<String, dynamic>),
-      map: (json['map'] as List<dynamic>?)?.map((e) => e as String),
+ReversiGame _$ReversiGameFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'ReversiGame',
+      json,
+      ($checkedConvert) {
+        final val = ReversiGame(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          startedAt: $checkedConvert('startedAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          isStarted: $checkedConvert('isStarted', (v) => v as bool),
+          isEnded: $checkedConvert('isEnded', (v) => v as bool),
+          form1: $checkedConvert('form1', (v) => v),
+          form2: $checkedConvert('form2', (v) => v),
+          user1Accepted: $checkedConvert('user1Accepted', (v) => v as bool),
+          user2Accepted: $checkedConvert('user2Accepted', (v) => v as bool),
+          user1Id: $checkedConvert('user1Id', (v) => v as String),
+          user2Id: $checkedConvert('user2Id', (v) => v as String),
+          user1: $checkedConvert(
+              'user1', (v) => User.fromJson(v as Map<String, dynamic>)),
+          user2: $checkedConvert(
+              'user2', (v) => User.fromJson(v as Map<String, dynamic>)),
+          winnerId: $checkedConvert('winnerId', (v) => v as String?),
+          winner: $checkedConvert(
+              'winner',
+              (v) =>
+                  v == null ? null : User.fromJson(v as Map<String, dynamic>)),
+          surrendered: $checkedConvert('surrendered', (v) => v as String?),
+          black: $checkedConvert('black', (v) => v as int?),
+          bw: $checkedConvert('bw', (v) => v as String),
+          isLlotheo: $checkedConvert('isLlotheo', (v) => v as bool),
+          canPutEverywhere:
+              $checkedConvert('canPutEverywhere', (v) => v as bool),
+          loopedBoard: $checkedConvert('loopedBoard', (v) => v as bool),
+          logs: $checkedConvert(
+              'logs',
+              (v) =>
+                  (v as List<dynamic>?)?.map((e) => e as Map<String, dynamic>)),
+          map: $checkedConvert(
+              'map', (v) => (v as List<dynamic>?)?.map((e) => e as String)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$ReversiGameToJson(ReversiGame instance) =>

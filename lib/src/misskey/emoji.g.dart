@@ -6,14 +6,21 @@ part of 'emoji.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Emoji _$EmojiFromJson(Map<String, dynamic> json) => Emoji(
-      id: json['id'] as String?,
-      aliases:
-          (json['aliases'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      name: json['name'] as String,
-      category: json['category'] as String?,
-      host: json['host'] as String?,
-      url: json['url'] as String,
+Emoji _$EmojiFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Emoji',
+      json,
+      ($checkedConvert) {
+        final val = Emoji(
+          id: $checkedConvert('id', (v) => v as String?),
+          aliases: $checkedConvert('aliases',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          name: $checkedConvert('name', (v) => v as String),
+          category: $checkedConvert('category', (v) => v as String?),
+          host: $checkedConvert('host', (v) => v as String?),
+          url: $checkedConvert('url', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$EmojiToJson(Emoji instance) => <String, dynamic>{

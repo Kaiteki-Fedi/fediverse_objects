@@ -7,15 +7,25 @@ part of 'reversi_matching.dart';
 // **************************************************************************
 
 ReversiMatching _$ReversiMatchingFromJson(Map<String, dynamic> json) =>
-    ReversiMatching(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      parentId: json['parentId'] as String,
-      parent: json['parent'] == null
-          ? null
-          : User.fromJson(json['parent'] as Map<String, dynamic>),
-      childId: json['childId'] as String,
-      child: User.fromJson(json['child'] as Map<String, dynamic>),
+    $checkedCreate(
+      'ReversiMatching',
+      json,
+      ($checkedConvert) {
+        final val = ReversiMatching(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          parentId: $checkedConvert('parentId', (v) => v as String),
+          parent: $checkedConvert(
+              'parent',
+              (v) =>
+                  v == null ? null : User.fromJson(v as Map<String, dynamic>)),
+          childId: $checkedConvert('childId', (v) => v as String),
+          child: $checkedConvert(
+              'child', (v) => User.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$ReversiMatchingToJson(ReversiMatching instance) =>

@@ -6,13 +6,26 @@ part of 'emoji.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Emoji _$EmojiFromJson(Map<String, dynamic> json) => Emoji(
-      shortcode: json['shortcode'] as String,
-      url: json['url'] as String,
-      staticUrl: json['static_url'] as String,
-      visibleInPicker: json['visible_in_picker'] as bool,
-      category: json['category'] as String?,
-      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String),
+Emoji _$EmojiFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Emoji',
+      json,
+      ($checkedConvert) {
+        final val = Emoji(
+          shortcode: $checkedConvert('shortcode', (v) => v as String),
+          url: $checkedConvert('url', (v) => v as String),
+          staticUrl: $checkedConvert('static_url', (v) => v as String),
+          visibleInPicker:
+              $checkedConvert('visible_in_picker', (v) => v as bool),
+          category: $checkedConvert('category', (v) => v as String?),
+          tags: $checkedConvert(
+              'tags', (v) => (v as List<dynamic>?)?.map((e) => e as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'staticUrl': 'static_url',
+        'visibleInPicker': 'visible_in_picker'
+      },
     );
 
 Map<String, dynamic> _$EmojiToJson(Emoji instance) => <String, dynamic>{

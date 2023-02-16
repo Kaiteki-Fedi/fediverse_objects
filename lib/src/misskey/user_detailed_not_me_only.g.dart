@@ -8,55 +8,67 @@ part of 'user_detailed_not_me_only.dart';
 
 UserDetailedNotMeOnly _$UserDetailedNotMeOnlyFromJson(
         Map<String, dynamic> json) =>
-    UserDetailedNotMeOnly(
-      url: json['url'] as String?,
-      uri: json['uri'] as String?,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: json['updatedAt'] == null
-          ? null
-          : DateTime.parse(json['updatedAt'] as String),
-      lastFetchedAt: json['lastFetchedAt'] == null
-          ? null
-          : DateTime.parse(json['lastFetchedAt'] as String),
-      bannerUrl: json['bannerUrl'] as String?,
-      bannerBlurhash: json['bannerBlurhash'],
-      bannerColor: json['bannerColor'],
-      isLocked: json['isLocked'] as bool,
-      isSilenced: json['isSilenced'] as bool,
-      isSuspended: json['isSuspended'] as bool,
-      description: json['description'] as String?,
-      location: json['location'] as String?,
-      birthday: json['birthday'] as String?,
-      lang: json['lang'] as String?,
-      fields: (json['fields'] as List<dynamic>)
-          .map((e) => Field.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      followersCount: json['followersCount'] as int,
-      followingCount: json['followingCount'] as int,
-      notesCount: json['notesCount'] as int,
-      pinnedNoteIds: (json['pinnedNoteIds'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
-      pinnedNotes: (json['pinnedNotes'] as List<dynamic>)
-          .map((e) => Note.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      pinnedPageId: json['pinnedPageId'] as String?,
-      pinnedPage: json['pinnedPage'] == null
-          ? null
-          : Page.fromJson(json['pinnedPage'] as Map<String, dynamic>),
-      publicReactions: json['publicReactions'] as bool,
-      twoFactorEnabled: json['twoFactorEnabled'] as bool,
-      usePasswordLessLogin: json['usePasswordLessLogin'] as bool,
-      securityKeys: json['securityKeys'] as bool,
-      isFollowing: json['isFollowing'] as bool?,
-      isFollowed: json['isFollowed'] as bool?,
-      hasPendingFollowRequestFromYou:
-          json['hasPendingFollowRequestFromYou'] as bool?,
-      hasPendingFollowRequestToYou:
-          json['hasPendingFollowRequestToYou'] as bool?,
-      isBlocking: json['isBlocking'] as bool?,
-      isBlocked: json['isBlocked'] as bool?,
-      isMuted: json['isMuted'] as bool?,
+    $checkedCreate(
+      'UserDetailedNotMeOnly',
+      json,
+      ($checkedConvert) {
+        final val = UserDetailedNotMeOnly(
+          url: $checkedConvert('url', (v) => v as String?),
+          uri: $checkedConvert('uri', (v) => v as String?),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          updatedAt: $checkedConvert('updatedAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          lastFetchedAt: $checkedConvert('lastFetchedAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          bannerUrl: $checkedConvert('bannerUrl', (v) => v as String?),
+          bannerBlurhash: $checkedConvert('bannerBlurhash', (v) => v),
+          bannerColor: $checkedConvert('bannerColor', (v) => v),
+          isLocked: $checkedConvert('isLocked', (v) => v as bool),
+          isSilenced: $checkedConvert('isSilenced', (v) => v as bool),
+          isSuspended: $checkedConvert('isSuspended', (v) => v as bool),
+          description: $checkedConvert('description', (v) => v as String?),
+          location: $checkedConvert('location', (v) => v as String?),
+          birthday: $checkedConvert('birthday', (v) => v as String?),
+          lang: $checkedConvert('lang', (v) => v as String?),
+          fields: $checkedConvert(
+              'fields',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Field.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          followersCount: $checkedConvert('followersCount', (v) => v as int),
+          followingCount: $checkedConvert('followingCount', (v) => v as int),
+          notesCount: $checkedConvert('notesCount', (v) => v as int),
+          pinnedNoteIds: $checkedConvert('pinnedNoteIds',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          pinnedNotes: $checkedConvert(
+              'pinnedNotes',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Note.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          pinnedPageId: $checkedConvert('pinnedPageId', (v) => v as String?),
+          pinnedPage: $checkedConvert(
+              'pinnedPage',
+              (v) =>
+                  v == null ? null : Page.fromJson(v as Map<String, dynamic>)),
+          publicReactions: $checkedConvert('publicReactions', (v) => v as bool),
+          twoFactorEnabled:
+              $checkedConvert('twoFactorEnabled', (v) => v as bool),
+          usePasswordLessLogin:
+              $checkedConvert('usePasswordLessLogin', (v) => v as bool),
+          securityKeys: $checkedConvert('securityKeys', (v) => v as bool),
+          isFollowing: $checkedConvert('isFollowing', (v) => v as bool?),
+          isFollowed: $checkedConvert('isFollowed', (v) => v as bool?),
+          hasPendingFollowRequestFromYou: $checkedConvert(
+              'hasPendingFollowRequestFromYou', (v) => v as bool?),
+          hasPendingFollowRequestToYou: $checkedConvert(
+              'hasPendingFollowRequestToYou', (v) => v as bool?),
+          isBlocking: $checkedConvert('isBlocking', (v) => v as bool?),
+          isBlocked: $checkedConvert('isBlocked', (v) => v as bool?),
+          isMuted: $checkedConvert('isMuted', (v) => v as bool?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$UserDetailedNotMeOnlyToJson(

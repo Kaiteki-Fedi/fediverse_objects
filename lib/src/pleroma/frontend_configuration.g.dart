@@ -8,11 +8,21 @@ part of 'frontend_configuration.dart';
 
 FrontendConfiguration _$FrontendConfigurationFromJson(
         Map<String, dynamic> json) =>
-    FrontendConfiguration(
-      pleroma: json['pleroma_fe'] == null
-          ? null
-          : PleromaFrontendConfiguration.fromJson(
-              json['pleroma_fe'] as Map<String, dynamic>),
+    $checkedCreate(
+      'FrontendConfiguration',
+      json,
+      ($checkedConvert) {
+        final val = FrontendConfiguration(
+          pleroma: $checkedConvert(
+              'pleroma_fe',
+              (v) => v == null
+                  ? null
+                  : PleromaFrontendConfiguration.fromJson(
+                      v as Map<String, dynamic>)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'pleroma': 'pleroma_fe'},
     );
 
 Map<String, dynamic> _$FrontendConfigurationToJson(

@@ -6,15 +6,25 @@ part of 'role.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Role _$RoleFromJson(Map<String, dynamic> json) => Role(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      color: json['color'] as String,
-      position: json['position'] as int,
-      permissions: json['permissions'] as int,
-      highlighted: json['highlighted'] as bool,
-      createdAt: DateTime.parse(json['created_at'] as String),
-      updatedAt: DateTime.parse(json['updated_at'] as String),
+Role _$RoleFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Role',
+      json,
+      ($checkedConvert) {
+        final val = Role(
+          id: $checkedConvert('id', (v) => v as int),
+          name: $checkedConvert('name', (v) => v as String),
+          color: $checkedConvert('color', (v) => v as String),
+          position: $checkedConvert('position', (v) => v as int),
+          permissions: $checkedConvert('permissions', (v) => v as int),
+          highlighted: $checkedConvert('highlighted', (v) => v as bool),
+          createdAt:
+              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
+          updatedAt:
+              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'createdAt': 'created_at', 'updatedAt': 'updated_at'},
     );
 
 Map<String, dynamic> _$RoleToJson(Role instance) => <String, dynamic>{

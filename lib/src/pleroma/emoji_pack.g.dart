@@ -6,8 +6,18 @@ part of 'emoji_pack.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EmojiPack _$EmojiPackFromJson(Map<String, dynamic> json) => EmojiPack(
-      files: Map<String, String>.from(json['files'] as Map),
-      pack: EmojiPackMetadata.fromJson(json['pack'] as Map<String, dynamic>),
-      fileCount: json['files_count'] as int?,
+EmojiPack _$EmojiPackFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'EmojiPack',
+      json,
+      ($checkedConvert) {
+        final val = EmojiPack(
+          files: $checkedConvert(
+              'files', (v) => Map<String, String>.from(v as Map)),
+          pack: $checkedConvert('pack',
+              (v) => EmojiPackMetadata.fromJson(v as Map<String, dynamic>)),
+          fileCount: $checkedConvert('files_count', (v) => v as int?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'fileCount': 'files_count'},
     );

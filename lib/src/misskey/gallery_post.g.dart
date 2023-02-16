@@ -6,21 +6,34 @@ part of 'gallery_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GalleryPost _$GalleryPostFromJson(Map<String, dynamic> json) => GalleryPost(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
-      title: json['title'] as String,
-      description: json['description'] as String?,
-      userId: json['userId'] as String,
-      user: UserLite.fromJson(json['user'] as Map<String, dynamic>),
-      fileIds:
-          (json['fileIds'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      files: (json['files'] as List<dynamic>?)
-          ?.map((e) => DriveFile.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      isSensitive: json['isSensitive'] as bool,
+GalleryPost _$GalleryPostFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'GalleryPost',
+      json,
+      ($checkedConvert) {
+        final val = GalleryPost(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          updatedAt:
+              $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
+          title: $checkedConvert('title', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
+          userId: $checkedConvert('userId', (v) => v as String),
+          user: $checkedConvert(
+              'user', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+          fileIds: $checkedConvert('fileIds',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          files: $checkedConvert(
+              'files',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => DriveFile.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          tags: $checkedConvert('tags',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          isSensitive: $checkedConvert('isSensitive', (v) => v as bool),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$GalleryPostToJson(GalleryPost instance) =>

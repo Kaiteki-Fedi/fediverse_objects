@@ -6,10 +6,17 @@ part of 'ad.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Ad _$AdFromJson(Map<String, dynamic> json) => Ad(
-      place: json['place'] as String,
-      url: json['url'] as String,
-      imageUrl: json['imageUrl'] as String,
+Ad _$AdFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Ad',
+      json,
+      ($checkedConvert) {
+        final val = Ad(
+          place: $checkedConvert('place', (v) => v as String),
+          url: $checkedConvert('url', (v) => v as String),
+          imageUrl: $checkedConvert('imageUrl', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$AdToJson(Ad instance) => <String, dynamic>{

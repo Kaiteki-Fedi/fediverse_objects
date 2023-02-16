@@ -7,13 +7,27 @@ part of 'scheduled_status.dart';
 // **************************************************************************
 
 ScheduledStatus _$ScheduledStatusFromJson(Map<String, dynamic> json) =>
-    ScheduledStatus(
-      id: json['id'] as String,
-      mediaAttachments: (json['media_attachments'] as List<dynamic>)
-          .map((e) => Attachment.fromJson(e as Map<String, dynamic>)),
-      params: ScheduledStatusParams.fromJson(
-          json['params'] as Map<String, dynamic>),
-      scheduledAt: DateTime.parse(json['scheduled_at'] as String),
+    $checkedCreate(
+      'ScheduledStatus',
+      json,
+      ($checkedConvert) {
+        final val = ScheduledStatus(
+          id: $checkedConvert('id', (v) => v as String),
+          mediaAttachments: $checkedConvert(
+              'media_attachments',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Attachment.fromJson(e as Map<String, dynamic>))),
+          params: $checkedConvert('params',
+              (v) => ScheduledStatusParams.fromJson(v as Map<String, dynamic>)),
+          scheduledAt: $checkedConvert(
+              'scheduled_at', (v) => DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'mediaAttachments': 'media_attachments',
+        'scheduledAt': 'scheduled_at'
+      },
     );
 
 Map<String, dynamic> _$ScheduledStatusToJson(ScheduledStatus instance) =>

@@ -6,21 +6,38 @@ part of 'poll.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Poll _$PollFromJson(Map<String, dynamic> json) => Poll(
-      id: json['id'] as String,
-      expiresAt: json['expires_at'] == null
-          ? null
-          : DateTime.parse(json['expires_at'] as String),
-      expired: json['expired'] as bool,
-      multiple: json['multiple'] as bool,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>)),
-      options: (json['options'] as List<dynamic>)
-          .map((e) => PollOption.fromJson(e as Map<String, dynamic>)),
-      ownVotes: (json['own_votes'] as List<dynamic>?)?.map((e) => e as int),
-      voted: json['voted'] as bool?,
-      votersCount: json['voters_count'] as int?,
-      votesCount: json['votes_count'] as int,
+Poll _$PollFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Poll',
+      json,
+      ($checkedConvert) {
+        final val = Poll(
+          id: $checkedConvert('id', (v) => v as String),
+          expiresAt: $checkedConvert('expires_at',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          expired: $checkedConvert('expired', (v) => v as bool),
+          multiple: $checkedConvert('multiple', (v) => v as bool),
+          emojis: $checkedConvert(
+              'emojis',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+          options: $checkedConvert(
+              'options',
+              (v) => (v as List<dynamic>)
+                  .map((e) => PollOption.fromJson(e as Map<String, dynamic>))),
+          ownVotes: $checkedConvert(
+              'own_votes', (v) => (v as List<dynamic>?)?.map((e) => e as int)),
+          voted: $checkedConvert('voted', (v) => v as bool?),
+          votersCount: $checkedConvert('voters_count', (v) => v as int?),
+          votesCount: $checkedConvert('votes_count', (v) => v as int),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'expiresAt': 'expires_at',
+        'ownVotes': 'own_votes',
+        'votersCount': 'voters_count',
+        'votesCount': 'votes_count'
+      },
     );
 
 Map<String, dynamic> _$PollToJson(Poll instance) => <String, dynamic>{

@@ -7,50 +7,67 @@ part of 'credential_account.dart';
 // **************************************************************************
 
 CredentialAccount _$CredentialAccountFromJson(Map<String, dynamic> json) =>
-    CredentialAccount(
-      acct: json['acct'] as String,
-      avatar: json['avatar'] as String,
-      avatarStatic: json['avatarStatic'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      displayName: json['displayName'] as String,
-      emojis: (json['emojis'] as List<dynamic>)
-          .map((e) => Emoji.fromJson(e as Map<String, dynamic>)),
-      followersCount: json['followersCount'] as int,
-      followingCount: json['followingCount'] as int,
-      group: json['group'] as bool?,
-      header: json['header'] as String,
-      headerStatic: json['headerStatic'] as String,
-      id: json['id'] as String,
-      locked: json['locked'] as bool,
-      note: json['note'] as String,
-      statusesCount: json['statusesCount'] as int,
-      url: json['url'] as String,
-      username: json['username'] as String,
-      bot: json['bot'] as bool?,
-      discoverable: json['discoverable'] as bool?,
-      fields: (json['fields'] as List<dynamic>?)
-          ?.map((e) => Field.fromJson(e as Map<String, dynamic>)),
-      lastStatusAt: json['lastStatusAt'] == null
-          ? null
-          : DateTime.parse(json['lastStatusAt'] as String),
-      limited: json['limited'] as bool?,
-      moved: json['moved'] == null
-          ? null
-          : Account.fromJson(json['moved'] as Map<String, dynamic>),
-      muteExpiredAt: json['muteExpiredAt'] == null
-          ? null
-          : DateTime.parse(json['muteExpiredAt'] as String),
-      noindex: json['noindex'] as bool?,
-      pleroma: json['pleroma'] == null
-          ? null
-          : PleromaAccount.fromJson(json['pleroma'] as Map<String, dynamic>),
-      suspended: json['suspended'] as bool?,
-      role: json['role'] == null
-          ? null
-          : Role.fromJson(json['role'] as Map<String, dynamic>),
-      source: json['source'] == null
-          ? null
-          : Source.fromJson(json['source'] as Map<String, dynamic>),
+    $checkedCreate(
+      'CredentialAccount',
+      json,
+      ($checkedConvert) {
+        final val = CredentialAccount(
+          acct: $checkedConvert('acct', (v) => v as String),
+          avatar: $checkedConvert('avatar', (v) => v as String),
+          avatarStatic: $checkedConvert('avatarStatic', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          displayName: $checkedConvert('displayName', (v) => v as String),
+          emojis: $checkedConvert(
+              'emojis',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+          followersCount: $checkedConvert('followersCount', (v) => v as int),
+          followingCount: $checkedConvert('followingCount', (v) => v as int),
+          group: $checkedConvert('group', (v) => v as bool?),
+          header: $checkedConvert('header', (v) => v as String),
+          headerStatic: $checkedConvert('headerStatic', (v) => v as String),
+          id: $checkedConvert('id', (v) => v as String),
+          locked: $checkedConvert('locked', (v) => v as bool),
+          note: $checkedConvert('note', (v) => v as String),
+          statusesCount: $checkedConvert('statusesCount', (v) => v as int),
+          url: $checkedConvert('url', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
+          bot: $checkedConvert('bot', (v) => v as bool?),
+          discoverable: $checkedConvert('discoverable', (v) => v as bool?),
+          fields: $checkedConvert(
+              'fields',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Field.fromJson(e as Map<String, dynamic>))),
+          lastStatusAt: $checkedConvert('lastStatusAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          limited: $checkedConvert('limited', (v) => v as bool?),
+          moved: $checkedConvert(
+              'moved',
+              (v) => v == null
+                  ? null
+                  : Account.fromJson(v as Map<String, dynamic>)),
+          muteExpiredAt: $checkedConvert('muteExpiredAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          noindex: $checkedConvert('noindex', (v) => v as bool?),
+          pleroma: $checkedConvert(
+              'pleroma',
+              (v) => v == null
+                  ? null
+                  : PleromaAccount.fromJson(v as Map<String, dynamic>)),
+          suspended: $checkedConvert('suspended', (v) => v as bool?),
+          role: $checkedConvert(
+              'role',
+              (v) =>
+                  v == null ? null : Role.fromJson(v as Map<String, dynamic>)),
+          source: $checkedConvert(
+              'source',
+              (v) => v == null
+                  ? null
+                  : Source.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$CredentialAccountToJson(CredentialAccount instance) =>

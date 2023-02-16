@@ -7,10 +7,22 @@ part of 'instance_statistics.dart';
 // **************************************************************************
 
 InstanceStatistics _$InstanceStatisticsFromJson(Map<String, dynamic> json) =>
-    InstanceStatistics(
-      userCount: json['user_count'] as int,
-      statusCount: json['status_count'] as int,
-      domainCount: json['domain_count'] as int,
+    $checkedCreate(
+      'InstanceStatistics',
+      json,
+      ($checkedConvert) {
+        final val = InstanceStatistics(
+          userCount: $checkedConvert('user_count', (v) => v as int),
+          statusCount: $checkedConvert('status_count', (v) => v as int),
+          domainCount: $checkedConvert('domain_count', (v) => v as int),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'userCount': 'user_count',
+        'statusCount': 'status_count',
+        'domainCount': 'domain_count'
+      },
     );
 
 Map<String, dynamic> _$InstanceStatisticsToJson(InstanceStatistics instance) =>

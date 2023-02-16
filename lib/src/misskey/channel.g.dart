@@ -6,19 +6,26 @@ part of 'channel.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Channel _$ChannelFromJson(Map<String, dynamic> json) => Channel(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      lastNotedAt: json['lastNotedAt'] == null
-          ? null
-          : DateTime.parse(json['lastNotedAt'] as String),
-      name: json['name'] as String,
-      description: json['description'] as String?,
-      bannerUrl: json['bannerUrl'] as String?,
-      notesCount: json['notesCount'] as int,
-      usersCount: json['usersCount'] as int,
-      isFollowing: json['isFollowing'] as bool?,
-      userId: json['userId'] as String?,
+Channel _$ChannelFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Channel',
+      json,
+      ($checkedConvert) {
+        final val = Channel(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          lastNotedAt: $checkedConvert('lastNotedAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          name: $checkedConvert('name', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String?),
+          bannerUrl: $checkedConvert('bannerUrl', (v) => v as String?),
+          notesCount: $checkedConvert('notesCount', (v) => v as int),
+          usersCount: $checkedConvert('usersCount', (v) => v as int),
+          isFollowing: $checkedConvert('isFollowing', (v) => v as bool?),
+          userId: $checkedConvert('userId', (v) => v as String?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$ChannelToJson(Channel instance) => <String, dynamic>{

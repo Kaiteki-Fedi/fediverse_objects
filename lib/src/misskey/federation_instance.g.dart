@@ -7,31 +7,42 @@ part of 'federation_instance.dart';
 // **************************************************************************
 
 FederationInstance _$FederationInstanceFromJson(Map<String, dynamic> json) =>
-    FederationInstance(
-      id: json['id'] as String,
-      caughtAt: DateTime.parse(json['caughtAt'] as String),
-      host: json['host'] as String,
-      usersCount: json['usersCount'] as int,
-      notesCount: json['notesCount'] as int,
-      followingCount: json['followingCount'] as int,
-      followersCount: json['followersCount'] as int,
-      latestRequestSentAt: json['latestRequestSentAt'] == null
-          ? null
-          : DateTime.parse(json['latestRequestSentAt'] as String),
-      lastCommunicatedAt: DateTime.parse(json['lastCommunicatedAt'] as String),
-      isNotResponding: json['isNotResponding'] as bool,
-      isSuspended: json['isSuspended'] as bool,
-      softwareName: json['softwareName'] as String?,
-      softwareVersion: json['softwareVersion'] as String?,
-      openRegistrations: json['openRegistrations'] as bool?,
-      name: json['name'] as String?,
-      description: json['description'] as String?,
-      maintainerName: json['maintainerName'] as String?,
-      maintainerEmail: json['maintainerEmail'] as String?,
-      iconUrl: json['iconUrl'] as String?,
-      infoUpdatedAt: json['infoUpdatedAt'] == null
-          ? null
-          : DateTime.parse(json['infoUpdatedAt'] as String),
+    $checkedCreate(
+      'FederationInstance',
+      json,
+      ($checkedConvert) {
+        final val = FederationInstance(
+          id: $checkedConvert('id', (v) => v as String),
+          caughtAt:
+              $checkedConvert('caughtAt', (v) => DateTime.parse(v as String)),
+          host: $checkedConvert('host', (v) => v as String),
+          usersCount: $checkedConvert('usersCount', (v) => v as int),
+          notesCount: $checkedConvert('notesCount', (v) => v as int),
+          followingCount: $checkedConvert('followingCount', (v) => v as int),
+          followersCount: $checkedConvert('followersCount', (v) => v as int),
+          latestRequestSentAt: $checkedConvert('latestRequestSentAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          lastCommunicatedAt: $checkedConvert(
+              'lastCommunicatedAt', (v) => DateTime.parse(v as String)),
+          isNotResponding: $checkedConvert('isNotResponding', (v) => v as bool),
+          isSuspended: $checkedConvert('isSuspended', (v) => v as bool),
+          softwareName: $checkedConvert('softwareName', (v) => v as String?),
+          softwareVersion:
+              $checkedConvert('softwareVersion', (v) => v as String?),
+          openRegistrations:
+              $checkedConvert('openRegistrations', (v) => v as bool?),
+          name: $checkedConvert('name', (v) => v as String?),
+          description: $checkedConvert('description', (v) => v as String?),
+          maintainerName:
+              $checkedConvert('maintainerName', (v) => v as String?),
+          maintainerEmail:
+              $checkedConvert('maintainerEmail', (v) => v as String?),
+          iconUrl: $checkedConvert('iconUrl', (v) => v as String?),
+          infoUpdatedAt: $checkedConvert('infoUpdatedAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$FederationInstanceToJson(FederationInstance instance) =>

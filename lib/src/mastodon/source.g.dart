@@ -6,14 +6,25 @@ part of 'source.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Source _$SourceFromJson(Map<String, dynamic> json) => Source(
-      note: json['note'] as String,
-      fields: (json['fields'] as List<dynamic>)
-          .map((e) => Field.fromJson(e as Map<String, dynamic>)),
-      privacy: json['privacy'] as String?,
-      sensitive: json['sensitive'] as bool?,
-      language: json['language'] as String?,
-      followRequestsCount: json['follow_requests_count'] as int?,
+Source _$SourceFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Source',
+      json,
+      ($checkedConvert) {
+        final val = Source(
+          note: $checkedConvert('note', (v) => v as String),
+          fields: $checkedConvert(
+              'fields',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Field.fromJson(e as Map<String, dynamic>))),
+          privacy: $checkedConvert('privacy', (v) => v as String?),
+          sensitive: $checkedConvert('sensitive', (v) => v as bool?),
+          language: $checkedConvert('language', (v) => v as String?),
+          followRequestsCount:
+              $checkedConvert('follow_requests_count', (v) => v as int?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'followRequestsCount': 'follow_requests_count'},
     );
 
 Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{

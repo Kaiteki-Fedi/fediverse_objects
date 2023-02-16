@@ -6,17 +6,30 @@ part of 'card.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Card _$CardFromJson(Map<String, dynamic> json) => Card(
-      json['description'] as String,
-      json['image'] as String?,
-      json['pleroma'] == null
-          ? null
-          : PleromaCard.fromJson(json['pleroma'] as Map<String, dynamic>),
-      json['provider_name'] as String,
-      json['provider_url'] as String,
-      json['title'] as String,
-      json['type'] as String,
-      json['url'] as String,
+Card _$CardFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Card',
+      json,
+      ($checkedConvert) {
+        final val = Card(
+          $checkedConvert('description', (v) => v as String),
+          $checkedConvert('image', (v) => v as String?),
+          $checkedConvert(
+              'pleroma',
+              (v) => v == null
+                  ? null
+                  : PleromaCard.fromJson(v as Map<String, dynamic>)),
+          $checkedConvert('provider_name', (v) => v as String),
+          $checkedConvert('provider_url', (v) => v as String),
+          $checkedConvert('title', (v) => v as String),
+          $checkedConvert('type', (v) => v as String),
+          $checkedConvert('url', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'providerName': 'provider_name',
+        'providerUrl': 'provider_url'
+      },
     );
 
 Map<String, dynamic> _$CardToJson(Card instance) => <String, dynamic>{

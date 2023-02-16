@@ -6,24 +6,38 @@ part of 'notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Notification _$NotificationFromJson(Map<String, dynamic> json) => Notification(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      isRead: json['isRead'] as bool,
-      type: $enumDecode(_$NotificationTypeEnumMap, json['type']),
-      user: json['user'] == null
-          ? null
-          : UserLite.fromJson(json['user'] as Map<String, dynamic>),
-      userId: json['userId'] as String?,
-      note: json['note'] == null
-          ? null
-          : Note.fromJson(json['note'] as Map<String, dynamic>),
-      reaction: json['reaction'] as String?,
-      choice: json['choice'] as int?,
-      invitation: json['invitation'] as Map<String, dynamic>?,
-      body: json['body'] as String?,
-      header: json['header'] as String?,
-      icon: json['icon'] as String?,
+Notification _$NotificationFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'Notification',
+      json,
+      ($checkedConvert) {
+        final val = Notification(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          isRead: $checkedConvert('isRead', (v) => v as bool),
+          type: $checkedConvert(
+              'type', (v) => $enumDecode(_$NotificationTypeEnumMap, v)),
+          user: $checkedConvert(
+              'user',
+              (v) => v == null
+                  ? null
+                  : UserLite.fromJson(v as Map<String, dynamic>)),
+          userId: $checkedConvert('userId', (v) => v as String?),
+          note: $checkedConvert(
+              'note',
+              (v) =>
+                  v == null ? null : Note.fromJson(v as Map<String, dynamic>)),
+          reaction: $checkedConvert('reaction', (v) => v as String?),
+          choice: $checkedConvert('choice', (v) => v as int?),
+          invitation:
+              $checkedConvert('invitation', (v) => v as Map<String, dynamic>?),
+          body: $checkedConvert('body', (v) => v as String?),
+          header: $checkedConvert('header', (v) => v as String?),
+          icon: $checkedConvert('icon', (v) => v as String?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$NotificationToJson(Notification instance) =>

@@ -6,17 +6,27 @@ part of 'page.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Page _$PageFromJson(Map<String, dynamic> json) => Page(
-      id: json['id'] as String,
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
-      title: json['title'] as String,
-      name: json['name'] as String,
-      summary: json['summary'] as String?,
-      content: json['content'] as List<dynamic>,
-      variables: json['variables'] as List<dynamic>,
-      userId: json['userId'] as String,
-      user: UserLite.fromJson(json['user'] as Map<String, dynamic>),
+Page _$PageFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Page',
+      json,
+      ($checkedConvert) {
+        final val = Page(
+          id: $checkedConvert('id', (v) => v as String),
+          createdAt:
+              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          updatedAt:
+              $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
+          title: $checkedConvert('title', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          summary: $checkedConvert('summary', (v) => v as String?),
+          content: $checkedConvert('content', (v) => v as List<dynamic>),
+          variables: $checkedConvert('variables', (v) => v as List<dynamic>),
+          userId: $checkedConvert('userId', (v) => v as String),
+          user: $checkedConvert(
+              'user', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$PageToJson(Page instance) => <String, dynamic>{

@@ -7,12 +7,21 @@ part of 'emoji_reaction.dart';
 // **************************************************************************
 
 EmojiReaction _$EmojiReactionFromJson(Map<String, dynamic> json) =>
-    EmojiReaction(
-      accounts: (json['accounts'] as List<dynamic>?)
-          ?.map((e) => Account.fromJson(e as Map<String, dynamic>)),
-      count: json['count'] as int,
-      me: json['me'] as bool,
-      name: json['name'] as String,
+    $checkedCreate(
+      'EmojiReaction',
+      json,
+      ($checkedConvert) {
+        final val = EmojiReaction(
+          accounts: $checkedConvert(
+              'accounts',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Account.fromJson(e as Map<String, dynamic>))),
+          count: $checkedConvert('count', (v) => v as int),
+          me: $checkedConvert('me', (v) => v as bool),
+          name: $checkedConvert('name', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$EmojiReactionToJson(EmojiReaction instance) =>
