@@ -1,4 +1,5 @@
 import 'package:fediverse_objects/misskey.dart';
+import 'package:fediverse_objects/src/misskey_emojis_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';
@@ -38,7 +39,7 @@ class User {
   @JsonKey(name: 'isCat')
   final bool? isCat;
 
-  @JsonKey(name: 'emojis')
+  @JsonKey(name: 'emojis', readValue: misskeyEmojisReadValue)
   final List<Emoji>? emojis;
 
   @JsonKey(name: 'url')

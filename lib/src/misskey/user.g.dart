@@ -23,10 +23,12 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
           isBot: $checkedConvert('isBot', (v) => v as bool?),
           isCat: $checkedConvert('isCat', (v) => v as bool?),
           emojis: $checkedConvert(
-              'emojis',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
-                  .toList()),
+            'emojis',
+            (v) => (v as List<dynamic>?)
+                ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                .toList(),
+            readValue: misskeyEmojisReadValue,
+          ),
           url: $checkedConvert('url', (v) => v as String?),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),

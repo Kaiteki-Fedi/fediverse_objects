@@ -1,7 +1,9 @@
-import 'package:fediverse_objects/src/misskey/emoji.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:fediverse_objects/src/misskey/user_lite.dart';
 import 'package:fediverse_objects/src/misskey/drive_file.dart';
+import 'package:fediverse_objects/src/misskey/emoji.dart';
+import 'package:fediverse_objects/src/misskey/user_lite.dart';
+import 'package:fediverse_objects/src/misskey_emojis_conversion.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 part 'note.g.dart';
 
 @JsonSerializable()
@@ -48,6 +50,7 @@ class Note {
 
   final bool? localOnly;
 
+  @JsonKey(readValue: misskeyEmojisReadValue)
   final List<Emoji>? emojis;
 
   final Map<String, int> reactions;

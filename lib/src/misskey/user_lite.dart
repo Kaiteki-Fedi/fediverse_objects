@@ -1,4 +1,5 @@
 import 'package:fediverse_objects/src/misskey/emoji.dart';
+import 'package:fediverse_objects/src/misskey_emojis_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'user_lite.g.dart';
 
@@ -27,6 +28,7 @@ class UserLite {
 
   final bool? isCat;
 
+  @JsonKey(readValue: misskeyEmojisReadValue)
   final List<Emoji>? emojis;
 
   final UserLiteOnlineStatus? onlineStatus;

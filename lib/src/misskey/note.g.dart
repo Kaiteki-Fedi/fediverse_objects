@@ -50,10 +50,12 @@ Note _$NoteFromJson(Map<String, dynamic> json) => $checkedCreate(
               $checkedConvert('channel', (v) => v as Map<String, dynamic>?),
           localOnly: $checkedConvert('localOnly', (v) => v as bool?),
           emojis: $checkedConvert(
-              'emojis',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
-                  .toList()),
+            'emojis',
+            (v) => (v as List<dynamic>?)
+                ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                .toList(),
+            readValue: misskeyEmojisReadValue,
+          ),
           reactions: $checkedConvert(
               'reactions', (v) => Map<String, int>.from(v as Map)),
           renoteCount: $checkedConvert('renoteCount', (v) => v as int),

@@ -1,8 +1,10 @@
 import 'package:fediverse_objects/src/misskey/emoji.dart';
 import 'package:fediverse_objects/src/misskey/manual/field.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:fediverse_objects/src/misskey/note.dart';
 import 'package:fediverse_objects/src/misskey/page.dart';
+import 'package:fediverse_objects/src/misskey_emojis_conversion.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 part 'user_detailed_not_me.g.dart';
 
 @JsonSerializable()
@@ -18,9 +20,9 @@ class UserDetailedNotMe {
 
   final String? avatarUrl;
 
-  final dynamic? avatarBlurhash;
+  final dynamic avatarBlurhash;
 
-  final dynamic? avatarColor;
+  final dynamic avatarColor;
 
   final bool? isAdmin;
 
@@ -30,6 +32,7 @@ class UserDetailedNotMe {
 
   final bool? isCat;
 
+  @JsonKey(readValue: misskeyEmojisReadValue)
   final List<Emoji>? emojis;
 
   final UserDetailedNotMeOnlineStatus? onlineStatus;
@@ -46,9 +49,9 @@ class UserDetailedNotMe {
 
   final String? bannerUrl;
 
-  final dynamic? bannerBlurhash;
+  final dynamic bannerBlurhash;
 
-  final dynamic? bannerColor;
+  final dynamic bannerColor;
 
   final bool isLocked;
 

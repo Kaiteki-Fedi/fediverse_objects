@@ -1,8 +1,10 @@
 import 'package:fediverse_objects/src/misskey/emoji.dart';
-import 'package:fediverse_objects/src/misskey/user_lite.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:fediverse_objects/src/misskey/note.dart';
 import 'package:fediverse_objects/src/misskey/page.dart';
+import 'package:fediverse_objects/src/misskey/user_lite.dart';
+import 'package:fediverse_objects/src/misskey_emojis_conversion.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 part 'user_detailed.g.dart';
 
 @JsonSerializable()
@@ -26,10 +28,10 @@ class UserDetailed {
   final String? bannerUrl;
 
   @JsonKey(name: 'bannerBlurhash')
-  final dynamic? bannerBlurhash;
+  final dynamic bannerBlurhash;
 
   @JsonKey(name: 'bannerColor')
-  final dynamic? bannerColor;
+  final dynamic bannerColor;
 
   @JsonKey(name: 'isLocked')
   final bool isLocked;
@@ -206,10 +208,10 @@ class UserDetailed {
   final String? avatarUrl;
 
   @JsonKey(name: 'avatarBlurhash')
-  final dynamic? avatarBlurhash;
+  final dynamic avatarBlurhash;
 
   @JsonKey(name: 'avatarColor')
-  final dynamic? avatarColor;
+  final dynamic avatarColor;
 
   @JsonKey(name: 'isAdmin')
   final bool? isAdmin;
@@ -223,7 +225,7 @@ class UserDetailed {
   @JsonKey(name: 'isCat')
   final bool? isCat;
 
-  @JsonKey(name: 'emojis')
+  @JsonKey(name: 'emojis', readValue: misskeyEmojisReadValue)
   final List<Emoji>? emojis;
 
   @JsonKey(name: 'onlineStatus')
