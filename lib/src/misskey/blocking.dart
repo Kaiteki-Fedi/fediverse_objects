@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fediverse_objects/src/misskey/user_detailed.dart';
+
 part 'blocking.g.dart';
 
 @JsonSerializable()
@@ -19,6 +19,7 @@ class Blocking {
     required this.blockee,
   });
 
-  factory Blocking.fromJson(Map<String, dynamic> json) => _$BlockingFromJson(json);
+  factory Blocking.fromJson(Map<String, dynamic> json) =>
+      _$BlockingFromJson(json);
   Map<String, dynamic> toJson() => _$BlockingToJson(this);
 }

@@ -5,43 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'user.g.dart';
 
 @JsonSerializable()
-class User {
-  @JsonKey(name: 'id')
-  final String id;
-
-  @JsonKey(name: 'name')
-  final String? name;
-
-  @JsonKey(name: 'username')
-  final String username;
-
-  @JsonKey(name: 'host')
-  final String? host;
-
-  @JsonKey(name: 'avatarUrl')
-  final String? avatarUrl;
-
-  @JsonKey(name: 'avatarBlurhash')
-  final dynamic? avatarBlurhash;
-
-  @JsonKey(name: 'avatarColor')
-  final dynamic? avatarColor;
-
-  @JsonKey(name: 'isAdmin')
-  final bool? isAdmin;
-
-  @JsonKey(name: 'isModerator')
-  final bool? isModerator;
-
-  @JsonKey(name: 'isBot')
-  final bool? isBot;
-
-  @JsonKey(name: 'isCat')
-  final bool? isCat;
-
-  @JsonKey(name: 'emojis', readValue: misskeyEmojisReadValue)
-  final List<Emoji>? emojis;
-
+class User extends UserLite {
   @JsonKey(name: 'url')
   final String? url;
 
@@ -55,10 +19,10 @@ class User {
   final String? bannerUrl;
 
   @JsonKey(name: 'bannerBlurhash')
-  final dynamic? bannerBlurhash;
+  final dynamic bannerBlurhash;
 
   @JsonKey(name: 'bannerColor')
-  final dynamic? bannerColor;
+  final dynamic bannerColor;
 
   @JsonKey(name: 'isLocked')
   final bool? isLocked;
@@ -184,18 +148,17 @@ class User {
   final bool? isMuted;
 
   const User({
-    required this.id,
-    this.name,
-    required this.username,
-    this.host,
-    this.avatarUrl,
-    this.avatarBlurhash,
-    this.avatarColor,
-    required this.isAdmin,
-    required this.isModerator,
-    required this.isBot,
-    required this.isCat,
-    required this.emojis,
+    required super.id,
+    super.name,
+    required super.username,
+    super.host,
+    super.avatarUrl,
+    super.avatarBlurhash,
+    super.isAdmin,
+    super.isModerator,
+    super.isBot,
+    super.isCat,
+    super.emojis,
     this.url,
     required this.createdAt,
     this.updatedAt,

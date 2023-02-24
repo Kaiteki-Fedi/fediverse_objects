@@ -1,6 +1,7 @@
 import 'package:fediverse_objects/src/misskey/emoji.dart';
 import 'package:fediverse_objects/src/misskey_emojis_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 part 'user_lite.g.dart';
 
 @JsonSerializable()
@@ -16,9 +17,7 @@ class UserLite {
 
   final String? avatarUrl;
 
-  final dynamic? avatarBlurhash;
-
-  final dynamic? avatarColor;
+  final String? avatarBlurhash;
 
   final bool? isAdmin;
 
@@ -31,7 +30,7 @@ class UserLite {
   @JsonKey(readValue: misskeyEmojisReadValue)
   final List<Emoji>? emojis;
 
-  final UserLiteOnlineStatus? onlineStatus;
+  final UserOnlineStatus? onlineStatus;
 
   const UserLite({
     required this.id,
@@ -40,7 +39,6 @@ class UserLite {
     this.host,
     this.avatarUrl,
     this.avatarBlurhash,
-    this.avatarColor,
     this.isAdmin,
     this.isModerator,
     this.isBot,
@@ -54,7 +52,7 @@ class UserLite {
   Map<String, dynamic> toJson() => _$UserLiteToJson(this);
 }
 
-enum UserLiteOnlineStatus {
+enum UserOnlineStatus {
   unknown,
   online,
   active,

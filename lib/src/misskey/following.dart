@@ -1,5 +1,4 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fediverse_objects/src/misskey/user_detailed.dart';
 part 'following.g.dart';
 
 @JsonSerializable()
@@ -25,6 +24,7 @@ class Following {
     this.follower,
   });
 
-  factory Following.fromJson(Map<String, dynamic> json) => _$FollowingFromJson(json);
+  factory Following.fromJson(Map<String, dynamic> json) =>
+      _$FollowingFromJson(json);
   Map<String, dynamic> toJson() => _$FollowingToJson(this);
 }

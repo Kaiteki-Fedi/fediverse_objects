@@ -16,8 +16,8 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
           username: $checkedConvert('username', (v) => v as String),
           host: $checkedConvert('host', (v) => v as String?),
           avatarUrl: $checkedConvert('avatarUrl', (v) => v as String?),
-          avatarBlurhash: $checkedConvert('avatarBlurhash', (v) => v),
-          avatarColor: $checkedConvert('avatarColor', (v) => v),
+          avatarBlurhash:
+              $checkedConvert('avatarBlurhash', (v) => v as String?),
           isAdmin: $checkedConvert('isAdmin', (v) => v as bool?),
           isModerator: $checkedConvert('isModerator', (v) => v as bool?),
           isBot: $checkedConvert('isBot', (v) => v as bool?),
@@ -116,7 +116,6 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'host': instance.host,
       'avatarUrl': instance.avatarUrl,
       'avatarBlurhash': instance.avatarBlurhash,
-      'avatarColor': instance.avatarColor,
       'isAdmin': instance.isAdmin,
       'isModerator': instance.isModerator,
       'isBot': instance.isBot,
