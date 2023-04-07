@@ -34,6 +34,11 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : Account.fromJson(v as Map<String, dynamic>)),
+          configuration: $checkedConvert(
+              'configuration',
+              (v) => v == null
+                  ? null
+                  : InstanceConfiguration.fromJson(v as Map<String, dynamic>)),
           avatarUploadLimit:
               $checkedConvert('avatar_upload_limit', (v) => v as int?),
           backgroundImage:
@@ -80,6 +85,7 @@ Map<String, dynamic> _$InstanceToJson(Instance instance) => <String, dynamic>{
       'uri': instance.uri,
       'urls': instance.urls,
       'version': instance.version,
+      'configuration': instance.configuration,
       'stats': instance.stats,
       'contact_account': instance.contactAccount,
       'invites_enabled': instance.invitesEnabled,
