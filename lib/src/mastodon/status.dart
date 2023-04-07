@@ -6,6 +6,7 @@ import 'application.dart';
 import 'attachment.dart';
 import 'card.dart';
 import 'emoji.dart';
+import 'reaction.dart';
 import 'mention.dart';
 import 'poll.dart';
 import 'tag.dart';
@@ -110,6 +111,9 @@ class Status {
   /// Returned instead of `content` when status is deleted, so the user may redraft from the source text without the client having to reverse-engineer the original text from the HTML content.
   final String? text;
 
+  /// Emoji Reactions (Glitch extension)
+  final Iterable<Reaction>? reactions;
+
   Status({
     required this.account,
     this.application,
@@ -141,6 +145,7 @@ class Status {
     this.url,
     this.text,
     this.poll,
+    this.reactions,
   });
 
   factory Status.fromJson(Map<String, dynamic> json) => _$StatusFromJson(json);

@@ -1,17 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'emoji_reaction.dart';
+part of 'reaction.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-EmojiReaction _$EmojiReactionFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      'EmojiReaction',
+Reaction _$ReactionFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Reaction',
       json,
       ($checkedConvert) {
-        final val = EmojiReaction(
+        final val = Reaction(
           accounts: $checkedConvert(
               'accounts',
               (v) => (v as List<dynamic>?)
@@ -19,15 +18,16 @@ EmojiReaction _$EmojiReactionFromJson(Map<String, dynamic> json) =>
           count: $checkedConvert('count', (v) => v as int),
           me: $checkedConvert('me', (v) => v as bool),
           name: $checkedConvert('name', (v) => v as String),
+          url: $checkedConvert('url', (v) => v as String?),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$EmojiReactionToJson(EmojiReaction instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ReactionToJson(Reaction instance) => <String, dynamic>{
       'accounts': instance.accounts?.toList(),
       'count': instance.count,
       'me': instance.me,
       'name': instance.name,
+      'url': instance.url,
     };

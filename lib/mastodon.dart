@@ -18,6 +18,7 @@ export 'src/mastodon/poll_option.dart';
 export 'src/mastodon/poll.dart';
 export 'src/mastodon/push_subscription_alerts.dart';
 export 'src/mastodon/push_subscription.dart';
+export 'src/mastodon/reaction.dart';
 export 'src/mastodon/replies_policy.dart';
 export 'src/mastodon/role.dart';
 export 'src/mastodon/scheduled_status_params.dart';
