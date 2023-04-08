@@ -8,6 +8,8 @@ export 'src/mastodon/card.dart';
 export 'src/mastodon/credential_account.dart';
 export 'src/mastodon/emoji.dart';
 export 'src/mastodon/field.dart';
+export 'src/mastodon/instance_configuration.dart';
+export 'src/mastodon/instance_configuration_reactions.dart';
 export 'src/mastodon/instance_statistics.dart';
 export 'src/mastodon/instance_urls.dart';
 export 'src/mastodon/instance.dart';

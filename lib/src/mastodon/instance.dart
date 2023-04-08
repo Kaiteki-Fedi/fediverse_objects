@@ -1,4 +1,5 @@
 import 'package:fediverse_objects/src/mastodon/account.dart';
+import 'package:fediverse_objects/src/mastodon/instance_configuration.dart';
 import 'package:fediverse_objects/src/mastodon/instance_statistics.dart';
 import 'package:fediverse_objects/src/mastodon/instance_urls.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -63,6 +64,9 @@ class Instance {
   /// The version of Mastodon installed on the instance.
   final String version;
 
+  /// Configuration of this instance
+  final InstanceConfiguration? configuration;
+
   /// Statistics about how much information the instance contains.
   final InstanceStatistics stats;
 
@@ -95,6 +99,7 @@ class Instance {
     // optional attributes
     this.thumbnail,
     this.contactAccount,
+    this.configuration,
 
     // pleroma attributes
     this.avatarUploadLimit,
