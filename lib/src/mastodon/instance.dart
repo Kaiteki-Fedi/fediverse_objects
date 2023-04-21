@@ -1,97 +1,141 @@
 import 'package:fediverse_objects/src/mastodon/account.dart';
-import 'package:fediverse_objects/src/mastodon/instance_statistics.dart';
-import 'package:fediverse_objects/src/mastodon/instance_urls.dart';
-import 'package:fediverse_objects/src/pleroma/instance.dart' as p;
+import 'package:fediverse_objects/src/mastodon/v1/instance.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'instance.g.dart';
 
+/// Represents the software instance of Mastodon running on this domain.
 @JsonSerializable(fieldRename: FieldRename.snake)
 class Instance {
-  final int? avatarUploadLimit;
-
-  final String? backgroundImage;
-
-  final int? backgroundUploadLimit;
-
-  final int? bannerUploadLimit;
-
-  /// Admin-defined description of the Mastodon site.
-  final String description;
-
-  /// A shorter description defined by the admin.
-  final String? shortDescription;
-
-  /// An email that may be contacted for any inquiries.
-  final String email;
-
-  /// Primary langauges of the website and its staff.
-  final List<String>? languages;
-
-  final int? maxTootChars;
-
-  final dynamic pollLimits;
-
-  /// Whether registrations are enabled.
-  final bool registrations;
-
-  final String? thumbnail;
+  /// The domain name of the instance.
+  final String domain;
 
   /// The title of the website.
   final String title;
 
-  final int? uploadLimit;
-
-  /// The domain name of the instance.
-  final String uri;
-
-  /// URLs of interest for clients apps.
-  final InstanceUrls urls;
-
   /// The version of Mastodon installed on the instance.
   final String version;
 
-  /// Statistics about how much information the instance contains.
-  final InstanceStatistics stats;
+  /// The URL for the source code of the software running on this instance, in
+  /// keeping with AGPL license requirements.
+  final Uri sourceUrl;
 
-  /// A user that can be contacted, as an alternative to [email].
-  final Account? contactAccount;
+  /// A short, plain-text description defined by the admin.
+  final String description;
 
-  /// Whether invites are enabled.
-  final bool? invitesEnabled;
+  /// Usage data for this instance.
+  final InstanceUsage usage;
 
-  /// Whether registrations require moderator approval.
-  final bool approvalRequired;
+  /// An image used to represent this instance.
+  final InstanceThumbnail thumbnail;
 
-  final p.Instance pleroma;
+  /// Primary languages of the website and its staff.
+  final Set<String> languages;
 
-  const Instance(
-    this.pleroma, {
-    required this.uri,
+  /// Configured values and limits for this website.
+  final InstanceConfiguration configuration;
+
+  /// Information about registering for this website.
+  final InstanceRegistrations registrations;
+
+  /// Hints related to contacting a representative of the website.
+  final InstanceContact contact;
+
+  /// An itemized list of rules for this website.
+  final Set<Rule> rules;
+
+  const Instance({
+    required this.domain,
     required this.title,
-    required this.description,
-    required this.email,
     required this.version,
+    required this.sourceUrl,
+    required this.description,
+    required this.usage,
+    required this.thumbnail,
     required this.languages,
+    required this.configuration,
     required this.registrations,
-    required this.approvalRequired,
-    required this.urls,
-    required this.stats,
-    this.shortDescription,
-    this.invitesEnabled,
-    this.thumbnail,
-    this.contactAccount,
-    this.avatarUploadLimit,
-    this.backgroundImage,
-    this.backgroundUploadLimit,
-    this.bannerUploadLimit,
-    this.maxTootChars,
-    this.pollLimits,
-    this.uploadLimit,
+    required this.contact,
+    required this.rules,
   });
 
   factory Instance.fromJson(Map<String, dynamic> json) =>
       _$InstanceFromJson(json);
 
   Map<String, dynamic> toJson() => _$InstanceToJson(this);
+}
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class InstanceContact {
+  /// An email address that can be messaged regarding inquiries or issues.
+  final String email;
+
+  /// An account that can be contacted natively over the network regarding
+  /// inquiries or issues.
+  final Account account;
+
+  const InstanceContact(this.email, this.account);
+
+  factory InstanceContact.fromJson(Map<String, dynamic> json) =>
+      _$InstanceContactFromJson(json);
+
+  Map<String, dynamic> toJson() => _$InstanceContactToJson(this);
+}
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class InstanceRegistrations {
+  /// Whether registrations are enabled.
+  final bool enabled;
+
+  /// Whether registrations require moderator approval.
+  final bool approvalRequired;
+
+  /// A custom message to be shown when registrations are closed.
+  final String? message;
+
+  const InstanceRegistrations(
+      this.enabled, this.approvalRequired, this.message);
+
+  factory InstanceRegistrations.fromJson(Map<String, dynamic> json) =>
+      _$InstanceRegistrationsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$InstanceRegistrationsToJson(this);
+}
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class InstanceThumbnail {
+  final Uri url;
+  final String? blurhash;
+  final Map<String, Uri>? versions;
+
+  const InstanceThumbnail(this.url, this.blurhash, this.versions);
+
+  factory InstanceThumbnail.fromJson(Map<String, dynamic> json) =>
+      _$InstanceThumbnailFromJson(json);
+
+  Map<String, dynamic> toJson() => _$InstanceThumbnailToJson(this);
+}
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class InstanceUsage {
+  final InstanceUsageUsers users;
+
+  const InstanceUsage(this.users);
+
+  factory InstanceUsage.fromJson(Map<String, dynamic> json) =>
+      _$InstanceUsageFromJson(json);
+
+  Map<String, dynamic> toJson() => _$InstanceUsageToJson(this);
+}
+
+@JsonSerializable(fieldRename: FieldRename.snake)
+class InstanceUsageUsers {
+  final int activeMonth;
+
+  const InstanceUsageUsers(this.activeMonth);
+
+  factory InstanceUsageUsers.fromJson(Map<String, dynamic> json) =>
+      _$InstanceUsageUsersFromJson(json);
+
+  Map<String, dynamic> toJson() => _$InstanceUsageUsersToJson(this);
 }
