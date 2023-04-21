@@ -11,6 +11,8 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Instance(
+          $checkedConvert(
+              'pleroma', (v) => Instance.fromJson(v as Map<String, dynamic>)),
           uri: $checkedConvert('uri', (v) => v as String),
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
@@ -26,7 +28,7 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
           stats: $checkedConvert('stats',
               (v) => InstanceStatistics.fromJson(v as Map<String, dynamic>)),
           shortDescription:
-              $checkedConvert('shortDescription', (v) => v as String?),
+              $checkedConvert('short_description', (v) => v as String?),
           invitesEnabled: $checkedConvert('invites_enabled', (v) => v as bool?),
           thumbnail: $checkedConvert('thumbnail', (v) => v as String?),
           contactAccount: $checkedConvert(
@@ -50,6 +52,7 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
       fieldKeyMap: const {
         'approvalRequired': 'approval_required',
+        'shortDescription': 'short_description',
         'invitesEnabled': 'invites_enabled',
         'contactAccount': 'contact_account',
         'avatarUploadLimit': 'avatar_upload_limit',
@@ -68,7 +71,7 @@ Map<String, dynamic> _$InstanceToJson(Instance instance) => <String, dynamic>{
       'background_upload_limit': instance.backgroundUploadLimit,
       'banner_upload_limit': instance.bannerUploadLimit,
       'description': instance.description,
-      'shortDescription': instance.shortDescription,
+      'short_description': instance.shortDescription,
       'email': instance.email,
       'languages': instance.languages,
       'max_toot_chars': instance.maxTootChars,
@@ -84,4 +87,5 @@ Map<String, dynamic> _$InstanceToJson(Instance instance) => <String, dynamic>{
       'contact_account': instance.contactAccount,
       'invites_enabled': instance.invitesEnabled,
       'approval_required': instance.approvalRequired,
+      'pleroma': instance.pleroma,
     };

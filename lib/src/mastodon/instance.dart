@@ -1,26 +1,19 @@
 import 'package:fediverse_objects/src/mastodon/account.dart';
 import 'package:fediverse_objects/src/mastodon/instance_statistics.dart';
 import 'package:fediverse_objects/src/mastodon/instance_urls.dart';
+import 'package:fediverse_objects/src/pleroma/instance.dart' as p;
 import 'package:json_annotation/json_annotation.dart';
 
 part 'instance.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Instance {
-  /// (Added by Pleroma)
-  @JsonKey(name: 'avatar_upload_limit')
   final int? avatarUploadLimit;
 
-  /// (Added by Pleroma)
-  @JsonKey(name: 'background_image')
   final String? backgroundImage;
 
-  /// (Added by Pleroma)
-  @JsonKey(name: 'background_upload_limit')
   final int? backgroundUploadLimit;
 
-  /// (Added by Pleroma)
-  @JsonKey(name: 'banner_upload_limit')
   final int? bannerUploadLimit;
 
   /// Admin-defined description of the Mastodon site.
@@ -35,11 +28,8 @@ class Instance {
   /// Primary langauges of the website and its staff.
   final List<String>? languages;
 
-  /// (Added by Pleroma)
-  @JsonKey(name: 'max_toot_chars')
   final int? maxTootChars;
 
-  @JsonKey(name: 'poll_limits')
   final dynamic pollLimits;
 
   /// Whether registrations are enabled.
@@ -50,8 +40,6 @@ class Instance {
   /// The title of the website.
   final String title;
 
-  /// (Added by Pleroma)
-  @JsonKey(name: 'upload_limit')
   final int? uploadLimit;
 
   /// The domain name of the instance.
@@ -67,18 +55,18 @@ class Instance {
   final InstanceStatistics stats;
 
   /// A user that can be contacted, as an alternative to [email].
-  @JsonKey(name: 'contact_account')
   final Account? contactAccount;
 
   /// Whether invites are enabled.
-  @JsonKey(name: 'invites_enabled')
   final bool? invitesEnabled;
 
   /// Whether registrations require moderator approval.
-  @JsonKey(name: 'approval_required')
   final bool approvalRequired;
 
-  const Instance({
+  final p.Instance pleroma;
+
+  const Instance(
+    this.pleroma, {
     required this.uri,
     required this.title,
     required this.description,
@@ -91,12 +79,8 @@ class Instance {
     required this.stats,
     this.shortDescription,
     this.invitesEnabled,
-
-    // optional attributes
     this.thumbnail,
     this.contactAccount,
-
-    // pleroma attributes
     this.avatarUploadLimit,
     this.backgroundImage,
     this.backgroundUploadLimit,
