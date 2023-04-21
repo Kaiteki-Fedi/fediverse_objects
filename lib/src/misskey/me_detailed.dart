@@ -18,9 +18,9 @@ class MeDetailed {
 
   final String? avatarUrl;
 
-  final dynamic? avatarBlurhash;
+  final dynamic avatarBlurhash;
 
-  final dynamic? avatarColor;
+  final dynamic avatarColor;
 
   final bool? isAdmin;
 
@@ -46,9 +46,9 @@ class MeDetailed {
 
   final String? bannerUrl;
 
-  final dynamic? bannerBlurhash;
+  final dynamic bannerBlurhash;
 
-  final dynamic? bannerColor;
+  final dynamic bannerColor;
 
   final bool isLocked;
 

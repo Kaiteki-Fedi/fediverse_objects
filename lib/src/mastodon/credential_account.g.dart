@@ -34,6 +34,11 @@ CredentialAccount _$CredentialAccountFromJson(Map<String, dynamic> json) =>
           statusesCount: $checkedConvert('statusesCount', (v) => v as int),
           url: $checkedConvert('url', (v) => v as String),
           username: $checkedConvert('username', (v) => v as String),
+          source: $checkedConvert(
+              'source',
+              (v) => v == null
+                  ? null
+                  : Source.fromJson(v as Map<String, dynamic>)),
           bot: $checkedConvert('bot', (v) => v as bool?),
           discoverable: $checkedConvert('discoverable', (v) => v as bool?),
           fields: $checkedConvert(
@@ -62,11 +67,6 @@ CredentialAccount _$CredentialAccountFromJson(Map<String, dynamic> json) =>
               'role',
               (v) =>
                   v == null ? null : Role.fromJson(v as Map<String, dynamic>)),
-          source: $checkedConvert(
-              'source',
-              (v) => v == null
-                  ? null
-                  : Source.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -90,6 +90,7 @@ Map<String, dynamic> _$CredentialAccountToJson(CredentialAccount instance) =>
       'locked': instance.locked,
       'note': instance.note,
       'pleroma': instance.pleroma,
+      'source': instance.source,
       'statusesCount': instance.statusesCount,
       'url': instance.url,
       'username': instance.username,
@@ -101,6 +102,5 @@ Map<String, dynamic> _$CredentialAccountToJson(CredentialAccount instance) =>
       'group': instance.group,
       'limited': instance.limited,
       'noindex': instance.noindex,
-      'source': instance.source,
       'role': instance.role,
     };

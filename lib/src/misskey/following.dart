@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 part 'following.g.dart';
 
 @JsonSerializable()
@@ -9,11 +10,11 @@ class Following {
 
   final String followeeId;
 
-  final dynamic? followee;
+  final dynamic followee;
 
   final String followerId;
 
-  final dynamic? follower;
+  final dynamic follower;
 
   const Following({
     required this.id,

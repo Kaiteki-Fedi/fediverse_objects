@@ -1,4 +1,3 @@
-/// API entities from Pleroma
 library pleroma;
 
 export 'src/pleroma/account.dart';

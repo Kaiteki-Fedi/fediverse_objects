@@ -11,9 +11,6 @@ part 'credential_account.g.dart';
 /// Represents a user of Mastodon and their associated profile.
 @JsonSerializable()
 class CredentialAccount extends Account {
-  /// An extra entity to be used with API methods to [verify credentials](https://docs.joinmastodon.org/methods/accounts/#verify-account-credentials) and [update credentials](https://docs.joinmastodon.org/methods/accounts/#update-account-credentials).
-  final Source? source;
-
   /// The role assigned to the currently authorized user.
   final Role? role;
 
@@ -35,6 +32,7 @@ class CredentialAccount extends Account {
     required super.statusesCount,
     required super.url,
     required super.username,
+    super.source,
     super.bot,
     super.discoverable,
     super.fields,
@@ -46,11 +44,11 @@ class CredentialAccount extends Account {
     super.pleroma,
     super.suspended,
     this.role,
-    this.source,
   });
 
   factory CredentialAccount.fromJson(Map<String, dynamic> json) =>
       _$CredentialAccountFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$CredentialAccountToJson(this);
 }

@@ -21,10 +21,10 @@ class ReversiGame {
   final bool isEnded;
 
   @JsonKey(name: 'form1')
-  final dynamic? form1;
+  final dynamic form1;
 
   @JsonKey(name: 'form2')
-  final dynamic? form2;
+  final dynamic form2;
 
   @JsonKey(name: 'user1Accepted')
   final bool user1Accepted;

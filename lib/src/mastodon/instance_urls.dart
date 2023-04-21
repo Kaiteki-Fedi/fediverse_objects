@@ -2,10 +2,9 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'instance_urls.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class InstanceUrls {
   /// Websockets address for push streaming.
-  @JsonKey(name: 'streaming_api')
   final String streamingApi;
 
   InstanceUrls({required this.streamingApi});

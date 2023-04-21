@@ -1,4 +1,3 @@
-/// API entities from Mastodon
 library mastodon;
 
 export 'src/mastodon/account.dart';

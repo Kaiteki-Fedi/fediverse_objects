@@ -1,4 +1,3 @@
-/// API entities from Misskey
 library misskey;
 
 export '/src/misskey/channel.dart';
