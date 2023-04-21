@@ -1,10 +1,11 @@
-import 'package:fediverse_objects/src/mastodon/account.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'emoji_reaction.g.dart';
+import 'account.dart';
+
+part 'reaction.g.dart';
 
 @JsonSerializable()
-class EmojiReaction {
+class Reaction {
   /// Array of accounts reacted with this emoji
   final List<Account>? accounts;
 
@@ -17,15 +18,19 @@ class EmojiReaction {
   /// Emoji
   final String name;
 
-  const EmojiReaction({
+  /// URL (For custom emoji)
+  final String? url;
+
+  const Reaction({
     required this.accounts,
     required this.count,
     required this.me,
     required this.name,
+    this.url,
   });
 
-  factory EmojiReaction.fromJson(Map<String, dynamic> json) =>
-      _$EmojiReactionFromJson(json);
+  factory Reaction.fromJson(Map<String, dynamic> json) =>
+      _$ReactionFromJson(json);
 
-  Map<String, dynamic> toJson() => _$EmojiReactionToJson(this);
+  Map<String, dynamic> toJson() => _$ReactionToJson(this);
 }

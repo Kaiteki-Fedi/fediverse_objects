@@ -21,8 +21,7 @@ PleromaStatus _$PleromaStatusFromJson(Map<String, dynamic> json) =>
           $checkedConvert(
               'emoji_reactions',
               (v) => (v as List<dynamic>?)
-                  ?.map(
-                      (e) => EmojiReaction.fromJson(e as Map<String, dynamic>))
+                  ?.map((e) => Reaction.fromJson(e as Map<String, dynamic>))
                   .toList()),
           $checkedConvert('expires_at',
               (v) => v == null ? null : DateTime.parse(v as String)),

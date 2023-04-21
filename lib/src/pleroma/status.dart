@@ -1,4 +1,4 @@
-import 'package:fediverse_objects/src/pleroma/emoji_reaction.dart';
+import 'package:fediverse_objects/src/mastodon/reaction.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'status.g.dart';
@@ -14,7 +14,7 @@ class PleromaStatus {
   //final dynamic directConversationId;
 
   @JsonKey(name: 'emoji_reactions')
-  final List<EmojiReaction>? emojiReactions;
+  final List<Reaction>? emojiReactions;
 
   @JsonKey(name: 'expires_at')
   final DateTime? expiresAt;

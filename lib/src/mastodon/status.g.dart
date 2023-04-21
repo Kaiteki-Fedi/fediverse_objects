@@ -78,6 +78,10 @@ Status _$StatusFromJson(Map<String, dynamic> json) => $checkedCreate(
               'poll',
               (v) =>
                   v == null ? null : Poll.fromJson(v as Map<String, dynamic>)),
+          reactions: $checkedConvert(
+              'reactions',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Reaction.fromJson(e as Map<String, dynamic>))),
         );
         return val;
       },
@@ -124,4 +128,5 @@ Map<String, dynamic> _$StatusToJson(Status instance) => <String, dynamic>{
       'url': instance.url,
       'visibility': instance.visibility,
       'text': instance.text,
+      'reactions': instance.reactions?.toList(),
     };
