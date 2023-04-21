@@ -12,7 +12,7 @@ class Source {
   final String note;
 
   /// Profile bio.
-  final Iterable<Field> fields;
+  final List<Field> fields;
 
   final String? privacy;
 

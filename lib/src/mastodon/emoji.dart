@@ -16,7 +16,7 @@ class Emoji {
   final String staticUrl;
 
   /// The tags of the custom emoji. (Pleroma-only)
-  final Iterable<String>? tags;
+  final List<String>? tags;
 
   /// A link to the custom emoji.
   final String url;

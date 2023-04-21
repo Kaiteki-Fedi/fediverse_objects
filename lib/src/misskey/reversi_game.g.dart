@@ -42,10 +42,11 @@ ReversiGame _$ReversiGameFromJson(Map<String, dynamic> json) => $checkedCreate(
           loopedBoard: $checkedConvert('loopedBoard', (v) => v as bool),
           logs: $checkedConvert(
               'logs',
-              (v) =>
-                  (v as List<dynamic>?)?.map((e) => e as Map<String, dynamic>)),
-          map: $checkedConvert(
-              'map', (v) => (v as List<dynamic>?)?.map((e) => e as String)),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => e as Map<String, dynamic>)
+                  .toList()),
+          map: $checkedConvert('map',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
         );
         return val;
       },
@@ -74,6 +75,6 @@ Map<String, dynamic> _$ReversiGameToJson(ReversiGame instance) =>
       'isLlotheo': instance.isLlotheo,
       'canPutEverywhere': instance.canPutEverywhere,
       'loopedBoard': instance.loopedBoard,
-      'logs': instance.logs?.toList(),
-      'map': instance.map?.toList(),
+      'logs': instance.logs,
+      'map': instance.map,
     };

@@ -20,8 +20,10 @@ PleromaStatus _$PleromaStatusFromJson(Map<String, dynamic> json) =>
           $checkedConvert('conversation_id', (v) => v as int?),
           $checkedConvert(
               'emoji_reactions',
-              (v) => (v as List<dynamic>?)?.map(
-                  (e) => EmojiReaction.fromJson(e as Map<String, dynamic>))),
+              (v) => (v as List<dynamic>?)
+                  ?.map(
+                      (e) => EmojiReaction.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           $checkedConvert('expires_at',
               (v) => v == null ? null : DateTime.parse(v as String)),
           $checkedConvert('in_reply_to_account_acct', (v) => v as String?),
@@ -51,7 +53,7 @@ Map<String, dynamic> _$PleromaStatusToJson(PleromaStatus instance) =>
     <String, dynamic>{
       'content': instance.content,
       'conversation_id': instance.conversationId,
-      'emoji_reactions': instance.emojiReactions?.toList(),
+      'emoji_reactions': instance.emojiReactions,
       'expires_at': instance.expiresAt?.toIso8601String(),
       'in_reply_to_account_acct': instance.inReplyToAccountAcct,
       'local': instance.local,

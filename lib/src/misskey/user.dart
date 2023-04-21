@@ -40,7 +40,7 @@ class User extends UserLite {
   final String? birthday;
 
   @JsonKey(name: 'fields')
-  final Iterable<Map<String, dynamic>>? fields;
+  final List<Map<String, dynamic>>? fields;
 
   @JsonKey(name: 'followersCount')
   final int? followersCount;
@@ -52,10 +52,10 @@ class User extends UserLite {
   final int? notesCount;
 
   @JsonKey(name: 'pinnedNoteIds')
-  final Iterable<String>? pinnedNoteIds;
+  final List<String>? pinnedNoteIds;
 
   @JsonKey(name: 'pinnedNotes')
-  final Iterable<Note>? pinnedNotes;
+  final List<Note>? pinnedNotes;
 
   @JsonKey(name: 'pinnedPageId')
   final String? pinnedPageId;
@@ -121,10 +121,10 @@ class User extends UserLite {
   final Map<String, dynamic>? integrations;
 
   @JsonKey(name: 'mutedWords')
-  final Iterable<dynamic>? mutedWords;
+  final List<dynamic>? mutedWords;
 
   @JsonKey(name: 'mutingNotificationTypes')
-  final Iterable<dynamic>? mutingNotificationTypes;
+  final List<dynamic>? mutingNotificationTypes;
 
   @JsonKey(name: 'isFollowing')
   final bool? isFollowing;

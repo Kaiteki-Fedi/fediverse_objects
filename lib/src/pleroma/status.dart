@@ -14,7 +14,7 @@ class PleromaStatus {
   //final dynamic directConversationId;
 
   @JsonKey(name: 'emoji_reactions')
-  final Iterable<EmojiReaction>? emojiReactions;
+  final List<EmojiReaction>? emojiReactions;
 
   @JsonKey(name: 'expires_at')
   final DateTime? expiresAt;

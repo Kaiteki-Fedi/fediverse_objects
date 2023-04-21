@@ -15,7 +15,8 @@ EmojiReaction _$EmojiReactionFromJson(Map<String, dynamic> json) =>
           accounts: $checkedConvert(
               'accounts',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => Account.fromJson(e as Map<String, dynamic>))),
+                  ?.map((e) => Account.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           count: $checkedConvert('count', (v) => v as int),
           me: $checkedConvert('me', (v) => v as bool),
           name: $checkedConvert('name', (v) => v as String),
@@ -26,7 +27,7 @@ EmojiReaction _$EmojiReactionFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$EmojiReactionToJson(EmojiReaction instance) =>
     <String, dynamic>{
-      'accounts': instance.accounts?.toList(),
+      'accounts': instance.accounts,
       'count': instance.count,
       'me': instance.me,
       'name': instance.name,

@@ -36,10 +36,10 @@ class Account {
   /// Custom emoji entities to be used when rendering the profile.
   ///
   /// If none, an empty array will be returned.
-  final Iterable<Emoji> emojis;
+  final List<Emoji> emojis;
 
   /// Additional metadata attached to a profile as name-value pairs.
-  final Iterable<Field>? fields;
+  final List<Field>? fields;
 
   /// The reported followers of this profile.
   final int followersCount;

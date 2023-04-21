@@ -19,13 +19,15 @@ Poll _$PollFromJson(Map<String, dynamic> json) => $checkedCreate(
           emojis: $checkedConvert(
               'emojis',
               (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           options: $checkedConvert(
               'options',
               (v) => (v as List<dynamic>)
-                  .map((e) => PollOption.fromJson(e as Map<String, dynamic>))),
-          ownVotes: $checkedConvert(
-              'own_votes', (v) => (v as List<dynamic>?)?.map((e) => e as int)),
+                  .map((e) => PollOption.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          ownVotes: $checkedConvert('own_votes',
+              (v) => (v as List<dynamic>?)?.map((e) => e as int).toList()),
           voted: $checkedConvert('voted', (v) => v as bool?),
           votersCount: $checkedConvert('voters_count', (v) => v as int?),
           votesCount: $checkedConvert('votes_count', (v) => v as int),
@@ -41,13 +43,13 @@ Poll _$PollFromJson(Map<String, dynamic> json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$PollToJson(Poll instance) => <String, dynamic>{
-      'emojis': instance.emojis.toList(),
+      'emojis': instance.emojis,
       'expired': instance.expired,
       'expires_at': instance.expiresAt?.toIso8601String(),
       'id': instance.id,
       'multiple': instance.multiple,
-      'options': instance.options.toList(),
-      'own_votes': instance.ownVotes?.toList(),
+      'options': instance.options,
+      'own_votes': instance.ownVotes,
       'voted': instance.voted,
       'voters_count': instance.votersCount,
       'votes_count': instance.votesCount,

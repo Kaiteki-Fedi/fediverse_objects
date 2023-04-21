@@ -44,17 +44,19 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
           birthday: $checkedConvert('birthday', (v) => v as String?),
           fields: $checkedConvert(
               'fields',
-              (v) =>
-                  (v as List<dynamic>?)?.map((e) => e as Map<String, dynamic>)),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => e as Map<String, dynamic>)
+                  .toList()),
           followersCount: $checkedConvert('followersCount', (v) => v as int?),
           followingCount: $checkedConvert('followingCount', (v) => v as int?),
           notesCount: $checkedConvert('notesCount', (v) => v as int?),
           pinnedNoteIds: $checkedConvert('pinnedNoteIds',
-              (v) => (v as List<dynamic>?)?.map((e) => e as String)),
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           pinnedNotes: $checkedConvert(
               'pinnedNotes',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => Note.fromJson(e as Map<String, dynamic>))),
+                  ?.map((e) => Note.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           pinnedPageId: $checkedConvert('pinnedPageId', (v) => v as String?),
           pinnedPage: $checkedConvert(
               'pinnedPage',
@@ -132,12 +134,12 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'description': instance.description,
       'location': instance.location,
       'birthday': instance.birthday,
-      'fields': instance.fields?.toList(),
+      'fields': instance.fields,
       'followersCount': instance.followersCount,
       'followingCount': instance.followingCount,
       'notesCount': instance.notesCount,
-      'pinnedNoteIds': instance.pinnedNoteIds?.toList(),
-      'pinnedNotes': instance.pinnedNotes?.toList(),
+      'pinnedNoteIds': instance.pinnedNoteIds,
+      'pinnedNotes': instance.pinnedNotes,
       'pinnedPageId': instance.pinnedPageId,
       'pinnedPage': instance.pinnedPage,
       'twoFactorEnabled': instance.twoFactorEnabled,
@@ -160,8 +162,8 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'hasPendingReceivedFollowRequest':
           instance.hasPendingReceivedFollowRequest,
       'integrations': instance.integrations,
-      'mutedWords': instance.mutedWords?.toList(),
-      'mutingNotificationTypes': instance.mutingNotificationTypes?.toList(),
+      'mutedWords': instance.mutedWords,
+      'mutingNotificationTypes': instance.mutingNotificationTypes,
       'isFollowing': instance.isFollowing,
       'hasPendingFollowRequestFromYou': instance.hasPendingFollowRequestFromYou,
       'hasPendingFollowRequestToYou': instance.hasPendingFollowRequestToYou,

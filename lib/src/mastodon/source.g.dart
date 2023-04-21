@@ -15,7 +15,8 @@ Source _$SourceFromJson(Map<String, dynamic> json) => $checkedCreate(
           fields: $checkedConvert(
               'fields',
               (v) => (v as List<dynamic>)
-                  .map((e) => Field.fromJson(e as Map<String, dynamic>))),
+                  .map((e) => Field.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           privacy: $checkedConvert('privacy', (v) => v as String?),
           sensitive: $checkedConvert('sensitive', (v) => v as bool?),
           language: $checkedConvert('language', (v) => v as String?),
@@ -29,7 +30,7 @@ Source _$SourceFromJson(Map<String, dynamic> json) => $checkedCreate(
 
 Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
       'note': instance.note,
-      'fields': instance.fields.toList(),
+      'fields': instance.fields,
       'privacy': instance.privacy,
       'sensitive': instance.sensitive,
       'language': instance.language,

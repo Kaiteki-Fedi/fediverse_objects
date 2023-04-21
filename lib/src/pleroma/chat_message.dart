@@ -24,7 +24,7 @@ class ChatMessage {
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
 
-  final Iterable<Emoji> emojis;
+  final List<Emoji> emojis;
 
   final String id;
 

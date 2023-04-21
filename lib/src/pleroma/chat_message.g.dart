@@ -18,7 +18,8 @@ ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) => $checkedCreate(
           emojis: $checkedConvert(
               'emojis',
               (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           id: $checkedConvert('id', (v) => v as String),
           unread: $checkedConvert('unread', (v) => v as bool),
           attachment: $checkedConvert(
@@ -49,7 +50,7 @@ Map<String, dynamic> _$ChatMessageToJson(ChatMessage instance) =>
       'chat_id': instance.chatId,
       'content': instance.content,
       'created_at': instance.createdAt.toIso8601String(),
-      'emojis': instance.emojis.toList(),
+      'emojis': instance.emojis,
       'id': instance.id,
       'unread': instance.unread,
     };

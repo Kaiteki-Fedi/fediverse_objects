@@ -17,8 +17,8 @@ Emoji _$EmojiFromJson(Map<String, dynamic> json) => $checkedCreate(
           visibleInPicker:
               $checkedConvert('visible_in_picker', (v) => v as bool),
           category: $checkedConvert('category', (v) => v as String?),
-          tags: $checkedConvert(
-              'tags', (v) => (v as List<dynamic>?)?.map((e) => e as String)),
+          tags: $checkedConvert('tags',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
         );
         return val;
       },
@@ -32,7 +32,7 @@ Map<String, dynamic> _$EmojiToJson(Emoji instance) => <String, dynamic>{
       'category': instance.category,
       'shortcode': instance.shortcode,
       'static_url': instance.staticUrl,
-      'tags': instance.tags?.toList(),
+      'tags': instance.tags,
       'url': instance.url,
       'visible_in_picker': instance.visibleInPicker,
     };

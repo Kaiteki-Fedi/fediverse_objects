@@ -9,7 +9,7 @@ class ScheduledStatus {
   final String id;
 
   @JsonKey(name: 'media_attachments')
-  final Iterable<Attachment> mediaAttachments;
+  final List<Attachment> mediaAttachments;
 
   final ScheduledStatusParams params;
 

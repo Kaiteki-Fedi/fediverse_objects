@@ -7,7 +7,7 @@ part 'poll.g.dart';
 @JsonSerializable()
 class Poll {
   /// Custom emoji to be used for rendering poll options.
-  final Iterable<Emoji> emojis;
+  final List<Emoji> emojis;
 
   /// Is the poll currently expired?
   final bool expired;
@@ -23,13 +23,13 @@ class Poll {
   final bool multiple;
 
   /// Possible answers for the poll.
-  final Iterable<PollOption> options;
+  final List<PollOption> options;
 
   /// When called with a user token, which options has the authorized user chosen?
   ///
   /// Contains an array of index values for `options`.
   @JsonKey(name: 'own_votes')
-  final Iterable<int>? ownVotes;
+  final List<int>? ownVotes;
 
   /// When called with a user token, has the authorized user voted?
   final bool? voted;

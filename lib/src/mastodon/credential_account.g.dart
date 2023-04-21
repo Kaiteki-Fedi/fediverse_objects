@@ -21,7 +21,8 @@ CredentialAccount _$CredentialAccountFromJson(Map<String, dynamic> json) =>
           emojis: $checkedConvert(
               'emojis',
               (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           followersCount: $checkedConvert('followersCount', (v) => v as int),
           followingCount: $checkedConvert('followingCount', (v) => v as int),
           group: $checkedConvert('group', (v) => v as bool?),
@@ -38,7 +39,8 @@ CredentialAccount _$CredentialAccountFromJson(Map<String, dynamic> json) =>
           fields: $checkedConvert(
               'fields',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => Field.fromJson(e as Map<String, dynamic>))),
+                  ?.map((e) => Field.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           lastStatusAt: $checkedConvert('lastStatusAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
           limited: $checkedConvert('limited', (v) => v as bool?),
@@ -78,8 +80,8 @@ Map<String, dynamic> _$CredentialAccountToJson(CredentialAccount instance) =>
       'bot': instance.bot,
       'createdAt': instance.createdAt.toIso8601String(),
       'displayName': instance.displayName,
-      'emojis': instance.emojis.toList(),
-      'fields': instance.fields?.toList(),
+      'emojis': instance.emojis,
+      'fields': instance.fields,
       'followersCount': instance.followersCount,
       'followingCount': instance.followingCount,
       'header': instance.header,

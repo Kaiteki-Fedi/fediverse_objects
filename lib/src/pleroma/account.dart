@@ -59,7 +59,7 @@ class PleromaAccount {
   @JsonKey(name: 'skip_thread_containment')
   final bool skipThreadContainment;
 
-  //final Iterable<Tag> tags;
+  //final List<Tag> tags;
 
   @JsonKey(name: 'unread_conversation_count')
   final int? unreadConversationCount;

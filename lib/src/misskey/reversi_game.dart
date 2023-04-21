@@ -69,10 +69,10 @@ class ReversiGame {
   final bool loopedBoard;
 
   @JsonKey(name: 'logs')
-  final Iterable<Map<String, dynamic>>? logs;
+  final List<Map<String, dynamic>>? logs;
 
   @JsonKey(name: 'map')
-  final Iterable<String>? map;
+  final List<String>? map;
 
   const ReversiGame({
     required this.id,

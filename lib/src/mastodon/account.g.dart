@@ -20,7 +20,8 @@ Account _$AccountFromJson(Map<String, dynamic> json) => $checkedCreate(
           emojis: $checkedConvert(
               'emojis',
               (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))),
+                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           followersCount: $checkedConvert('followers_count', (v) => v as int),
           followingCount: $checkedConvert('following_count', (v) => v as int),
           group: $checkedConvert('group', (v) => v as bool?),
@@ -37,7 +38,8 @@ Account _$AccountFromJson(Map<String, dynamic> json) => $checkedCreate(
           fields: $checkedConvert(
               'fields',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => Field.fromJson(e as Map<String, dynamic>))),
+                  ?.map((e) => Field.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           lastStatusAt: $checkedConvert('last_status_at',
               (v) => v == null ? null : DateTime.parse(v as String)),
           limited: $checkedConvert('limited', (v) => v as bool?),
@@ -83,8 +85,8 @@ Map<String, dynamic> _$AccountToJson(Account instance) => <String, dynamic>{
       'bot': instance.bot,
       'created_at': instance.createdAt.toIso8601String(),
       'display_name': instance.displayName,
-      'emojis': instance.emojis.toList(),
-      'fields': instance.fields?.toList(),
+      'emojis': instance.emojis,
+      'fields': instance.fields,
       'followers_count': instance.followersCount,
       'following_count': instance.followingCount,
       'header': instance.header,
