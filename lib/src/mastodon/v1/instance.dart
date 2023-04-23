@@ -1,8 +1,10 @@
-import 'package:fediverse_objects/src/mastodon/account.dart';
-import 'package:fediverse_objects/src/mastodon/instance_urls.dart';
-import 'package:fediverse_objects/src/mastodon/v1/instance_statistics.dart';
-import 'package:fediverse_objects/src/pleroma/instance.dart' as p;
 import 'package:json_annotation/json_annotation.dart';
+
+import '../../pleroma/instance.dart' as p;
+import '../account.dart';
+import '../instance_configuration.dart';
+import '../instance_urls.dart';
+import 'instance_statistics.dart';
 
 part 'instance.g.dart';
 
@@ -113,94 +115,4 @@ class Rule {
   factory Rule.fromJson(Map<String, dynamic> json) => _$RuleFromJson(json);
 
   Map<String, dynamic> toJson() => _$RuleToJson(this);
-}
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class InstanceConfiguration {
-  final AccountsConfiguration accounts;
-  final StatusesConfiguration statuses;
-  final PollsConfiguration polls;
-  final MediaAttachmentsConfiguration mediaAttachments;
-
-  factory InstanceConfiguration.fromJson(Map<String, dynamic> json) =>
-      _$InstanceConfigurationFromJson(json);
-
-  const InstanceConfiguration({
-    required this.accounts,
-    required this.statuses,
-    required this.polls,
-    required this.mediaAttachments,
-  });
-
-  Map<String, dynamic> toJson() => _$InstanceConfigurationToJson(this);
-}
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class AccountsConfiguration {
-  final int maxFeaturedTags;
-
-  const AccountsConfiguration({required this.maxFeaturedTags});
-
-  factory AccountsConfiguration.fromJson(Map<String, dynamic> json) =>
-      _$AccountsConfigurationFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AccountsConfigurationToJson(this);
-}
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class StatusesConfiguration {
-  final int maxCharacters;
-  final int maxMediaAttachments;
-  final int charactersReservedPerUrl;
-
-  const StatusesConfiguration({
-    required this.maxCharacters,
-    required this.maxMediaAttachments,
-    required this.charactersReservedPerUrl,
-  });
-
-  factory StatusesConfiguration.fromJson(Map<String, dynamic> json) =>
-      _$StatusesConfigurationFromJson(json);
-
-  Map<String, dynamic> toJson() => _$StatusesConfigurationToJson(this);
-}
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class MediaAttachmentsConfiguration {
-  final List<String> supportedMimeTypes;
-  final int imageSizeLimit;
-  final int imageMatrixLimit;
-  final int videoSizeLimit;
-  final int videoMatrixLimit;
-  final int videoFrameRateLimit;
-
-  factory MediaAttachmentsConfiguration.fromJson(Map<String, dynamic> json) =>
-      _$MediaAttachmentsConfigurationFromJson(json);
-
-  MediaAttachmentsConfiguration({
-    required this.supportedMimeTypes,
-    required this.imageSizeLimit,
-    required this.imageMatrixLimit,
-    required this.videoSizeLimit,
-    required this.videoMatrixLimit,
-    required this.videoFrameRateLimit,
-  });
-
-  Map<String, dynamic> toJson() => _$MediaAttachmentsConfigurationToJson(this);
-}
-
-@JsonSerializable(fieldRename: FieldRename.snake)
-class PollsConfiguration {
-  final int maxOptions;
-  final int maxCharactersPerOption;
-  final int minExpiration;
-  final int maxExpiration;
-
-  factory PollsConfiguration.fromJson(Map<String, dynamic> json) =>
-      _$PollsConfigurationFromJson(json);
-
-  PollsConfiguration(this.maxOptions, this.maxCharactersPerOption,
-      this.minExpiration, this.maxExpiration);
-
-  Map<String, dynamic> toJson() => _$PollsConfigurationToJson(this);
 }

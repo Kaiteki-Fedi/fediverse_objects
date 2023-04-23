@@ -13,6 +13,22 @@ InstanceConfiguration _$InstanceConfigurationFromJson(
       json,
       ($checkedConvert) {
         final val = InstanceConfiguration(
+          accounts: $checkedConvert(
+              'accounts',
+              (v) => InstanceConfigurationAccounts.fromJson(
+                  v as Map<String, dynamic>)),
+          statuses: $checkedConvert(
+              'statuses',
+              (v) => InstanceConfigurationStatuses.fromJson(
+                  v as Map<String, dynamic>)),
+          polls: $checkedConvert(
+              'polls',
+              (v) => InstanceConfigurationPolls.fromJson(
+                  v as Map<String, dynamic>)),
+          mediaAttachments: $checkedConvert(
+              'mediaAttachments',
+              (v) => InstanceConfigurationMediaAttachments.fromJson(
+                  v as Map<String, dynamic>)),
           reactions: $checkedConvert(
               'reactions',
               (v) => v == null
@@ -28,4 +44,8 @@ Map<String, dynamic> _$InstanceConfigurationToJson(
         InstanceConfiguration instance) =>
     <String, dynamic>{
       'reactions': instance.reactions,
+      'accounts': instance.accounts,
+      'statuses': instance.statuses,
+      'polls': instance.polls,
+      'mediaAttachments': instance.mediaAttachments,
     };

@@ -1,6 +1,8 @@
-import 'package:fediverse_objects/src/mastodon/account.dart';
-import 'package:fediverse_objects/src/mastodon/v1/instance.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'account.dart';
+import 'instance_configuration.dart';
+import 'v1/instance.dart';
 
 part 'instance.g.dart';
 
