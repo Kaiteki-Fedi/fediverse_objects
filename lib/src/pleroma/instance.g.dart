@@ -28,8 +28,8 @@ InstanceMetadata _$InstanceMetadataFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = InstanceMetadata(
-          accountActiviationRequired:
-              $checkedConvert('account_activiation_required', (v) => v as bool),
+          accountActivationRequired:
+              $checkedConvert('account_activation_required', (v) => v as bool),
           features: $checkedConvert('features',
               (v) => (v as List<dynamic>).map((e) => e as String).toSet()),
           postFormats: $checkedConvert('post_formats',
@@ -38,14 +38,14 @@ InstanceMetadata _$InstanceMetadataFromJson(Map<String, dynamic> json) =>
         return val;
       },
       fieldKeyMap: const {
-        'accountActiviationRequired': 'account_activiation_required',
+        'accountActivationRequired': 'account_activation_required',
         'postFormats': 'post_formats'
       },
     );
 
 Map<String, dynamic> _$InstanceMetadataToJson(InstanceMetadata instance) =>
     <String, dynamic>{
-      'account_activiation_required': instance.accountActiviationRequired,
+      'account_activation_required': instance.accountActivationRequired,
       'features': instance.features.toList(),
       'post_formats': instance.postFormats.toList(),
     };

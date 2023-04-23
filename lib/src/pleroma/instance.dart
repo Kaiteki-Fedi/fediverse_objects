@@ -16,12 +16,12 @@ class Instance {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InstanceMetadata {
-  final bool accountActiviationRequired;
+  final bool accountActivationRequired;
   final Set<String> features;
   final Set<String> postFormats;
 
   const InstanceMetadata({
-    required this.accountActiviationRequired,
+    required this.accountActivationRequired,
     required this.features,
     required this.postFormats,
   });
