@@ -6,12 +6,12 @@ part "instance_configuration_statuses.g.dart";
 class InstanceConfigurationStatuses {
   final int maxCharacters;
   final int maxMediaAttachments;
-  final int charactersReservedPerUrl;
+  final int? charactersReservedPerUrl;
 
   const InstanceConfigurationStatuses({
     required this.maxCharacters,
     required this.maxMediaAttachments,
-    required this.charactersReservedPerUrl,
+    this.charactersReservedPerUrl,
   });
 
   factory InstanceConfigurationStatuses.fromJson(Map<String, dynamic> json) =>

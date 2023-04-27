@@ -14,18 +14,20 @@ InstanceConfigurationMediaAttachments
           json,
           ($checkedConvert) {
             final val = InstanceConfigurationMediaAttachments(
-              supportedMimeTypes: $checkedConvert('supported_mime_types',
-                  (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+              supportedMimeTypes: $checkedConvert(
+                  'supported_mime_types',
+                  (v) =>
+                      (v as List<dynamic>?)?.map((e) => e as String).toList()),
               imageSizeLimit:
                   $checkedConvert('image_size_limit', (v) => v as int),
               imageMatrixLimit:
-                  $checkedConvert('image_matrix_limit', (v) => v as int),
+                  $checkedConvert('image_matrix_limit', (v) => v as int?),
               videoSizeLimit:
                   $checkedConvert('video_size_limit', (v) => v as int),
               videoMatrixLimit:
-                  $checkedConvert('video_matrix_limit', (v) => v as int),
+                  $checkedConvert('video_matrix_limit', (v) => v as int?),
               videoFrameRateLimit:
-                  $checkedConvert('video_frame_rate_limit', (v) => v as int),
+                  $checkedConvert('video_frame_rate_limit', (v) => v as int?),
             );
             return val;
           },

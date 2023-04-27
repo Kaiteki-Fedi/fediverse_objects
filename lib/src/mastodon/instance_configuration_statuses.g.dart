@@ -17,7 +17,7 @@ InstanceConfigurationStatuses _$InstanceConfigurationStatusesFromJson(
           maxMediaAttachments:
               $checkedConvert('max_media_attachments', (v) => v as int),
           charactersReservedPerUrl:
-              $checkedConvert('characters_reserved_per_url', (v) => v as int),
+              $checkedConvert('characters_reserved_per_url', (v) => v as int?),
         );
         return val;
       },

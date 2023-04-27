@@ -4,24 +4,24 @@ part 'instance_configuration_media_attachments.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InstanceConfigurationMediaAttachments {
-  final List<String> supportedMimeTypes;
+  final List<String>? supportedMimeTypes;
   final int imageSizeLimit;
-  final int imageMatrixLimit;
+  final int? imageMatrixLimit;
   final int videoSizeLimit;
-  final int videoMatrixLimit;
-  final int videoFrameRateLimit;
+  final int? videoMatrixLimit;
+  final int? videoFrameRateLimit;
 
   factory InstanceConfigurationMediaAttachments.fromJson(
           Map<String, dynamic> json) =>
       _$InstanceConfigurationMediaAttachmentsFromJson(json);
 
   InstanceConfigurationMediaAttachments({
-    required this.supportedMimeTypes,
+    this.supportedMimeTypes,
     required this.imageSizeLimit,
-    required this.imageMatrixLimit,
+    this.imageMatrixLimit,
     required this.videoSizeLimit,
-    required this.videoMatrixLimit,
-    required this.videoFrameRateLimit,
+    this.videoMatrixLimit,
+    this.videoFrameRateLimit,
   });
 
   Map<String, dynamic> toJson() =>
