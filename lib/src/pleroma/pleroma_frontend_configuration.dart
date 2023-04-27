@@ -4,8 +4,8 @@ part 'pleroma_frontend_configuration.g.dart';
 
 @JsonSerializable()
 class PleromaFrontendConfiguration {
-  final String logo;
-  final String background;
+  final Uri? logo;
+  final Uri? background;
 
   factory PleromaFrontendConfiguration.fromJson(Map<String, dynamic> json) =>
       _$PleromaFrontendConfigurationFromJson(json);

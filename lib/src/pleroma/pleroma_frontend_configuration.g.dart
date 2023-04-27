@@ -13,8 +13,10 @@ PleromaFrontendConfiguration _$PleromaFrontendConfigurationFromJson(
       json,
       ($checkedConvert) {
         final val = PleromaFrontendConfiguration(
-          logo: $checkedConvert('logo', (v) => v as String),
-          background: $checkedConvert('background', (v) => v as String),
+          logo: $checkedConvert(
+              'logo', (v) => v == null ? null : Uri.parse(v as String)),
+          background: $checkedConvert(
+              'background', (v) => v == null ? null : Uri.parse(v as String)),
         );
         return val;
       },
@@ -23,6 +25,6 @@ PleromaFrontendConfiguration _$PleromaFrontendConfigurationFromJson(
 Map<String, dynamic> _$PleromaFrontendConfigurationToJson(
         PleromaFrontendConfiguration instance) =>
     <String, dynamic>{
-      'logo': instance.logo,
-      'background': instance.background,
+      'logo': instance.logo?.toString(),
+      'background': instance.background?.toString(),
     };
