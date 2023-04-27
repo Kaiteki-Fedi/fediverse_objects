@@ -15,16 +15,22 @@ InstanceConfiguration _$InstanceConfigurationFromJson(
         final val = InstanceConfiguration(
           accounts: $checkedConvert(
               'accounts',
-              (v) => InstanceConfigurationAccounts.fromJson(
-                  v as Map<String, dynamic>)),
+              (v) => v == null
+                  ? null
+                  : InstanceConfigurationAccounts.fromJson(
+                      v as Map<String, dynamic>)),
           statuses: $checkedConvert(
               'statuses',
-              (v) => InstanceConfigurationStatuses.fromJson(
-                  v as Map<String, dynamic>)),
+              (v) => v == null
+                  ? null
+                  : InstanceConfigurationStatuses.fromJson(
+                      v as Map<String, dynamic>)),
           polls: $checkedConvert(
               'polls',
-              (v) => InstanceConfigurationPolls.fromJson(
-                  v as Map<String, dynamic>)),
+              (v) => v == null
+                  ? null
+                  : InstanceConfigurationPolls.fromJson(
+                      v as Map<String, dynamic>)),
           mediaAttachments: $checkedConvert(
               'media_attachments',
               (v) => InstanceConfigurationMediaAttachments.fromJson(

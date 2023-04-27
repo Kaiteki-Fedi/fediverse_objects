@@ -14,13 +14,13 @@ class InstanceConfiguration {
   final InstanceConfigurationReactions? reactions;
 
   /// Limits related to accounts.
-  final InstanceConfigurationAccounts accounts;
+  final InstanceConfigurationAccounts? accounts;
 
   /// Limits related to authoring statuses.
-  final InstanceConfigurationStatuses statuses;
+  final InstanceConfigurationStatuses? statuses;
 
   /// Limits related to polls.
-  final InstanceConfigurationPolls polls;
+  final InstanceConfigurationPolls? polls;
 
   /// Hints for which attachments will be accepted.
   final InstanceConfigurationMediaAttachments mediaAttachments;
