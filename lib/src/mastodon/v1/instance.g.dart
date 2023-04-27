@@ -109,7 +109,7 @@ Rule _$RuleFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Rule(
-          $checkedConvert('id', (v) => v as int),
+          $checkedConvert('id', (v) => v as String),
           $checkedConvert('text', (v) => v as String),
         );
         return val;

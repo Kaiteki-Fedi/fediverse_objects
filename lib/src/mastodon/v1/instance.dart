@@ -107,7 +107,7 @@ class Instance {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class Rule {
-  final int id;
+  final String id;
   final String text;
 
   const Rule(this.id, this.text);
