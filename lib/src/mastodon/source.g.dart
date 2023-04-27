@@ -22,6 +22,11 @@ Source _$SourceFromJson(Map<String, dynamic> json) => $checkedCreate(
           language: $checkedConvert('language', (v) => v as String?),
           followRequestsCount:
               $checkedConvert('follow_requests_count', (v) => v as int?),
+          pleroma: $checkedConvert(
+              'pleroma',
+              (v) => v == null
+                  ? null
+                  : PleromaSource.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -35,4 +40,5 @@ Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
       'sensitive': instance.sensitive,
       'language': instance.language,
       'follow_requests_count': instance.followRequestsCount,
+      'pleroma': instance.pleroma,
     };

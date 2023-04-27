@@ -4,89 +4,100 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'account.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class PleromaAccount {
-  @JsonKey(name: 'accepts_chat_messages')
   final bool? acceptsChatMessages;
 
-  @JsonKey(name: 'allow_following_move')
+  /// whether the user allows automatically follow moved following accounts
   final bool? allowFollowingMove;
 
-  //@JsonKey(name: "background_image")
-  //final dynamic backgroundImage;
+  final List<String> alsoKnownAs;
 
-  @JsonKey(name: 'favicon')
-  final String? favicon;
+  final Uri? backgroundImage;
 
-  @JsonKey(name: 'chat_token')
+  final DateTime? birthday;
+
+  /// Favicon image of the user's instance
+  final Uri? favicon;
+
   final String? chatToken;
 
-  @JsonKey(name: 'confirmation_pending')
   final bool? confirmationPending;
 
-  @JsonKey(name: 'hide_favorites')
   final bool hideFavorites;
 
-  @JsonKey(name: 'hide_followers')
+  /// whether the user has follower hiding enabled
   final bool hideFollowers;
 
-  @JsonKey(name: 'hide_followers_count')
+  /// whether the user has follower stat hiding enabled
   final bool hideFollowersCount;
 
-  @JsonKey(name: 'hide_follows')
+  /// whether the user has follow hiding enabled
   final bool hideFollows;
 
-  @JsonKey(name: 'hide_follows_count')
+  /// whether the user has follow stat hiding enabled
   final bool hideFollowsCount;
 
-  @JsonKey(name: 'is_admin')
-  final bool isAdmin;
+  /// whether the user is an admin of the local instance
+  final bool? isAdmin;
 
-  @JsonKey(name: 'is_moderator')
-  final bool isModerator;
+  /// whether the user is a moderator of the local instance
+  final bool? isModerator;
 
-  @JsonKey(name: 'is_confirmed')
+  /// whether the user account is waiting on email confirmation to be activated
   final bool? isConfirmed;
 
-  @JsonKey(name: 'notification_settings')
   final NotificationSettings? notificationSettings;
 
+  /// Relationship between current account and requested account
   final Relationship? relationship;
 
-  @JsonKey(name: 'settings_store')
+  /// A generic map of settings for frontends. Opaque to the backend. Only
+  /// returned in `verify_credentials` and `update_credentials`
   final Map<String, dynamic>? settingsStore;
 
-  @JsonKey(name: 'skip_thread_containment')
   final bool skipThreadContainment;
 
-  //final List<Tag> tags;
+  /// List of tags being used for things like extra roles or moderation(ie.
+  /// marking all media as nsfw all).
+  final List<String> tags;
 
-  @JsonKey(name: 'unread_conversation_count')
+  /// The count of unread conversations. Only returned to the account owner.
   final int? unreadConversationCount;
 
-  const PleromaAccount(
+  final int? unreadNotificationsCount;
+
+  final bool? deactivated;
+
+  final String? apId;
+
+  const PleromaAccount({
     this.acceptsChatMessages,
     this.allowFollowingMove,
-    //this.backgroundImage,
     this.chatToken,
     this.confirmationPending,
-    this.hideFavorites,
-    this.hideFollowers,
-    this.hideFollowersCount,
-    this.hideFollows,
-    this.hideFollowsCount,
+    required this.hideFavorites,
+    required this.hideFollowers,
+    required this.hideFollowersCount,
+    required this.hideFollows,
+    required this.hideFollowsCount,
     this.isAdmin,
     this.isModerator,
     this.isConfirmed,
     this.notificationSettings,
     this.relationship,
-    //this.settingsStore,
-    this.skipThreadContainment,
-    //this.tags,
+    required this.skipThreadContainment,
     this.unreadConversationCount,
     this.favicon,
     this.settingsStore,
-  );
+    required this.alsoKnownAs,
+    this.backgroundImage,
+    this.birthday,
+    required this.tags,
+    this.unreadNotificationsCount,
+    this.deactivated,
+    this.apId,
+  });
 
   factory PleromaAccount.fromJson(Map<String, dynamic> json) =>
       _$PleromaAccountFromJson(json);

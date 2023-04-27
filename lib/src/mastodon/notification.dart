@@ -6,13 +6,12 @@ import 'package:json_annotation/json_annotation.dart';
 part 'notification.g.dart';
 
 /// Represents a notification of an event relevant to the user.
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Notification {
   /// The account that performed the action that generated the notification.
   final Account? account;
 
   /// The timestamp of the notification.
-  @JsonKey(name: 'created_at')
   final DateTime createdAt;
 
   /// The id of the notification in the database.

@@ -12,32 +12,53 @@ PleromaAccount _$PleromaAccountFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = PleromaAccount(
-          $checkedConvert('accepts_chat_messages', (v) => v as bool?),
-          $checkedConvert('allow_following_move', (v) => v as bool?),
-          $checkedConvert('chat_token', (v) => v as String?),
-          $checkedConvert('confirmation_pending', (v) => v as bool?),
-          $checkedConvert('hide_favorites', (v) => v as bool),
-          $checkedConvert('hide_followers', (v) => v as bool),
-          $checkedConvert('hide_followers_count', (v) => v as bool),
-          $checkedConvert('hide_follows', (v) => v as bool),
-          $checkedConvert('hide_follows_count', (v) => v as bool),
-          $checkedConvert('is_admin', (v) => v as bool),
-          $checkedConvert('is_moderator', (v) => v as bool),
-          $checkedConvert('is_confirmed', (v) => v as bool?),
-          $checkedConvert(
+          acceptsChatMessages:
+              $checkedConvert('accepts_chat_messages', (v) => v as bool?),
+          allowFollowingMove:
+              $checkedConvert('allow_following_move', (v) => v as bool?),
+          chatToken: $checkedConvert('chat_token', (v) => v as String?),
+          confirmationPending:
+              $checkedConvert('confirmation_pending', (v) => v as bool?),
+          hideFavorites: $checkedConvert('hide_favorites', (v) => v as bool),
+          hideFollowers: $checkedConvert('hide_followers', (v) => v as bool),
+          hideFollowersCount:
+              $checkedConvert('hide_followers_count', (v) => v as bool),
+          hideFollows: $checkedConvert('hide_follows', (v) => v as bool),
+          hideFollowsCount:
+              $checkedConvert('hide_follows_count', (v) => v as bool),
+          isAdmin: $checkedConvert('is_admin', (v) => v as bool?),
+          isModerator: $checkedConvert('is_moderator', (v) => v as bool?),
+          isConfirmed: $checkedConvert('is_confirmed', (v) => v as bool?),
+          notificationSettings: $checkedConvert(
               'notification_settings',
               (v) => v == null
                   ? null
                   : NotificationSettings.fromJson(v as Map<String, dynamic>)),
-          $checkedConvert(
+          relationship: $checkedConvert(
               'relationship',
               (v) => v == null
                   ? null
                   : Relationship.fromJson(v as Map<String, dynamic>)),
-          $checkedConvert('skip_thread_containment', (v) => v as bool),
-          $checkedConvert('unread_conversation_count', (v) => v as int?),
-          $checkedConvert('favicon', (v) => v as String?),
-          $checkedConvert('settings_store', (v) => v as Map<String, dynamic>?),
+          skipThreadContainment:
+              $checkedConvert('skip_thread_containment', (v) => v as bool),
+          unreadConversationCount:
+              $checkedConvert('unread_conversation_count', (v) => v as int?),
+          favicon: $checkedConvert(
+              'favicon', (v) => v == null ? null : Uri.parse(v as String)),
+          settingsStore: $checkedConvert(
+              'settings_store', (v) => v as Map<String, dynamic>?),
+          alsoKnownAs: $checkedConvert('also_known_as',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          backgroundImage: $checkedConvert('background_image',
+              (v) => v == null ? null : Uri.parse(v as String)),
+          birthday: $checkedConvert('birthday',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          tags: $checkedConvert('tags',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          unreadNotificationsCount:
+              $checkedConvert('unread_notifications_count', (v) => v as int?),
+          deactivated: $checkedConvert('deactivated', (v) => v as bool?),
+          apId: $checkedConvert('ap_id', (v) => v as String?),
         );
         return val;
       },
@@ -57,7 +78,11 @@ PleromaAccount _$PleromaAccountFromJson(Map<String, dynamic> json) =>
         'notificationSettings': 'notification_settings',
         'skipThreadContainment': 'skip_thread_containment',
         'unreadConversationCount': 'unread_conversation_count',
-        'settingsStore': 'settings_store'
+        'settingsStore': 'settings_store',
+        'alsoKnownAs': 'also_known_as',
+        'backgroundImage': 'background_image',
+        'unreadNotificationsCount': 'unread_notifications_count',
+        'apId': 'ap_id'
       },
     );
 
@@ -65,7 +90,10 @@ Map<String, dynamic> _$PleromaAccountToJson(PleromaAccount instance) =>
     <String, dynamic>{
       'accepts_chat_messages': instance.acceptsChatMessages,
       'allow_following_move': instance.allowFollowingMove,
-      'favicon': instance.favicon,
+      'also_known_as': instance.alsoKnownAs,
+      'background_image': instance.backgroundImage?.toString(),
+      'birthday': instance.birthday?.toIso8601String(),
+      'favicon': instance.favicon?.toString(),
       'chat_token': instance.chatToken,
       'confirmation_pending': instance.confirmationPending,
       'hide_favorites': instance.hideFavorites,
@@ -80,5 +108,9 @@ Map<String, dynamic> _$PleromaAccountToJson(PleromaAccount instance) =>
       'relationship': instance.relationship,
       'settings_store': instance.settingsStore,
       'skip_thread_containment': instance.skipThreadContainment,
+      'tags': instance.tags,
       'unread_conversation_count': instance.unreadConversationCount,
+      'unread_notifications_count': instance.unreadNotificationsCount,
+      'deactivated': instance.deactivated,
+      'ap_id': instance.apId,
     };

@@ -1,12 +1,14 @@
 import 'package:fediverse_objects/src/mastodon/field.dart';
+import 'package:fediverse_objects/src/pleroma/source.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'source.g.dart';
 
 /// Represents display or publishing preferences of user's own account.
 ///
-/// Returned as an additional entity when verifying and updated credentials, as an attribute of Account.
-@JsonSerializable()
+/// Returned as an additional entity when verifying and updated credentials, as
+/// an attribute of Account.
+@JsonSerializable(fieldRename: FieldRename.snake)
 class Source {
   /// Profile bio.
   final String note;
@@ -22,17 +24,19 @@ class Source {
   /// The default posting language for new statuses.
   final String? language;
 
-  // The number of pending follow requests.
-  @JsonKey(name: 'follow_requests_count')
+  /// The number of pending follow requests.
   final int? followRequestsCount;
 
-  Source({
+  final PleromaSource? pleroma;
+
+  const Source({
     required this.note,
     required this.fields,
     this.privacy,
     this.sensitive,
     this.language,
     this.followRequestsCount,
+    this.pleroma,
   });
 
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
