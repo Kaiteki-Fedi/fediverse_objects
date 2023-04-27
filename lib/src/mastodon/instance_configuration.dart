@@ -8,7 +8,7 @@ import 'instance_configuration_statuses.dart';
 
 part 'instance_configuration.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class InstanceConfiguration {
   /// (Glitch) Limits related to reactions.
   final InstanceConfigurationReactions? reactions;

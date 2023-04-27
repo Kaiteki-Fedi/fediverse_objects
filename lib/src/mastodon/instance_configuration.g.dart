@@ -26,7 +26,7 @@ InstanceConfiguration _$InstanceConfigurationFromJson(
               (v) => InstanceConfigurationPolls.fromJson(
                   v as Map<String, dynamic>)),
           mediaAttachments: $checkedConvert(
-              'mediaAttachments',
+              'media_attachments',
               (v) => InstanceConfigurationMediaAttachments.fromJson(
                   v as Map<String, dynamic>)),
           reactions: $checkedConvert(
@@ -38,6 +38,7 @@ InstanceConfiguration _$InstanceConfigurationFromJson(
         );
         return val;
       },
+      fieldKeyMap: const {'mediaAttachments': 'media_attachments'},
     );
 
 Map<String, dynamic> _$InstanceConfigurationToJson(
@@ -47,5 +48,5 @@ Map<String, dynamic> _$InstanceConfigurationToJson(
       'accounts': instance.accounts,
       'statuses': instance.statuses,
       'polls': instance.polls,
-      'mediaAttachments': instance.mediaAttachments,
+      'media_attachments': instance.mediaAttachments,
     };
