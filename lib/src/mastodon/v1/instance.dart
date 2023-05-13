@@ -1,6 +1,6 @@
+import 'package:fediverse_objects/src/pleroma/instance.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../pleroma/instance.dart' as p;
 import '../account.dart';
 import '../instance_configuration.dart';
 import '../instance_urls.dart';
@@ -66,7 +66,7 @@ class Instance {
   /// Whether registrations require moderator approval.
   final bool approvalRequired;
 
-  final p.Instance? pleroma;
+  final PleromaInstance? pleroma;
 
   final List<Rule>? rules;
 

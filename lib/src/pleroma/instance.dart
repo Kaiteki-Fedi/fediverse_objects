@@ -3,15 +3,15 @@ import 'package:json_annotation/json_annotation.dart';
 part 'instance.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class Instance {
+class PleromaInstance {
   final InstanceMetadata metadata;
 
-  const Instance(this.metadata);
+  const PleromaInstance(this.metadata);
 
-  factory Instance.fromJson(Map<String, dynamic> json) =>
-      _$InstanceFromJson(json);
+  factory PleromaInstance.fromJson(Map<String, dynamic> json) =>
+      _$PleromaInstanceFromJson(json);
 
-  Map<String, dynamic> toJson() => _$InstanceToJson(this);
+  Map<String, dynamic> toJson() => _$PleromaInstanceToJson(this);
 }
 
 @JsonSerializable(fieldRename: FieldRename.snake)

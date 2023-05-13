@@ -29,8 +29,9 @@ ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) => $checkedCreate(
                   : Attachment.fromJson(v as Map<String, dynamic>)),
           card: $checkedConvert(
               'card',
-              (v) =>
-                  v == null ? null : Card.fromJson(v as Map<String, dynamic>)),
+              (v) => v == null
+                  ? null
+                  : PreviewCard.fromJson(v as Map<String, dynamic>)),
           content: $checkedConvert('content', (v) => v as String?),
         );
         return val;

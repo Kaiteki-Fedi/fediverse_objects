@@ -6,11 +6,12 @@ part of 'instance.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
-      'Instance',
+PleromaInstance _$PleromaInstanceFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'PleromaInstance',
       json,
       ($checkedConvert) {
-        final val = Instance(
+        final val = PleromaInstance(
           $checkedConvert('metadata',
               (v) => InstanceMetadata.fromJson(v as Map<String, dynamic>)),
         );
@@ -18,7 +19,8 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$InstanceToJson(Instance instance) => <String, dynamic>{
+Map<String, dynamic> _$PleromaInstanceToJson(PleromaInstance instance) =>
+    <String, dynamic>{
       'metadata': instance.metadata,
     };
 

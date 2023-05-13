@@ -4,11 +4,11 @@ import 'package:json_annotation/json_annotation.dart';
 import 'account.dart';
 import 'application.dart';
 import 'attachment.dart';
-import 'card.dart';
 import 'emoji.dart';
-import 'reaction.dart';
 import 'mention.dart';
 import 'poll.dart';
+import 'preview_card.dart';
+import 'reaction.dart';
 import 'tag.dart';
 
 part 'status.g.dart';
@@ -24,7 +24,7 @@ class Status {
   final bool? bookmarked;
 
   /// Preview card for links included within status content.
-  final Card? card;
+  final PreviewCard? card;
 
   final String content;
 

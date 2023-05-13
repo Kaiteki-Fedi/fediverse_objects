@@ -1,6 +1,6 @@
 import 'package:fediverse_objects/src/mastodon/attachment.dart';
-import 'package:fediverse_objects/src/mastodon/card.dart';
 import 'package:fediverse_objects/src/mastodon/emoji.dart';
+import 'package:fediverse_objects/src/mastodon/preview_card.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'chat_message.g.dart';
@@ -14,7 +14,7 @@ class ChatMessage {
   final Attachment? attachment;
 
   /// Preview card for links included within status content
-  final Card? card;
+  final PreviewCard? card;
 
   @JsonKey(name: 'chat_id')
   final String chatId;

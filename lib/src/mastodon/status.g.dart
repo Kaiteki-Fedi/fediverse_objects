@@ -52,8 +52,9 @@ Status _$StatusFromJson(Map<String, dynamic> json) => $checkedCreate(
           bookmarked: $checkedConvert('bookmarked', (v) => v as bool?),
           card: $checkedConvert(
               'card',
-              (v) =>
-                  v == null ? null : Card.fromJson(v as Map<String, dynamic>)),
+              (v) => v == null
+                  ? null
+                  : PreviewCard.fromJson(v as Map<String, dynamic>)),
           favourited: $checkedConvert('favourited', (v) => v as bool?),
           inReplyToAccountId:
               $checkedConvert('in_reply_to_account_id', (v) => v as String?),

@@ -49,7 +49,7 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
               'pleroma',
               (v) => v == null
                   ? null
-                  : p.Instance.fromJson(v as Map<String, dynamic>)),
+                  : PleromaInstance.fromJson(v as Map<String, dynamic>)),
           rules: $checkedConvert(
               'rules',
               (v) => (v as List<dynamic>?)
