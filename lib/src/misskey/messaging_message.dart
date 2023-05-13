@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fediverse_objects/src/misskey/user_lite.dart';
-import 'package:fediverse_objects/src/misskey/drive_file.dart';
-import 'package:fediverse_objects/src/misskey/user_group.dart';
+import 'user_lite.dart';
+import 'drive_file.dart';
+import 'user_group.dart';
 part 'messaging_message.g.dart';
 
 @JsonSerializable()
@@ -48,6 +48,7 @@ class MessagingMessage {
     this.reads,
   });
 
-  factory MessagingMessage.fromJson(Map<String, dynamic> json) => _$MessagingMessageFromJson(json);
+  factory MessagingMessage.fromJson(Map<String, dynamic> json) =>
+      _$MessagingMessageFromJson(json);
   Map<String, dynamic> toJson() => _$MessagingMessageToJson(this);
 }

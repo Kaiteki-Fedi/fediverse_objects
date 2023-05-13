@@ -27,6 +27,7 @@ class Hashtag {
     required this.attachedRemoteUsersCount,
   });
 
-  factory Hashtag.fromJson(Map<String, dynamic> json) => _$HashtagFromJson(json);
+  factory Hashtag.fromJson(Map<String, dynamic> json) =>
+      _$HashtagFromJson(json);
   Map<String, dynamic> toJson() => _$HashtagToJson(this);
 }

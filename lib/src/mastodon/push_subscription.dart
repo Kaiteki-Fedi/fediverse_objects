@@ -1,4 +1,4 @@
-import 'package:fediverse_objects/src/mastodon/push_subscription_alerts.dart';
+import 'push_subscription_alerts.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'push_subscription.g.dart';

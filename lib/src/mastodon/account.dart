@@ -1,7 +1,7 @@
-import 'package:fediverse_objects/src/mastodon/emoji.dart';
-import 'package:fediverse_objects/src/mastodon/field.dart';
-import 'package:fediverse_objects/src/mastodon/source.dart';
-import 'package:fediverse_objects/src/pleroma/account.dart';
+import 'emoji.dart';
+import 'field.dart';
+import 'source.dart';
+import '../pleroma/account.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'account.g.dart';

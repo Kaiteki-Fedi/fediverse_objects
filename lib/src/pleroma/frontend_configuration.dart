@@ -1,4 +1,4 @@
-import 'package:fediverse_objects/src/pleroma/pleroma_frontend_configuration.dart';
+import 'pleroma_frontend_configuration.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'frontend_configuration.g.dart';

@@ -1,4 +1,4 @@
-import 'package:fediverse_objects/src/mastodon/reaction.dart';
+import '../mastodon/reaction.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'status.g.dart';

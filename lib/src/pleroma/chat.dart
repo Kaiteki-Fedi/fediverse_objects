@@ -1,5 +1,5 @@
-import 'package:fediverse_objects/mastodon.dart';
-import 'package:fediverse_objects/src/pleroma/chat_message.dart';
+import '../../mastodon.dart';
+import 'chat_message.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'chat.g.dart';

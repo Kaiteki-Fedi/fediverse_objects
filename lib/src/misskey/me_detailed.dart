@@ -1,8 +1,10 @@
-import 'package:fediverse_objects/src/misskey/emoji.dart';
-import 'package:fediverse_objects/src/misskey/manual/field.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fediverse_objects/src/misskey/note.dart';
-import 'package:fediverse_objects/src/misskey/page.dart';
+
+import 'emoji.dart';
+import 'manual/field.dart';
+import 'note.dart';
+import 'page.dart';
+
 part 'me_detailed.g.dart';
 
 @JsonSerializable()

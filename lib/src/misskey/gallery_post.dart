@@ -1,6 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fediverse_objects/src/misskey/user_lite.dart';
-import 'package:fediverse_objects/src/misskey/drive_file.dart';
+
+import 'drive_file.dart';
+import 'user_lite.dart';
+
 part 'gallery_post.g.dart';
 
 @JsonSerializable()
@@ -41,6 +43,7 @@ class GalleryPost {
     required this.isSensitive,
   });
 
-  factory GalleryPost.fromJson(Map<String, dynamic> json) => _$GalleryPostFromJson(json);
+  factory GalleryPost.fromJson(Map<String, dynamic> json) =>
+      _$GalleryPostFromJson(json);
   Map<String, dynamic> toJson() => _$GalleryPostToJson(this);
 }

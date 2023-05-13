@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:fediverse_objects/mastodon.dart';
 import 'package:fediverse_objects/mastodon_v1.dart' as v1;
-import 'package:fediverse_objects/src/mastodon/preview_card.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
 

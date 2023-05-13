@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fediverse_objects/src/misskey/user_lite.dart';
+import 'user_lite.dart';
 part 'page.g.dart';
 
 @JsonSerializable()

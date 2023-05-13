@@ -1,5 +1,5 @@
-import 'package:fediverse_objects/src/mastodon/field.dart';
-import 'package:fediverse_objects/src/pleroma/source.dart';
+import 'field.dart';
+import '../pleroma/source.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'source.g.dart';

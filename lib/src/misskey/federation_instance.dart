@@ -66,6 +66,7 @@ class FederationInstance {
     this.infoUpdatedAt,
   });
 
-  factory FederationInstance.fromJson(Map<String, dynamic> json) => _$FederationInstanceFromJson(json);
+  factory FederationInstance.fromJson(Map<String, dynamic> json) =>
+      _$FederationInstanceFromJson(json);
   Map<String, dynamic> toJson() => _$FederationInstanceToJson(this);
 }

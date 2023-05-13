@@ -48,9 +48,11 @@ class Antenna {
     required this.hasUnreadNote,
   });
 
-  factory Antenna.fromJson(Map<String, dynamic> json) => _$AntennaFromJson(json);
+  factory Antenna.fromJson(Map<String, dynamic> json) =>
+      _$AntennaFromJson(json);
   Map<String, dynamic> toJson() => _$AntennaToJson(this);
 }
+
 enum AntennaSrc {
   home,
   all,

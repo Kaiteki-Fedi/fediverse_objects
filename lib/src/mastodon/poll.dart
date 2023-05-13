@@ -1,5 +1,5 @@
-import 'package:fediverse_objects/src/mastodon/emoji.dart';
-import 'package:fediverse_objects/src/mastodon/poll_option.dart';
+import 'emoji.dart';
+import 'poll_option.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'poll.g.dart';

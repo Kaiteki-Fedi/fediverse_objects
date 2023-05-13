@@ -1,6 +1,6 @@
-import 'package:fediverse_objects/src/mastodon/attachment.dart';
-import 'package:fediverse_objects/src/mastodon/emoji.dart';
-import 'package:fediverse_objects/src/mastodon/preview_card.dart';
+import '../mastodon/attachment.dart';
+import '../mastodon/emoji.dart';
+import '../mastodon/preview_card.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'chat_message.g.dart';

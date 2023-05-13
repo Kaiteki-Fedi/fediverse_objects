@@ -1,5 +1,5 @@
-import 'package:fediverse_objects/src/pleroma/notification_settings.dart';
-import 'package:fediverse_objects/src/pleroma/relationship.dart';
+import 'notification_settings.dart';
+import 'relationship.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'account.g.dart';

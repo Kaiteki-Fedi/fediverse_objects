@@ -1,4 +1,4 @@
-import 'package:fediverse_objects/src/pleroma/card.dart';
+import '../pleroma/card.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'trends_history.dart';

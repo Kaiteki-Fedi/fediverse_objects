@@ -1,4 +1,4 @@
-import 'package:fediverse_objects/src/misskey/emoji.dart';
+import 'misskey/emoji.dart';
 
 Object? misskeyEmojisReadValue(Map map, String key) {
   final value = map[key];

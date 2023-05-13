@@ -27,6 +27,7 @@ class DriveFolder {
     this.parent,
   });
 
-  factory DriveFolder.fromJson(Map<String, dynamic> json) => _$DriveFolderFromJson(json);
+  factory DriveFolder.fromJson(Map<String, dynamic> json) =>
+      _$DriveFolderFromJson(json);
   Map<String, dynamic> toJson() => _$DriveFolderToJson(this);
 }

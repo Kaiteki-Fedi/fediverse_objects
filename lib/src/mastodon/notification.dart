@@ -1,6 +1,6 @@
-import 'package:fediverse_objects/src/mastodon/account.dart';
-import 'package:fediverse_objects/src/mastodon/status.dart';
-import 'package:fediverse_objects/src/pleroma/notification.dart';
+import 'account.dart';
+import 'status.dart';
+import '../pleroma/notification.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'notification.g.dart';

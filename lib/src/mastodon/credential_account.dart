@@ -1,9 +1,9 @@
-import 'package:fediverse_objects/src/mastodon/account.dart';
-import 'package:fediverse_objects/src/mastodon/emoji.dart';
-import 'package:fediverse_objects/src/mastodon/field.dart';
-import 'package:fediverse_objects/src/mastodon/role.dart';
-import 'package:fediverse_objects/src/mastodon/source.dart';
-import 'package:fediverse_objects/src/pleroma/account.dart';
+import 'account.dart';
+import 'emoji.dart';
+import 'field.dart';
+import 'role.dart';
+import 'source.dart';
+import '../pleroma/account.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'credential_account.g.dart';

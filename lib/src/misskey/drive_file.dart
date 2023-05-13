@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fediverse_objects/src/misskey/drive_folder.dart';
-import 'package:fediverse_objects/src/misskey/user_lite.dart';
+import 'drive_folder.dart';
+import 'user_lite.dart';
 part 'drive_file.g.dart';
 
 @JsonSerializable()

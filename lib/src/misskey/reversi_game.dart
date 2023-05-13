@@ -1,4 +1,4 @@
-import 'package:fediverse_objects/src/misskey/user.dart';
+import 'user.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'reversi_game.g.dart';

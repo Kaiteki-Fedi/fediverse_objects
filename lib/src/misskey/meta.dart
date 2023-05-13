@@ -1,5 +1,5 @@
-import 'package:fediverse_objects/src/misskey/emoji.dart';
-import 'package:fediverse_objects/src/misskey/manual/ad.dart';
+import 'emoji.dart';
+import 'manual/ad.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'meta.g.dart';

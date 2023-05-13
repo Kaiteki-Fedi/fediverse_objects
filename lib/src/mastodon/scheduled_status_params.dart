@@ -1,4 +1,4 @@
-import 'package:fediverse_objects/src/mastodon/poll.dart';
+import 'poll.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'scheduled_status_params.g.dart';

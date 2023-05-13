@@ -1,5 +1,5 @@
-import 'package:fediverse_objects/src/mastodon/attachment.dart';
-import 'package:fediverse_objects/src/mastodon/scheduled_status_params.dart';
+import 'attachment.dart';
+import 'scheduled_status_params.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'scheduled_status.g.dart';

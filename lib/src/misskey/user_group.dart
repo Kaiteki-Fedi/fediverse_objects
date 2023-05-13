@@ -21,6 +21,7 @@ class UserGroup {
     this.userIds,
   });
 
-  factory UserGroup.fromJson(Map<String, dynamic> json) => _$UserGroupFromJson(json);
+  factory UserGroup.fromJson(Map<String, dynamic> json) =>
+      _$UserGroupFromJson(json);
   Map<String, dynamic> toJson() => _$UserGroupToJson(this);
 }

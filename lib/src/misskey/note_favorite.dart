@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:fediverse_objects/src/misskey/note.dart';
+import 'note.dart';
 part 'note_favorite.g.dart';
 
 @JsonSerializable()
@@ -19,6 +19,7 @@ class NoteFavorite {
     required this.noteId,
   });
 
-  factory NoteFavorite.fromJson(Map<String, dynamic> json) => _$NoteFavoriteFromJson(json);
+  factory NoteFavorite.fromJson(Map<String, dynamic> json) =>
+      _$NoteFavoriteFromJson(json);
   Map<String, dynamic> toJson() => _$NoteFavoriteToJson(this);
 }

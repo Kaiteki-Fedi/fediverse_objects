@@ -18,6 +18,7 @@ class UserList {
     this.userIds,
   });
 
-  factory UserList.fromJson(Map<String, dynamic> json) => _$UserListFromJson(json);
+  factory UserList.fromJson(Map<String, dynamic> json) =>
+      _$UserListFromJson(json);
   Map<String, dynamic> toJson() => _$UserListToJson(this);
 }
