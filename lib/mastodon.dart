@@ -31,3 +31,4 @@ export 'src/mastodon/scheduled_status_params.dart';
 export 'src/mastodon/source.dart';
 export 'src/mastodon/status.dart';
 export 'src/mastodon/tag.dart';
+export 'src/mastodon/trends_history.dart';
