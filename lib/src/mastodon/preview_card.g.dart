@@ -83,8 +83,8 @@ TrendsLink _$TrendsLinkFromJson(Map<String, dynamic> json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String),
           type: $checkedConvert(
               'type', (v) => $enumDecode(_$PreviewCardTypeEnumMap, v)),
-          authorName: $checkedConvert('authorName', (v) => v as String?),
-          providerName: $checkedConvert('providerName', (v) => v as String),
+          authorName: $checkedConvert('author_name', (v) => v as String?),
+          providerName: $checkedConvert('provider_name', (v) => v as String),
           html: $checkedConvert('html', (v) => v as String?),
           width: $checkedConvert('width', (v) => v as int?),
           height: $checkedConvert('height', (v) => v as int?),
@@ -96,6 +96,10 @@ TrendsLink _$TrendsLinkFromJson(Map<String, dynamic> json) => $checkedCreate(
         );
         return val;
       },
+      fieldKeyMap: const {
+        'authorName': 'author_name',
+        'providerName': 'provider_name'
+      },
     );
 
 Map<String, dynamic> _$TrendsLinkToJson(TrendsLink instance) =>
@@ -104,8 +108,8 @@ Map<String, dynamic> _$TrendsLinkToJson(TrendsLink instance) =>
       'title': instance.title,
       'description': instance.description,
       'type': _$PreviewCardTypeEnumMap[instance.type]!,
-      'authorName': instance.authorName,
-      'providerName': instance.providerName,
+      'author_name': instance.authorName,
+      'provider_name': instance.providerName,
       'html': instance.html,
       'width': instance.width,
       'height': instance.height,

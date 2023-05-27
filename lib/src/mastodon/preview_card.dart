@@ -1,6 +1,6 @@
-import '../pleroma/card.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import '../pleroma/card.dart';
 import 'trends_history.dart';
 
 part 'preview_card.g.dart';
@@ -91,7 +91,7 @@ enum PreviewCardType {
   rich,
 }
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class TrendsLink extends PreviewCard {
   final List<TrendsHistory> history;
 
