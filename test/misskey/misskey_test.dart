@@ -1,8 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:fediverse_objects/misskey.dart';
 import 'package:http/http.dart';
 import 'package:test/test.dart';
+
+const kExamplesPath = "test/misskey/examples";
 
 void main() {
   const instance = "misskey.io";
@@ -38,5 +41,15 @@ void main() {
       () => emojis.cast<Map<String, dynamic>>().map(Emoji.fromJson),
       returnsNormally,
     );
+  });
+
+  test('Notification', () async {
+    final json =
+        await File("$kExamplesPath/notification_follow.json").readAsString();
+
+    expect(() {
+      final map = jsonDecode(json) as Map<String, dynamic>;
+      return Notification.fromJson(map);
+    }, returnsNormally);
   });
 }

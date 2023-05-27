@@ -1,6 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'user_lite.dart';
+
 import 'note.dart';
+import 'user_lite.dart';
+
 part 'notification.g.dart';
 
 @JsonSerializable()
@@ -9,7 +11,8 @@ class Notification {
 
   final DateTime createdAt;
 
-  final bool isRead;
+  /// `isRead` was removed in https://github.com/misskey-dev/misskey/commit/30d6992
+  final bool? isRead;
 
   final NotificationType type;
 

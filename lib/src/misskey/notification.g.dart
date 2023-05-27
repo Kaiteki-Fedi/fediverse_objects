@@ -15,7 +15,7 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) =>
           id: $checkedConvert('id', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-          isRead: $checkedConvert('isRead', (v) => v as bool),
+          isRead: $checkedConvert('isRead', (v) => v as bool?),
           type: $checkedConvert(
               'type', (v) => $enumDecode(_$NotificationTypeEnumMap, v)),
           user: $checkedConvert(
