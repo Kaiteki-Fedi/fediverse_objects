@@ -11,77 +11,79 @@ Meta _$MetaFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Meta(
-          maintainerName:
-              $checkedConvert('maintainerName', (v) => v as String?),
-          maintainerEmail:
-              $checkedConvert('maintainerEmail', (v) => v as String?),
-          version: $checkedConvert('version', (v) => v as String),
-          name: $checkedConvert('name', (v) => v as String),
-          uri: $checkedConvert('uri', (v) => v as String),
-          description: $checkedConvert('description', (v) => v as String?),
-          langs: $checkedConvert('langs',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          tosUrl: $checkedConvert('tosUrl', (v) => v as String?),
-          repositoryUrl: $checkedConvert('repositoryUrl', (v) => v as String?),
-          feedbackUrl: $checkedConvert('feedbackUrl', (v) => v as String?),
-          defaultDarkTheme:
-              $checkedConvert('defaultDarkTheme', (v) => v as String?),
-          defaultLightTheme:
-              $checkedConvert('defaultLightTheme', (v) => v as String?),
-          disableRegistration:
-              $checkedConvert('disableRegistration', (v) => v as bool),
-          disableLocalTimeline:
-              $checkedConvert('disableLocalTimeline', (v) => v as bool?),
-          disableGlobalTimeline:
-              $checkedConvert('disableGlobalTimeline', (v) => v as bool?),
-          driveCapacityPerLocalUserMb:
-              $checkedConvert('driveCapacityPerLocalUserMb', (v) => v as int?),
-          driveCapacityPerRemoteUserMb:
-              $checkedConvert('driveCapacityPerRemoteUserMb', (v) => v as int?),
-          cacheRemoteFiles:
-              $checkedConvert('cacheRemoteFiles', (v) => v as bool?),
-          emailRequiredForSignup:
-              $checkedConvert('emailRequiredForSignup', (v) => v as bool),
-          enableHcaptcha: $checkedConvert('enableHcaptcha', (v) => v as bool),
-          hcaptchaSiteKey:
-              $checkedConvert('hcaptchaSiteKey', (v) => v as String?),
-          enableRecaptcha: $checkedConvert('enableRecaptcha', (v) => v as bool),
-          recaptchaSiteKey:
-              $checkedConvert('recaptchaSiteKey', (v) => v as String?),
-          swPublickey: $checkedConvert('swPublickey', (v) => v as String?),
-          mascotImageUrl:
-              $checkedConvert('mascotImageUrl', (v) => v as String?),
-          bannerUrl: $checkedConvert('bannerUrl', (v) => v as String?),
-          errorImageUrl: $checkedConvert('errorImageUrl', (v) => v as String?),
-          iconUrl: $checkedConvert('iconUrl', (v) => v as String?),
-          maxNoteTextLength:
-              $checkedConvert('maxNoteTextLength', (v) => v as int),
-          emojis: $checkedConvert(
-              'emojis',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
-                  .toList()),
           ads: $checkedConvert(
               'ads',
               (v) => (v as List<dynamic>?)
                   ?.map((e) => Ad.fromJson(e as Map<String, dynamic>))
                   .toList()),
-          requireSetup: $checkedConvert('requireSetup', (v) => v as bool?),
+          bannerUrl: $checkedConvert('bannerUrl', (v) => v as String?),
+          disableGlobalTimeline:
+              $checkedConvert('disableGlobalTimeline', (v) => v as bool?),
+          disableLocalTimeline:
+              $checkedConvert('disableLocalTimeline', (v) => v as bool?),
+          disableRegistration:
+              $checkedConvert('disableRegistration', (v) => v as bool),
+          driveCapacityPerLocalUserMb:
+              $checkedConvert('driveCapacityPerLocalUserMb', (v) => v as int?),
+          driveCapacityPerRemoteUserMb:
+              $checkedConvert('driveCapacityPerRemoteUserMb', (v) => v as int?),
+          emailRequiredForSignup:
+              $checkedConvert('emailRequiredForSignup', (v) => v as bool),
+          emojis: $checkedConvert(
+              'emojis',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           enableEmail: $checkedConvert('enableEmail', (v) => v as bool),
-          enableTwitterIntegration:
-              $checkedConvert('enableTwitterIntegration', (v) => v as bool?),
-          enableGithubIntegration:
-              $checkedConvert('enableGithubIntegration', (v) => v as bool?),
+          enableHcaptcha: $checkedConvert('enableHcaptcha', (v) => v as bool),
+          enableRecaptcha: $checkedConvert('enableRecaptcha', (v) => v as bool),
+          errorImageUrl: $checkedConvert('errorImageUrl', (v) => v as String?),
+          langs: $checkedConvert('langs',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          maxNoteTextLength:
+              $checkedConvert('maxNoteTextLength', (v) => v as int),
+          name: $checkedConvert('name', (v) => v as String),
+          repositoryUrl: $checkedConvert('repositoryUrl', (v) => v as String?),
+          uri: $checkedConvert('uri', (v) => v as String),
+          version: $checkedConvert('version', (v) => v as String),
+          cacheRemoteFiles:
+              $checkedConvert('cacheRemoteFiles', (v) => v as bool?),
+          defaultDarkTheme:
+              $checkedConvert('defaultDarkTheme', (v) => v as String?),
+          defaultLightTheme:
+              $checkedConvert('defaultLightTheme', (v) => v as String?),
+          description: $checkedConvert('description', (v) => v as String?),
+          disableRecommendedTimeline:
+              $checkedConvert('disableRecommendedTimeline', (v) => v as bool?),
           enableDiscordIntegration:
               $checkedConvert('enableDiscordIntegration', (v) => v as bool?),
+          enableGithubIntegration:
+              $checkedConvert('enableGithubIntegration', (v) => v as bool?),
           enableServiceWorker:
               $checkedConvert('enableServiceWorker', (v) => v as bool?),
-          translatorAvailable:
-              $checkedConvert('translatorAvailable', (v) => v as bool?),
-          proxyAccountName:
-              $checkedConvert('proxyAccountName', (v) => v as String?),
+          enableTwitterIntegration:
+              $checkedConvert('enableTwitterIntegration', (v) => v as bool?),
           features:
               $checkedConvert('features', (v) => v as Map<String, dynamic>?),
+          feedbackUrl: $checkedConvert('feedbackUrl', (v) => v as String?),
+          hcaptchaSiteKey:
+              $checkedConvert('hcaptchaSiteKey', (v) => v as String?),
+          iconUrl: $checkedConvert('iconUrl', (v) => v as String?),
+          maintainerEmail:
+              $checkedConvert('maintainerEmail', (v) => v as String?),
+          maintainerName:
+              $checkedConvert('maintainerName', (v) => v as String?),
+          mascotImageUrl:
+              $checkedConvert('mascotImageUrl', (v) => v as String?),
+          proxyAccountName:
+              $checkedConvert('proxyAccountName', (v) => v as String?),
+          recaptchaSiteKey:
+              $checkedConvert('recaptchaSiteKey', (v) => v as String?),
+          requireSetup: $checkedConvert('requireSetup', (v) => v as bool?),
+          swPublickey: $checkedConvert('swPublickey', (v) => v as String?),
+          tosUrl: $checkedConvert('tosUrl', (v) => v as String?),
+          translatorAvailable:
+              $checkedConvert('translatorAvailable', (v) => v as bool?),
         );
         return val;
       },
@@ -103,6 +105,7 @@ Map<String, dynamic> _$MetaToJson(Meta instance) => <String, dynamic>{
       'disableRegistration': instance.disableRegistration,
       'disableLocalTimeline': instance.disableLocalTimeline,
       'disableGlobalTimeline': instance.disableGlobalTimeline,
+      'disableRecommendedTimeline': instance.disableRecommendedTimeline,
       'driveCapacityPerLocalUserMb': instance.driveCapacityPerLocalUserMb,
       'driveCapacityPerRemoteUserMb': instance.driveCapacityPerRemoteUserMb,
       'cacheRemoteFiles': instance.cacheRemoteFiles,

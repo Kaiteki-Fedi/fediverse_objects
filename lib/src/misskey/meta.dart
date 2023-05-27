@@ -1,6 +1,7 @@
+import 'package:json_annotation/json_annotation.dart';
+
 import 'emoji.dart';
 import 'manual/ad.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'meta.g.dart';
 
@@ -35,6 +36,8 @@ class Meta {
   final bool? disableLocalTimeline;
 
   final bool? disableGlobalTimeline;
+
+  final bool? disableRecommendedTimeline;
 
   final int? driveCapacityPerLocalUserMb;
 
@@ -87,46 +90,47 @@ class Meta {
   final Map<String, dynamic>? features;
 
   const Meta({
-    this.maintainerName,
-    this.maintainerEmail,
-    required this.version,
-    required this.name,
-    required this.uri,
-    this.description,
-    required this.langs,
-    this.tosUrl,
-    required this.repositoryUrl,
-    this.feedbackUrl,
-    this.defaultDarkTheme,
-    this.defaultLightTheme,
-    required this.disableRegistration,
-    required this.disableLocalTimeline,
+    required this.ads,
+    required this.bannerUrl,
     required this.disableGlobalTimeline,
+    required this.disableLocalTimeline,
+    required this.disableRegistration,
     required this.driveCapacityPerLocalUserMb,
     required this.driveCapacityPerRemoteUserMb,
-    this.cacheRemoteFiles,
     required this.emailRequiredForSignup,
-    required this.enableHcaptcha,
-    this.hcaptchaSiteKey,
-    required this.enableRecaptcha,
-    this.recaptchaSiteKey,
-    this.swPublickey,
-    this.mascotImageUrl,
-    required this.bannerUrl,
-    required this.errorImageUrl,
-    this.iconUrl,
-    required this.maxNoteTextLength,
     required this.emojis,
-    required this.ads,
-    this.requireSetup,
     required this.enableEmail,
-    this.enableTwitterIntegration,
-    this.enableGithubIntegration,
+    required this.enableHcaptcha,
+    required this.enableRecaptcha,
+    required this.errorImageUrl,
+    required this.langs,
+    required this.maxNoteTextLength,
+    required this.name,
+    required this.repositoryUrl,
+    required this.uri,
+    required this.version,
+    this.cacheRemoteFiles,
+    this.defaultDarkTheme,
+    this.defaultLightTheme,
+    this.description,
+    this.disableRecommendedTimeline,
     this.enableDiscordIntegration,
+    this.enableGithubIntegration,
     this.enableServiceWorker,
-    this.translatorAvailable,
-    this.proxyAccountName,
+    this.enableTwitterIntegration,
     this.features,
+    this.feedbackUrl,
+    this.hcaptchaSiteKey,
+    this.iconUrl,
+    this.maintainerEmail,
+    this.maintainerName,
+    this.mascotImageUrl,
+    this.proxyAccountName,
+    this.recaptchaSiteKey,
+    this.requireSetup,
+    this.swPublickey,
+    this.tosUrl,
+    this.translatorAvailable,
   });
 
   factory Meta.fromJson(Map<String, dynamic> json) => _$MetaFromJson(json);
