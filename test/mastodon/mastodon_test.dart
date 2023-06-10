@@ -1,10 +1,11 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:fediverse_objects/mastodon.dart';
 import 'package:fediverse_objects/mastodon_v1.dart' as v1;
 import 'package:http/http.dart';
 import 'package:test/test.dart';
+
+import '../common.dart';
 
 const kExamplesPath = "test/mastodon/examples";
 
@@ -28,43 +29,24 @@ void main() {
   });
 
   group('PreviewCard', () {
-    test('Photo', () async {
-      final json =
-          await File("$kExamplesPath/preview_card_photo.json").readAsString();
+    testJsonObjectDeserialization(
+      "$kExamplesPath/preview_card_photo.json",
+      PreviewCard.fromJson,
+    );
 
-      expect(() {
-        final map = jsonDecode(json) as Map<String, dynamic>;
-        return PreviewCard.fromJson(map);
-      }, returnsNormally);
-    });
+    testJsonObjectDeserialization(
+      "$kExamplesPath/preview_card_link.json",
+      PreviewCard.fromJson,
+    );
 
-    test('Link', () async {
-      final json =
-          await File("$kExamplesPath/preview_card_link.json").readAsString();
+    testJsonObjectDeserialization(
+      "$kExamplesPath/preview_card_video.json",
+      PreviewCard.fromJson,
+    );
 
-      expect(() {
-        final map = jsonDecode(json) as Map<String, dynamic>;
-        return PreviewCard.fromJson(map);
-      }, returnsNormally);
-    });
-
-    test('Video', () async {
-      final json =
-          await File("$kExamplesPath/preview_card_video.json").readAsString();
-
-      expect(() {
-        final map = jsonDecode(json) as Map<String, dynamic>;
-        return PreviewCard.fromJson(map);
-      }, returnsNormally);
-    });
-
-    test('TrendsLink', () async {
-      final json = await File("$kExamplesPath/trends_link.json").readAsString();
-
-      expect(() {
-        final map = jsonDecode(json) as Map<String, dynamic>;
-        return TrendsLink.fromJson(map);
-      }, returnsNormally);
-    });
+    testJsonObjectDeserialization(
+      "$kExamplesPath/trends_link.json",
+      PreviewCard.fromJson,
+    );
   });
 }

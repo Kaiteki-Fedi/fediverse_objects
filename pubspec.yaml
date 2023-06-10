@@ -15,7 +15,7 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.3.3
-  http: ^0.13.5
+  http: ^1.0.0
   json_serializable: ^6.0.1
   lints: ^2.0.1
   test: ^1.17.10
