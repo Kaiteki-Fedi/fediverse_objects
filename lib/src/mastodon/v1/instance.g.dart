@@ -20,7 +20,7 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           registrations: $checkedConvert('registrations', (v) => v as bool),
           approvalRequired:
-              $checkedConvert('approval_required', (v) => v as bool),
+              $checkedConvert('approval_required', (v) => v as bool?),
           urls: $checkedConvert(
               'urls', (v) => InstanceUrls.fromJson(v as Map<String, dynamic>)),
           stats: $checkedConvert('stats',

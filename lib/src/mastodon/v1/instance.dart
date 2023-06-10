@@ -64,7 +64,8 @@ class Instance {
   final bool? invitesEnabled;
 
   /// Whether registrations require moderator approval.
-  final bool approvalRequired;
+  // Nullable in Pleroma
+  final bool? approvalRequired;
 
   final PleromaInstance? pleroma;
 
