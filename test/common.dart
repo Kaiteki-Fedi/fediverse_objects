@@ -8,7 +8,7 @@ void testJsonObjectDeserialization<T>(
 ) {
   final file = File(path);
 
-  test('${T.runtimeType} (${file.uri.pathSegments.last})', () async {
+  test('$T (${file.uri.pathSegments.last})', () async {
     final json = await file.readAsString();
 
     expect(() {
