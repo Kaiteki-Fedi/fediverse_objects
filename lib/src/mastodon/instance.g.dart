@@ -63,7 +63,10 @@ InstanceContact _$InstanceContactFromJson(Map<String, dynamic> json) =>
         final val = InstanceContact(
           $checkedConvert('email', (v) => v as String),
           $checkedConvert(
-              'account', (v) => Account.fromJson(v as Map<String, dynamic>)),
+              'account',
+              (v) => v == null
+                  ? null
+                  : Account.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
