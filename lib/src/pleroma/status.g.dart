@@ -17,9 +17,10 @@ PleromaStatus _$PleromaStatusFromJson(Map<String, dynamic> json) =>
               (v) => (v as Map<String, dynamic>?)?.map(
                     (k, e) => MapEntry(k, e as String),
                   )),
+          context: $checkedConvert('context', (v) => v as String),
           conversationId: $checkedConvert('conversation_id', (v) => v as int?),
           directConversationId:
-              $checkedConvert('direct_conversation_id', (v) => v as String?),
+              $checkedConvert('direct_conversation_id', (v) => v as int?),
           emojiReactions: $checkedConvert(
               'emoji_reactions',
               (v) => (v as List<dynamic>?)
@@ -58,6 +59,7 @@ PleromaStatus _$PleromaStatusFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$PleromaStatusToJson(PleromaStatus instance) =>
     <String, dynamic>{
       'content': instance.content,
+      'context': instance.context,
       'conversation_id': instance.conversationId,
       'direct_conversation_id': instance.directConversationId,
       'emoji_reactions': instance.emojiReactions,
