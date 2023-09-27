@@ -1,8 +1,9 @@
+import 'package:json_annotation/json_annotation.dart';
+
+import '../pleroma/account.dart';
 import 'emoji.dart';
 import 'field.dart';
 import 'source.dart';
-import '../pleroma/account.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'account.g.dart';
 
@@ -79,10 +80,12 @@ class Account {
   /// The username of the account, not including domain.
   final String username;
 
-  /// Whether the account has opted into discovery features such as the profile directory. (Nullable because of Pleroma support)
+  /// Whether the account has opted into discovery features such as the profile directory.
+  // NULL(pleroma)
   final bool? discoverable;
 
-  /// When the most recent status was posted. (Nullable because of Pleroma)
+  /// When the most recent status was posted.
+  // NULL(pleroma)
   final DateTime? lastStatusAt;
 
   /// Indicates that the profile is currently inactive and that its user has moved to a new account.
@@ -95,7 +98,7 @@ class Account {
   final DateTime? muteExpiredAt;
 
   /// Indicates that the account represents a Group actor.
-  /// (Nullable because of Pleroma support)
+  // NULL(pleroma)
   final bool? group;
 
   /// An extra attribute returned only when an account is silenced. If true, indicates that the account should be hidden behind a warning screen.

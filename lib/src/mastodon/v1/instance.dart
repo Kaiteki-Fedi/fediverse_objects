@@ -1,6 +1,6 @@
-import '../../pleroma/instance.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import '../../pleroma/instance.dart';
 import '../account.dart';
 import '../instance_configuration.dart';
 import '../instance_urls.dart';
@@ -64,7 +64,7 @@ class Instance {
   final bool? invitesEnabled;
 
   /// Whether registrations require moderator approval.
-  // Nullable in Pleroma
+  // NULL(pleroma)
   final bool? approvalRequired;
 
   final PleromaInstance? pleroma;

@@ -74,7 +74,7 @@ class InstanceContact {
 
   /// An account that can be contacted natively over the network regarding
   /// inquiries or issues.
-  // nullable because GoToSocial
+  // NULL(gts)
   final Account? account;
 
   const InstanceContact(this.email, this.account);
