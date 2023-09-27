@@ -1,6 +1,6 @@
-import '../pleroma/status.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import '../pleroma/status.dart';
 import 'account.dart';
 import 'application.dart';
 import 'attachment.dart';
@@ -114,7 +114,10 @@ class Status {
   /// Emoji Reactions (Glitch extension)
   final Iterable<Reaction>? reactions;
 
-  Status({
+  /// Quoted status (Akkoma extension)
+  final Status? quote;
+
+  const Status({
     required this.account,
     this.application,
     required this.content,
@@ -146,6 +149,7 @@ class Status {
     this.text,
     this.poll,
     this.reactions,
+    this.quote,
   });
 
   factory Status.fromJson(Map<String, dynamic> json) => _$StatusFromJson(json);
