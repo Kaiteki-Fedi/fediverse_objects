@@ -5,7 +5,8 @@ part "instance_configuration_statuses.g.dart";
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InstanceConfigurationStatuses {
   final int maxCharacters;
-  final int maxMediaAttachments;
+  // NULL(friendica)
+  final int? maxMediaAttachments;
   final int? charactersReservedPerUrl;
 
   const InstanceConfigurationStatuses({

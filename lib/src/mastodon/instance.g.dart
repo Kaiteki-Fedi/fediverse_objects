@@ -14,8 +14,8 @@ Instance _$InstanceFromJson(Map<String, dynamic> json) => $checkedCreate(
           domain: $checkedConvert('domain', (v) => v as String),
           title: $checkedConvert('title', (v) => v as String),
           version: $checkedConvert('version', (v) => v as String),
-          sourceUrl:
-              $checkedConvert('source_url', (v) => Uri.parse(v as String)),
+          sourceUrl: $checkedConvert(
+              'source_url', (v) => v == null ? null : Uri.parse(v as String)),
           description: $checkedConvert('description', (v) => v as String),
           usage: $checkedConvert('usage',
               (v) => InstanceUsage.fromJson(v as Map<String, dynamic>)),
@@ -44,7 +44,7 @@ Map<String, dynamic> _$InstanceToJson(Instance instance) => <String, dynamic>{
       'domain': instance.domain,
       'title': instance.title,
       'version': instance.version,
-      'source_url': instance.sourceUrl.toString(),
+      'source_url': instance.sourceUrl?.toString(),
       'description': instance.description,
       'usage': instance.usage,
       'thumbnail': instance.thumbnail,

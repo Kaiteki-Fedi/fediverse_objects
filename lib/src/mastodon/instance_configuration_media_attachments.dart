@@ -4,10 +4,12 @@ part 'instance_configuration_media_attachments.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InstanceConfigurationMediaAttachments {
+  @JsonKey(readValue: _supportedMimeTypesReadValue)
   final List<String>? supportedMimeTypes;
   final int imageSizeLimit;
   final int? imageMatrixLimit;
-  final int videoSizeLimit;
+  // NULL(friendica)
+  final int? videoSizeLimit;
   final int? videoMatrixLimit;
   final int? videoFrameRateLimit;
 
@@ -26,4 +28,13 @@ class InstanceConfigurationMediaAttachments {
 
   Map<String, dynamic> toJson() =>
       _$InstanceConfigurationMediaAttachmentsToJson(this);
+
+  static Object? _supportedMimeTypesReadValue(Map map, String key) {
+    final value = map[key];
+
+    // HACK: Friendica Mastodon API implementation quirk
+    if (value is Map<String, dynamic>) return value.keys.toList();
+
+    return value;
+  }
 }

@@ -20,7 +20,8 @@ class Instance {
 
   /// The URL for the source code of the software running on this instance, in
   /// keeping with AGPL license requirements.
-  final Uri sourceUrl;
+  // NULL(friendica)
+  final Uri? sourceUrl;
 
   /// A short, plain-text description defined by the admin.
   final String description;

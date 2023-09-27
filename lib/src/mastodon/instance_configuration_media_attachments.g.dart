@@ -15,15 +15,17 @@ InstanceConfigurationMediaAttachments
           ($checkedConvert) {
             final val = InstanceConfigurationMediaAttachments(
               supportedMimeTypes: $checkedConvert(
-                  'supported_mime_types',
-                  (v) =>
-                      (v as List<dynamic>?)?.map((e) => e as String).toList()),
+                'supported_mime_types',
+                (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+                readValue: InstanceConfigurationMediaAttachments
+                    ._supportedMimeTypesReadValue,
+              ),
               imageSizeLimit:
                   $checkedConvert('image_size_limit', (v) => v as int),
               imageMatrixLimit:
                   $checkedConvert('image_matrix_limit', (v) => v as int?),
               videoSizeLimit:
-                  $checkedConvert('video_size_limit', (v) => v as int),
+                  $checkedConvert('video_size_limit', (v) => v as int?),
               videoMatrixLimit:
                   $checkedConvert('video_matrix_limit', (v) => v as int?),
               videoFrameRateLimit:

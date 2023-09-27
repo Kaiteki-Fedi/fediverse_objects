@@ -12,20 +12,22 @@ const kExamplesPath = "test/mastodon/examples";
 void main() {
   const instance = "mastodon.social";
 
-  test('Instance (v2)', () async {
-    final uri = Uri.https(instance, "/api/v2/instance");
-    final response = await get(uri);
+  group('Instance', () {
+    test('v2', () async {
+      final uri = Uri.https(instance, "/api/v2/instance");
+      final response = await get(uri);
 
-    final map = jsonDecode(response.body) as Map<String, dynamic>;
-    expect(() => Instance.fromJson(map), returnsNormally);
-  });
+      final map = jsonDecode(response.body) as Map<String, dynamic>;
+      expect(() => Instance.fromJson(map), returnsNormally);
+    });
 
-  test('Instance (v1)', () async {
-    final uri = Uri.https(instance, "/api/v1/instance");
-    final response = await get(uri);
+    test('v1', () async {
+      final uri = Uri.https(instance, "/api/v1/instance");
+      final response = await get(uri);
 
-    final map = jsonDecode(response.body) as Map<String, dynamic>;
-    expect(() => v1.Instance.fromJson(map), returnsNormally);
+      final map = jsonDecode(response.body) as Map<String, dynamic>;
+      expect(() => v1.Instance.fromJson(map), returnsNormally);
+    });
   });
 
   group('PreviewCard', () {
@@ -47,6 +49,17 @@ void main() {
     testJsonObjectDeserialization(
       "$kExamplesPath/trends_link.json",
       PreviewCard.fromJson,
+    );
+  });
+
+  group('Friendica', () {
+    testJsonObjectDeserialization(
+      "$kExamplesPath/friendica/instance.json",
+      Instance.fromJson,
+    );
+    testJsonObjectDeserialization(
+      "$kExamplesPath/friendica/status.json",
+      Status.fromJson,
     );
   });
 }
