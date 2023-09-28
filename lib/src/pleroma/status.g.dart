@@ -17,7 +17,7 @@ PleromaStatus _$PleromaStatusFromJson(Map<String, dynamic> json) =>
               (v) => (v as Map<String, dynamic>?)?.map(
                     (k, e) => MapEntry(k, e as String),
                   )),
-          context: $checkedConvert('context', (v) => v as String),
+          context: $checkedConvert('context', (v) => v as String?),
           conversationId: $checkedConvert('conversation_id', (v) => v as int?),
           directConversationId:
               $checkedConvert('direct_conversation_id', (v) => v as int?),

@@ -12,7 +12,7 @@ class PleromaStatus {
   final Map<String, String>? content;
 
   /// The thread identifier the status is associated with
-  final String context;
+  final String? context;
 
   /// The ID of the AP context the status is associated with (if any)
   @Deprecated("Use context instead.")
