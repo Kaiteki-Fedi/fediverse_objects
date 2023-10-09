@@ -8,7 +8,7 @@ part 'poll.g.dart';
 @JsonSerializable()
 class Poll {
   final bool multiple;
-  final int? expiresAt;
+  final DateTime? expiresAt;
   final List<PollChoice> choices;
 
   const Poll({

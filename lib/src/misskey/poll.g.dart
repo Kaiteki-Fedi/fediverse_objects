@@ -12,7 +12,8 @@ Poll _$PollFromJson(Map<String, dynamic> json) => $checkedCreate(
       ($checkedConvert) {
         final val = Poll(
           multiple: $checkedConvert('multiple', (v) => v as bool),
-          expiresAt: $checkedConvert('expiresAt', (v) => v as int?),
+          expiresAt: $checkedConvert('expiresAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
           choices: $checkedConvert(
               'choices',
               (v) => (v as List<dynamic>)
@@ -25,6 +26,6 @@ Poll _$PollFromJson(Map<String, dynamic> json) => $checkedCreate(
 
 Map<String, dynamic> _$PollToJson(Poll instance) => <String, dynamic>{
       'multiple': instance.multiple,
-      'expiresAt': instance.expiresAt,
+      'expiresAt': instance.expiresAt?.toIso8601String(),
       'choices': instance.choices,
     };
