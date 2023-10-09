@@ -44,7 +44,10 @@ Note _$NoteFromJson(Map<String, dynamic> json) => $checkedCreate(
                   .toList()),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
-          poll: $checkedConvert('poll', (v) => v as Map<String, dynamic>?),
+          poll: $checkedConvert(
+              'poll',
+              (v) =>
+                  v == null ? null : Poll.fromJson(v as Map<String, dynamic>)),
           channelId: $checkedConvert('channelId', (v) => v as String?),
           channel:
               $checkedConvert('channel', (v) => v as Map<String, dynamic>?),

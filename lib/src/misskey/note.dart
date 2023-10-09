@@ -1,8 +1,10 @@
+import 'package:json_annotation/json_annotation.dart';
+
+import '../misskey_emojis_conversion.dart';
 import 'drive_file.dart';
 import 'emoji.dart';
+import 'poll.dart';
 import 'user_lite.dart';
-import '../misskey_emojis_conversion.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'note.g.dart';
 
@@ -42,7 +44,7 @@ class Note {
 
   final List<String>? tags;
 
-  final Map<String, dynamic>? poll;
+  final Poll? poll;
 
   final String? channelId;
 
