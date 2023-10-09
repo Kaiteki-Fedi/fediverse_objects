@@ -14,6 +14,8 @@ export '/src/misskey/note.dart';
 export '/src/misskey/note_reaction.dart';
 export '/src/misskey/notification.dart';
 export '/src/misskey/page.dart';
+export '/src/misskey/poll.dart';
+export '/src/misskey/poll_choice.dart';
 export '/src/misskey/user.dart';
 export '/src/misskey/user_group.dart';
 export '/src/misskey/user_lite.dart';
