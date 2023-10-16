@@ -1,150 +1,58 @@
+import 'package:json_annotation/json_annotation.dart';
+
 import '../../misskey.dart';
 import '../misskey_emojis_conversion.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';
 
 @JsonSerializable()
 class User extends UserLite {
-  @JsonKey(name: 'url')
   final String? url;
-
-  @JsonKey(name: 'createdAt')
   final DateTime? createdAt;
-
-  @JsonKey(name: 'updatedAt')
   final DateTime? updatedAt;
-
-  @JsonKey(name: 'bannerUrl')
   final String? bannerUrl;
-
-  @JsonKey(name: 'bannerBlurhash')
   final dynamic bannerBlurhash;
-
-  @JsonKey(name: 'bannerColor')
   final dynamic bannerColor;
-
-  @JsonKey(name: 'isLocked')
   final bool? isLocked;
-
-  @JsonKey(name: 'isSuspended')
   final bool? isSuspended;
-
-  @JsonKey(name: 'description')
   final String? description;
-
-  @JsonKey(name: 'location')
   final String? location;
-
-  @JsonKey(name: 'birthday')
   final String? birthday;
-
-  @JsonKey(name: 'fields')
   final List<Map<String, dynamic>>? fields;
-
-  @JsonKey(name: 'followersCount')
   final int? followersCount;
-
-  @JsonKey(name: 'followingCount')
   final int? followingCount;
-
-  @JsonKey(name: 'notesCount')
   final int? notesCount;
-
-  @JsonKey(name: 'pinnedNoteIds')
   final List<String>? pinnedNoteIds;
-
-  @JsonKey(name: 'pinnedNotes')
   final List<Note>? pinnedNotes;
-
-  @JsonKey(name: 'pinnedPageId')
   final String? pinnedPageId;
-
-  @JsonKey(name: 'pinnedPage')
   final Page? pinnedPage;
-
-  @JsonKey(name: 'twoFactorEnabled')
   final bool? twoFactorEnabled;
-
-  @JsonKey(name: 'usePasswordLessLogin')
   final bool? usePasswordLessLogin;
-
-  @JsonKey(name: 'securityKeys')
   final bool? securityKeys;
-
-  @JsonKey(name: 'avatarId')
   final String? avatarId;
-
-  @JsonKey(name: 'bannerId')
   final String? bannerId;
-
-  @JsonKey(name: 'autoWatch')
   final bool? autoWatch;
-
-  @JsonKey(name: 'injectFeaturedNote')
   final bool? injectFeaturedNote;
-
-  @JsonKey(name: 'alwaysMarkNsfw')
   final bool? alwaysMarkNsfw;
-
-  @JsonKey(name: 'carefulBot')
   final bool? carefulBot;
-
-  @JsonKey(name: 'autoAcceptFollowed')
   final bool? autoAcceptFollowed;
-
-  @JsonKey(name: 'hasUnreadSpecifiedNotes')
   final bool? hasUnreadSpecifiedNotes;
-
-  @JsonKey(name: 'hasUnreadMentions')
   final bool? hasUnreadMentions;
-
-  @JsonKey(name: 'hasUnreadAnnouncement')
   final bool? hasUnreadAnnouncement;
-
-  @JsonKey(name: 'hasUnreadAntenna')
   final bool? hasUnreadAntenna;
-
-  @JsonKey(name: 'hasUnreadChannel')
   final bool? hasUnreadChannel;
-
-  @JsonKey(name: 'hasUnreadMessagingMessage')
   final bool? hasUnreadMessagingMessage;
-
-  @JsonKey(name: 'hasUnreadNotification')
   final bool? hasUnreadNotification;
-
-  @JsonKey(name: 'hasPendingReceivedFollowRequest')
   final bool? hasPendingReceivedFollowRequest;
-
-  @JsonKey(name: 'integrations')
   final Map<String, dynamic>? integrations;
-
-  @JsonKey(name: 'mutedWords')
   final List<dynamic>? mutedWords;
-
-  @JsonKey(name: 'mutingNotificationTypes')
   final List<dynamic>? mutingNotificationTypes;
-
-  @JsonKey(name: 'isFollowing')
   final bool? isFollowing;
-
-  @JsonKey(name: 'hasPendingFollowRequestFromYou')
   final bool? hasPendingFollowRequestFromYou;
-
-  @JsonKey(name: 'hasPendingFollowRequestToYou')
   final bool? hasPendingFollowRequestToYou;
-
-  @JsonKey(name: 'isFollowed')
   final bool? isFollowed;
-
-  @JsonKey(name: 'isBlocking')
   final bool? isBlocking;
-
-  @JsonKey(name: 'isBlocked')
   final bool? isBlocked;
-
-  @JsonKey(name: 'isMuted')
   final bool? isMuted;
 
   const User({
