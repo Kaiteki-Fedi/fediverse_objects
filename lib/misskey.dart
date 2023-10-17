@@ -4,6 +4,7 @@ export '/src/misskey/channel.dart';
 export '/src/misskey/drive_file.dart';
 export '/src/misskey/emoji.dart';
 export '/src/misskey/error.dart';
+export '/src/misskey/following_request.dart';
 export '/src/misskey/manual/ad.dart';
 export '/src/misskey/manual/field.dart';
 export '/src/misskey/me_detailed.dart';
