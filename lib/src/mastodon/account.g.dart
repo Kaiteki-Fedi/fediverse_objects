@@ -20,7 +20,7 @@ Account _$AccountFromJson(Map<String, dynamic> json) => $checkedCreate(
           emojis: $checkedConvert(
               'emojis',
               (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .map((e) => CustomEmoji.fromJson(e as Map<String, dynamic>))
                   .toList()),
           followersCount: $checkedConvert('followers_count', (v) => v as int),
           followingCount: $checkedConvert('following_count', (v) => v as int),

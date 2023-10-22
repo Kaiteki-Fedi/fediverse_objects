@@ -1,10 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'emoji.g.dart';
+part 'custom_emoji.g.dart';
+
+@Deprecated("Use CustomEmoji instead.")
+typedef Emoji = CustomEmoji;
 
 /// Represents a custom emoji.
 @JsonSerializable()
-class Emoji {
+class CustomEmoji {
   /// Used for sorting custom emoji in the picker.
   final String? category;
 
@@ -25,7 +28,7 @@ class Emoji {
   @JsonKey(name: 'visible_in_picker')
   final bool visibleInPicker;
 
-  const Emoji({
+  const CustomEmoji({
     required this.shortcode,
     required this.url,
     required this.staticUrl,
@@ -34,7 +37,8 @@ class Emoji {
     this.tags,
   });
 
-  factory Emoji.fromJson(Map<String, dynamic> json) => _$EmojiFromJson(json);
+  factory CustomEmoji.fromJson(Map<String, dynamic> json) =>
+      _$CustomEmojiFromJson(json);
 
-  Map<String, dynamic> toJson() => _$EmojiToJson(this);
+  Map<String, dynamic> toJson() => _$CustomEmojiToJson(this);
 }

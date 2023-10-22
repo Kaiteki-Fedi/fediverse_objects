@@ -1,16 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'emoji.dart';
+part of 'custom_emoji.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Emoji _$EmojiFromJson(Map<String, dynamic> json) => $checkedCreate(
-      'Emoji',
+CustomEmoji _$CustomEmojiFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'CustomEmoji',
       json,
       ($checkedConvert) {
-        final val = Emoji(
+        final val = CustomEmoji(
           shortcode: $checkedConvert('shortcode', (v) => v as String),
           url: $checkedConvert('url', (v) => v as String),
           staticUrl: $checkedConvert('static_url', (v) => v as String),
@@ -28,7 +28,8 @@ Emoji _$EmojiFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$EmojiToJson(Emoji instance) => <String, dynamic>{
+Map<String, dynamic> _$CustomEmojiToJson(CustomEmoji instance) =>
+    <String, dynamic>{
       'category': instance.category,
       'shortcode': instance.shortcode,
       'static_url': instance.staticUrl,

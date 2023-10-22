@@ -1,10 +1,11 @@
+import 'package:json_annotation/json_annotation.dart';
+
+import '../pleroma/account.dart';
 import 'account.dart';
-import 'emoji.dart';
+import 'custom_emoji.dart';
 import 'field.dart';
 import 'role.dart';
 import 'source.dart';
-import '../pleroma/account.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'credential_account.g.dart';
 

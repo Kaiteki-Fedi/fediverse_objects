@@ -1,13 +1,14 @@
-import 'emoji.dart';
-import 'poll_option.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'custom_emoji.dart';
+import 'poll_option.dart';
 
 part 'poll.g.dart';
 
 @JsonSerializable()
 class Poll {
   /// Custom emoji to be used for rendering poll options.
-  final List<Emoji> emojis;
+  final List<CustomEmoji> emojis;
 
   /// Is the poll currently expired?
   final bool expired;

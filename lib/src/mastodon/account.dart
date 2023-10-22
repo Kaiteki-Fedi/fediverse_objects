@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../pleroma/account.dart';
-import 'emoji.dart';
+import 'custom_emoji.dart';
 import 'field.dart';
 import 'source.dart';
 
@@ -37,7 +37,7 @@ class Account {
   /// Custom emoji entities to be used when rendering the profile.
   ///
   /// If none, an empty array will be returned.
-  final List<Emoji> emojis;
+  final List<CustomEmoji> emojis;
 
   /// Additional metadata attached to a profile as name-value pairs.
   final List<Field>? fields;

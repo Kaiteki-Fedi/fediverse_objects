@@ -4,7 +4,7 @@ import '../pleroma/status.dart';
 import 'account.dart';
 import 'application.dart';
 import 'attachment.dart';
-import 'emoji.dart';
+import 'custom_emoji.dart';
 import 'mention.dart';
 import 'poll.dart';
 import 'preview_card.dart';
@@ -31,7 +31,7 @@ class Status {
   final DateTime createdAt;
 
   /// Custom emoji to be used when rendering status content.
-  final List<Emoji> emojis;
+  final List<CustomEmoji> emojis;
 
   /// Have you favourited this status?
   final bool? favourited;
@@ -73,11 +73,9 @@ class Status {
   final bool? reblogged;
 
   /// How many boosts this status has received.
-  @JsonKey(name: 'reblogs_count')
   final int reblogsCount;
 
   /// How many replies this status has received.
-  @JsonKey(name: 'replies_count')
   final int repliesCount;
 
   /// The poll attached to the status.
@@ -87,7 +85,6 @@ class Status {
   final bool sensitive;
 
   /// Subject or summary line, below which status content is collapsed until expanded.
-  @JsonKey(name: 'spoiler_text')
   final String spoilerText;
 
   /// Hashtags used within the status content.

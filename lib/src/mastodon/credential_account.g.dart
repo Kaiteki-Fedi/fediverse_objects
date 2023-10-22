@@ -21,7 +21,7 @@ CredentialAccount _$CredentialAccountFromJson(Map<String, dynamic> json) =>
           emojis: $checkedConvert(
               'emojis',
               (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .map((e) => CustomEmoji.fromJson(e as Map<String, dynamic>))
                   .toList()),
           followersCount: $checkedConvert('followersCount', (v) => v as int),
           followingCount: $checkedConvert('followingCount', (v) => v as int),

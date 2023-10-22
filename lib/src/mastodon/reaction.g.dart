@@ -19,7 +19,10 @@ Reaction _$ReactionFromJson(Map<String, dynamic> json) => $checkedCreate(
           count: $checkedConvert('count', (v) => v as int),
           me: $checkedConvert('me', (v) => v as bool),
           name: $checkedConvert('name', (v) => v as String),
-          url: $checkedConvert('url', (v) => v as String?),
+          url: $checkedConvert(
+              'url', (v) => v == null ? null : Uri.parse(v as String)),
+          staticUrl: $checkedConvert(
+              'staticUrl', (v) => v == null ? null : Uri.parse(v as String)),
         );
         return val;
       },
@@ -30,5 +33,6 @@ Map<String, dynamic> _$ReactionToJson(Reaction instance) => <String, dynamic>{
       'count': instance.count,
       'me': instance.me,
       'name': instance.name,
-      'url': instance.url,
+      'url': instance.url?.toString(),
+      'staticUrl': instance.staticUrl?.toString(),
     };

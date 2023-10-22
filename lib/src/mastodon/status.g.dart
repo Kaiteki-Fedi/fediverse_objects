@@ -24,7 +24,7 @@ Status _$StatusFromJson(Map<String, dynamic> json) => $checkedCreate(
           emojis: $checkedConvert(
               'emojis',
               (v) => (v as List<dynamic>)
-                  .map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                  .map((e) => CustomEmoji.fromJson(e as Map<String, dynamic>))
                   .toList()),
           favouritesCount: $checkedConvert('favourites_count', (v) => v as int),
           id: $checkedConvert('id', (v) => v as String),
