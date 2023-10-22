@@ -30,6 +30,13 @@ void main() {
     });
   });
 
+  group('Announcement', () {
+    testJsonObjectDeserialization(
+      "$kExamplesPath/announcement.json",
+      Announcement.fromJson,
+    );
+  });
+
   group('PreviewCard', () {
     testJsonObjectDeserialization(
       "$kExamplesPath/preview_card_photo.json",
