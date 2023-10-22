@@ -13,7 +13,7 @@ class Tag {
   final Uri url;
 
   /// Usage statistics for given days (typically the past week).
-  final TrendsHistory? history;
+  final List<TrendsHistory>? history;
 
   /// Whether the current token’s authorized user is following this tag.
   final bool? following;

@@ -15,9 +15,10 @@ Tag _$TagFromJson(Map<String, dynamic> json) => $checkedCreate(
           url: $checkedConvert('url', (v) => Uri.parse(v as String)),
           history: $checkedConvert(
               'history',
-              (v) => v == null
-                  ? null
-                  : TrendsHistory.fromJson(v as Map<String, dynamic>)),
+              (v) => (v as List<dynamic>?)
+                  ?.map(
+                      (e) => TrendsHistory.fromJson(e as Map<String, dynamic>))
+                  .toList()),
           following: $checkedConvert('following', (v) => v as bool?),
         );
         return val;
