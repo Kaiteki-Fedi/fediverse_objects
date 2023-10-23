@@ -1,5 +1,6 @@
 library misskey;
 
+export '/src/misskey/announcement.dart';
 export '/src/misskey/channel.dart';
 export '/src/misskey/drive_file.dart';
 export '/src/misskey/emoji.dart';
