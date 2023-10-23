@@ -1,10 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'attachment.g.dart';
+part 'media_attachment.g.dart';
+
+@Deprecated("Use MediaAttachment instead.")
+typedef Attachment = MediaAttachment;
 
 /// Represents a file or media attachment that can be added to a status.
 @JsonSerializable(fieldRename: FieldRename.snake)
-class Attachment {
+class MediaAttachment {
   /// Alternate text that describes what is in the media attachment, to be used for the visually impaired or when media attachments do not load.
   final String? description;
 
@@ -39,7 +42,7 @@ class Attachment {
   /// A hash computed by [the BlurHash algorithm](https://github.com/woltapp/blurhash), for generating colorful preview thumbnails when media has not been downloaded yet.
   final String? blurhash;
 
-  const Attachment({
+  const MediaAttachment({
     required this.id,
     required this.type,
     required this.url,
@@ -51,7 +54,7 @@ class Attachment {
     // this.pleroma,
   });
 
-  factory Attachment.fromJson(Map<String, dynamic> json) =>
+  factory MediaAttachment.fromJson(Map<String, dynamic> json) =>
       _$AttachmentFromJson(json);
 
   Map<String, dynamic> toJson() => _$AttachmentToJson(this);

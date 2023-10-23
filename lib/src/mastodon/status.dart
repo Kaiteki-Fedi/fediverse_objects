@@ -3,8 +3,8 @@ import 'package:json_annotation/json_annotation.dart';
 import '../pleroma/status.dart';
 import 'account.dart';
 import 'application.dart';
-import 'attachment.dart';
 import 'custom_emoji.dart';
+import 'media_attachment.dart';
 import 'mention.dart';
 import 'poll.dart';
 import 'preview_card.dart';
@@ -51,7 +51,7 @@ class Status {
   final String? language;
 
   /// Media that is attached to this status.
-  final List<Attachment> mediaAttachments;
+  final List<MediaAttachment> mediaAttachments;
 
   /// Mentions of users within the status content.
   final List<Mention> mentions;

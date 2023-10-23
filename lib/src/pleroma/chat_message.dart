@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../mastodon/attachment.dart';
 import '../mastodon/custom_emoji.dart';
+import '../mastodon/media_attachment.dart';
 import '../mastodon/preview_card.dart';
 
 part 'chat_message.g.dart';
@@ -12,7 +12,7 @@ class ChatMessage {
   @JsonKey(name: 'account_id')
   final String accountId;
 
-  final Attachment? attachment;
+  final MediaAttachment? attachment;
 
   /// Preview card for links included within status content
   final PreviewCard? card;

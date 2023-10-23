@@ -1,16 +1,17 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'attachment.dart';
+part of 'media_attachment.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Attachment _$AttachmentFromJson(Map<String, dynamic> json) => $checkedCreate(
+MediaAttachment _$AttachmentFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
       'Attachment',
       json,
       ($checkedConvert) {
-        final val = Attachment(
+        final val = MediaAttachment(
           id: $checkedConvert('id', (v) => v as String),
           type: $checkedConvert('type', (v) => v as String),
           url: $checkedConvert('url', (v) => v as String),
@@ -29,7 +30,7 @@ Attachment _$AttachmentFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$AttachmentToJson(Attachment instance) =>
+Map<String, dynamic> _$AttachmentToJson(MediaAttachment instance) =>
     <String, dynamic>{
       'description': instance.description,
       'id': instance.id,

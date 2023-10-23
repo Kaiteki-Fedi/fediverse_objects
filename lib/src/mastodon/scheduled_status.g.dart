@@ -16,7 +16,8 @@ ScheduledStatus _$ScheduledStatusFromJson(Map<String, dynamic> json) =>
           mediaAttachments: $checkedConvert(
               'media_attachments',
               (v) => (v as List<dynamic>)
-                  .map((e) => Attachment.fromJson(e as Map<String, dynamic>))
+                  .map((e) =>
+                      MediaAttachment.fromJson(e as Map<String, dynamic>))
                   .toList()),
           params: $checkedConvert('params',
               (v) => ScheduledStatusParams.fromJson(v as Map<String, dynamic>)),

@@ -1,6 +1,7 @@
-import 'attachment.dart';
-import 'scheduled_status_params.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'media_attachment.dart';
+import 'scheduled_status_params.dart';
 
 part 'scheduled_status.g.dart';
 
@@ -9,7 +10,7 @@ class ScheduledStatus {
   final String id;
 
   @JsonKey(name: 'media_attachments')
-  final List<Attachment> mediaAttachments;
+  final List<MediaAttachment> mediaAttachments;
 
   final ScheduledStatusParams params;
 

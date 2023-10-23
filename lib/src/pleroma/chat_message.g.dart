@@ -26,7 +26,7 @@ ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) => $checkedCreate(
               'attachment',
               (v) => v == null
                   ? null
-                  : Attachment.fromJson(v as Map<String, dynamic>)),
+                  : MediaAttachment.fromJson(v as Map<String, dynamic>)),
           card: $checkedConvert(
               'card',
               (v) => v == null

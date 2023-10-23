@@ -31,7 +31,8 @@ Status _$StatusFromJson(Map<String, dynamic> json) => $checkedCreate(
           mediaAttachments: $checkedConvert(
               'media_attachments',
               (v) => (v as List<dynamic>)
-                  .map((e) => Attachment.fromJson(e as Map<String, dynamic>))
+                  .map((e) =>
+                      MediaAttachment.fromJson(e as Map<String, dynamic>))
                   .toList()),
           mentions: $checkedConvert(
               'mentions',
