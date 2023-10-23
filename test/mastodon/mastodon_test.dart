@@ -9,6 +9,26 @@ import '../common.dart';
 
 const kExamplesPath = "test/mastodon/examples";
 
+final examples = [
+  (Account, Account.fromJson, ["account"]),
+  (Announcement, Announcement.fromJson, ["announcement"]),
+  (CustomEmoji, CustomEmoji.fromJson, ["custom_emoji"]),
+  (
+    PreviewCard,
+    PreviewCard.fromJson,
+    [
+      "preview_card_photo",
+      "preview_card_link",
+      "preview_card_video",
+      "trends_link",
+    ],
+  ),
+  (MediaAttachment, MediaAttachment.fromJson, ["media_attachment"]),
+  (Status, Status.fromJson, ["status"]),
+  (Tag, Tag.fromJson, ["tag"]),
+  (Role, Role.fromJson, ["role"]),
+];
+
 void main() {
   const instance = "mastodon.social";
 
@@ -30,34 +50,16 @@ void main() {
     });
   });
 
-  group('Announcement', () {
-    testJsonObjectDeserialization(
-      "$kExamplesPath/announcement.json",
-      Announcement.fromJson,
-    );
-  });
-
-  group('PreviewCard', () {
-    testJsonObjectDeserialization(
-      "$kExamplesPath/preview_card_photo.json",
-      PreviewCard.fromJson,
-    );
-
-    testJsonObjectDeserialization(
-      "$kExamplesPath/preview_card_link.json",
-      PreviewCard.fromJson,
-    );
-
-    testJsonObjectDeserialization(
-      "$kExamplesPath/preview_card_video.json",
-      PreviewCard.fromJson,
-    );
-
-    testJsonObjectDeserialization(
-      "$kExamplesPath/trends_link.json",
-      PreviewCard.fromJson,
-    );
-  });
+  for (final example in examples) {
+    group(example.$1.toString(), () {
+      for (final name in example.$3) {
+        testJsonObjectDeserialization(
+          "$kExamplesPath/$name.json",
+          example.$2,
+        );
+      }
+    });
+  }
 
   group('Friendica', () {
     testJsonObjectDeserialization(

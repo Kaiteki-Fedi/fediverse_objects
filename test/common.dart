@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:test/test.dart';
 
 void testJsonObjectDeserialization<T>(
@@ -8,7 +9,7 @@ void testJsonObjectDeserialization<T>(
 ) {
   final file = File(path);
 
-  test('$T (${file.uri.pathSegments.last})', () async {
+  test(file.uri.pathSegments.last, () async {
     final json = await file.readAsString();
 
     expect(() {
