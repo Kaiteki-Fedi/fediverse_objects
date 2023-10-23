@@ -55,7 +55,7 @@ class MediaAttachment {
   });
 
   factory MediaAttachment.fromJson(Map<String, dynamic> json) =>
-      _$AttachmentFromJson(json);
+      _$MediaAttachmentFromJson(json);
 
-  Map<String, dynamic> toJson() => _$AttachmentToJson(this);
+  Map<String, dynamic> toJson() => _$MediaAttachmentToJson(this);
 }

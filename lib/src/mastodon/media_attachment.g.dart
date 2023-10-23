@@ -6,9 +6,9 @@ part of 'media_attachment.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-MediaAttachment _$AttachmentFromJson(Map<String, dynamic> json) =>
+MediaAttachment _$MediaAttachmentFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      'Attachment',
+      'MediaAttachment',
       json,
       ($checkedConvert) {
         final val = MediaAttachment(
@@ -30,7 +30,7 @@ MediaAttachment _$AttachmentFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$AttachmentToJson(MediaAttachment instance) =>
+Map<String, dynamic> _$MediaAttachmentToJson(MediaAttachment instance) =>
     <String, dynamic>{
       'description': instance.description,
       'id': instance.id,
