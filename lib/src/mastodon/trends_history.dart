@@ -4,13 +4,13 @@ part 'trends_history.g.dart';
 
 @JsonSerializable()
 class TrendsHistory {
-  @JsonKey(readValue: _dateTimeFromTimestamp)
+  @JsonKey(fromJson: _dateTimeFromTimestamp)
   final DateTime day;
 
-  @JsonKey(readValue: _intFromString)
+  @JsonKey(fromJson: _intFromString)
   final int uses;
 
-  @JsonKey(readValue: _intFromString)
+  @JsonKey(fromJson: _intFromString)
   final int accounts;
 
   const TrendsHistory({
@@ -25,24 +25,22 @@ class TrendsHistory {
   Map<String, dynamic> toJson() => _$TrendsHistoryToJson(this);
 }
 
-DateTime _dateTimeFromTimestamp(Map<dynamic, dynamic> map, String key) {
-  final value = map[key];
+DateTime _dateTimeFromTimestamp(dynamic value) {
   if (value is String) {
     return DateTime.parse(value);
   } else if (value is int) {
     return DateTime.fromMillisecondsSinceEpoch(value);
   } else {
-    throw ArgumentError.value(value, key, 'Must be String or int');
+    throw ArgumentError.value(value, 'value', 'Must be String or int');
   }
 }
 
-int _intFromString(Map<dynamic, dynamic> map, String key) {
-  final value = map[key];
+int _intFromString(dynamic value) {
   if (value is int) {
     return value;
   } else if (value is String) {
     return int.parse(value);
   } else {
-    throw ArgumentError.value(value, key, 'Must be int or String');
+    throw ArgumentError.value(value, 'value', 'Must be int or String');
   }
 }

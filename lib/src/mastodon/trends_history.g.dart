@@ -12,21 +12,9 @@ TrendsHistory _$TrendsHistoryFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = TrendsHistory(
-          day: $checkedConvert(
-            'day',
-            (v) => DateTime.parse(v as String),
-            readValue: _dateTimeFromTimestamp,
-          ),
-          uses: $checkedConvert(
-            'uses',
-            (v) => v as int,
-            readValue: _intFromString,
-          ),
-          accounts: $checkedConvert(
-            'accounts',
-            (v) => v as int,
-            readValue: _intFromString,
-          ),
+          day: $checkedConvert('day', (v) => _dateTimeFromTimestamp(v)),
+          uses: $checkedConvert('uses', (v) => _intFromString(v)),
+          accounts: $checkedConvert('accounts', (v) => _intFromString(v)),
         );
         return val;
       },
