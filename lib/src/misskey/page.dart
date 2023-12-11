@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'user_lite.dart';
+import 'user.dart';
 part 'page.g.dart';
 
 @JsonSerializable()
@@ -22,7 +22,7 @@ class Page {
 
   final String userId;
 
-  final UserLite user;
+  final User user;
 
   const Page({
     required this.id,

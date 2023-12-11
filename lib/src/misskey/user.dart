@@ -6,12 +6,27 @@ import 'emoji.dart';
 import 'note.dart';
 import 'page.dart';
 import 'user_field.dart';
-import 'user_lite.dart';
 
 part 'user.g.dart';
 
 @JsonSerializable()
-class User extends UserLite {
+class User {
+  /// The local host is represented with `null`.
+  final String? host;
+
+  @JsonKey(readValue: misskeyEmojisReadValue)
+  final List<Emoji>? emojis;
+
+  final String id;
+  final String? name;
+  final String username;
+  final Uri? avatarUrl;
+  final String? avatarBlurhash;
+  final bool? isAdmin;
+  final bool? isModerator;
+  final bool? isBot;
+  final bool? isCat;
+  final UserOnlineStatus? onlineStatus;
   final Uri? url;
   final Uri? uri;
   final DateTime? createdAt;
@@ -62,8 +77,6 @@ class User extends UserLite {
   final List<AvatarDecoration>? avatarDecorations;
 
   const User({
-    required super.id,
-    required super.username,
     required this.alwaysMarkNsfw,
     required this.autoAcceptFollowed,
     required this.autoWatch,
@@ -82,6 +95,7 @@ class User extends UserLite {
     required this.hasUnreadMessagingMessage,
     required this.hasUnreadNotification,
     required this.hasUnreadSpecifiedNotes,
+    required this.id,
     required this.injectFeaturedNote,
     required this.isBlocked,
     required this.isBlocking,
@@ -97,17 +111,11 @@ class User extends UserLite {
     required this.securityKeys,
     required this.twoFactorEnabled,
     required this.usePasswordLessLogin,
-    super.avatarBlurhash,
-    super.avatarUrl,
-    super.emojis,
-    super.host,
-    super.isAdmin,
-    super.isBot,
-    super.isCat,
-    super.isModerator,
-    super.name,
+    required this.username,
+    this.avatarBlurhash,
     this.avatarDecorations,
     this.avatarId,
+    this.avatarUrl,
     this.backgroundId,
     this.backgroundUrl,
     this.bannerBlurhash,
@@ -115,7 +123,15 @@ class User extends UserLite {
     this.bannerUrl,
     this.birthday,
     this.description,
+    this.emojis,
+    this.host,
+    this.isAdmin,
+    this.isBot,
+    this.isCat,
+    this.isModerator,
     this.location,
+    this.name,
+    this.onlineStatus,
     this.pinnedPage,
     this.pinnedPageId,
     this.updatedAt,
@@ -125,6 +141,7 @@ class User extends UserLite {
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  @override
   Map<String, dynamic> toJson() => _$UserToJson(this);
 }
+
+enum UserOnlineStatus { unknown, online, active, offline }

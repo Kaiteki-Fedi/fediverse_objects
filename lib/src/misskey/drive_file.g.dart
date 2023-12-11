@@ -34,9 +34,8 @@ DriveFile _$DriveFileFromJson(Map<String, dynamic> json) => $checkedCreate(
           userId: $checkedConvert('userId', (v) => v as String?),
           user: $checkedConvert(
               'user',
-              (v) => v == null
-                  ? null
-                  : UserLite.fromJson(v as Map<String, dynamic>)),
+              (v) =>
+                  v == null ? null : User.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },

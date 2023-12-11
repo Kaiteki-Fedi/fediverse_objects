@@ -48,4 +48,9 @@ void main() {
     "$kExamplesPath/notification_follow.json",
     Notification.fromJson,
   );
+
+  testJsonObjectDeserialization(
+    "$kExamplesPath/user_lite.json",
+    User.fromJson,
+  );
 }

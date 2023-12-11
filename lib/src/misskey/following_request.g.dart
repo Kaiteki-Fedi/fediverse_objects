@@ -14,9 +14,9 @@ FollowingRequest _$FollowingRequestFromJson(Map<String, dynamic> json) =>
         final val = FollowingRequest(
           id: $checkedConvert('id', (v) => v as String),
           follower: $checkedConvert(
-              'follower', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+              'follower', (v) => User.fromJson(v as Map<String, dynamic>)),
           followee: $checkedConvert(
-              'followee', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+              'followee', (v) => User.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },

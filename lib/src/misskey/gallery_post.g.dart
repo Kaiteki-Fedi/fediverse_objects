@@ -20,7 +20,7 @@ GalleryPost _$GalleryPostFromJson(Map<String, dynamic> json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           userId: $checkedConvert('userId', (v) => v as String),
           user: $checkedConvert(
-              'user', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+              'user', (v) => User.fromJson(v as Map<String, dynamic>)),
           fileIds: $checkedConvert('fileIds',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           files: $checkedConvert(

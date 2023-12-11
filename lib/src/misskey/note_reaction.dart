@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'user_lite.dart';
+import 'user.dart';
 part 'note_reaction.g.dart';
 
 @JsonSerializable()
@@ -8,7 +8,7 @@ class NoteReaction {
 
   final DateTime createdAt;
 
-  final UserLite user;
+  final User user;
 
   final String type;
 

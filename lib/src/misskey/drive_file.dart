@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'drive_folder.dart';
-import 'user_lite.dart';
+import 'user.dart';
 part 'drive_file.g.dart';
 
 @JsonSerializable()
@@ -35,7 +35,7 @@ class DriveFile {
 
   final String? userId;
 
-  final UserLite? user;
+  final User? user;
 
   const DriveFile({
     required this.id,

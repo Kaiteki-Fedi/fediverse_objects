@@ -20,9 +20,8 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) =>
               'type', (v) => $enumDecode(_$NotificationTypeEnumMap, v)),
           user: $checkedConvert(
               'user',
-              (v) => v == null
-                  ? null
-                  : UserLite.fromJson(v as Map<String, dynamic>)),
+              (v) =>
+                  v == null ? null : User.fromJson(v as Map<String, dynamic>)),
           userId: $checkedConvert('userId', (v) => v as String?),
           note: $checkedConvert(
               'note',

@@ -18,9 +18,8 @@ MessagingMessage _$MessagingMessageFromJson(Map<String, dynamic> json) =>
           userId: $checkedConvert('userId', (v) => v as String),
           user: $checkedConvert(
               'user',
-              (v) => v == null
-                  ? null
-                  : UserLite.fromJson(v as Map<String, dynamic>)),
+              (v) =>
+                  v == null ? null : User.fromJson(v as Map<String, dynamic>)),
           text: $checkedConvert('text', (v) => v as String?),
           fileId: $checkedConvert('fileId', (v) => v as String?),
           file: $checkedConvert(
@@ -31,9 +30,8 @@ MessagingMessage _$MessagingMessageFromJson(Map<String, dynamic> json) =>
           recipientId: $checkedConvert('recipientId', (v) => v as String?),
           recipient: $checkedConvert(
               'recipient',
-              (v) => v == null
-                  ? null
-                  : UserLite.fromJson(v as Map<String, dynamic>)),
+              (v) =>
+                  v == null ? null : User.fromJson(v as Map<String, dynamic>)),
           groupId: $checkedConvert('groupId', (v) => v as String?),
           group: $checkedConvert(
               'group',

@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'user_lite.dart';
+import 'user.dart';
 part 'clip.g.dart';
 
 @JsonSerializable()
@@ -10,7 +10,7 @@ class Clip {
 
   final String userId;
 
-  final UserLite user;
+  final User user;
 
   final String name;
 

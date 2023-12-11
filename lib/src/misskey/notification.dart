@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'note.dart';
-import 'user_lite.dart';
+import 'user.dart';
 
 part 'notification.g.dart';
 
@@ -16,7 +16,7 @@ class Notification {
 
   final NotificationType type;
 
-  final UserLite? user;
+  final User? user;
 
   final String? userId;
 

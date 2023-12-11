@@ -1,14 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'user_lite.dart';
+import 'user.dart';
 
 part 'following_request.g.dart';
 
 @JsonSerializable()
 class FollowingRequest {
   final String id;
-  final UserLite follower;
-  final UserLite followee;
+  final User follower;
+  final User followee;
 
   const FollowingRequest({
     required this.id,

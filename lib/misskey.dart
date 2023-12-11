@@ -19,4 +19,3 @@ export '/src/misskey/poll_choice.dart';
 export '/src/misskey/user.dart';
 export '/src/misskey/user_field.dart';
 export '/src/misskey/user_group.dart';
-export '/src/misskey/user_lite.dart';

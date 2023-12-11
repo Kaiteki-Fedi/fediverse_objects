@@ -16,7 +16,7 @@ Clip _$ClipFromJson(Map<String, dynamic> json) => $checkedCreate(
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           userId: $checkedConvert('userId', (v) => v as String),
           user: $checkedConvert(
-              'user', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+              'user', (v) => User.fromJson(v as Map<String, dynamic>)),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
           isPublic: $checkedConvert('isPublic', (v) => v as bool),

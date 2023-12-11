@@ -4,7 +4,7 @@ import '../misskey_emojis_conversion.dart';
 import 'drive_file.dart';
 import 'emoji.dart';
 import 'poll.dart';
-import 'user_lite.dart';
+import 'user.dart';
 
 part 'note.g.dart';
 
@@ -20,7 +20,7 @@ class Note {
 
   final String userId;
 
-  final UserLite user;
+  final User user;
 
   final String? replyId;
 

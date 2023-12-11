@@ -11,8 +11,6 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = User(
-          id: $checkedConvert('id', (v) => v as String),
-          username: $checkedConvert('username', (v) => v as String),
           alwaysMarkNsfw: $checkedConvert('alwaysMarkNsfw', (v) => v as bool?),
           autoAcceptFollowed:
               $checkedConvert('autoAcceptFollowed', (v) => v as bool?),
@@ -47,6 +45,7 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
               $checkedConvert('hasUnreadNotification', (v) => v as bool?),
           hasUnreadSpecifiedNotes:
               $checkedConvert('hasUnreadSpecifiedNotes', (v) => v as bool?),
+          id: $checkedConvert('id', (v) => v as String),
           injectFeaturedNote:
               $checkedConvert('injectFeaturedNote', (v) => v as bool?),
           isBlocked: $checkedConvert('isBlocked', (v) => v as bool?),
@@ -71,10 +70,28 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
               $checkedConvert('twoFactorEnabled', (v) => v as bool?),
           usePasswordLessLogin:
               $checkedConvert('usePasswordLessLogin', (v) => v as bool?),
+          username: $checkedConvert('username', (v) => v as String),
           avatarBlurhash:
               $checkedConvert('avatarBlurhash', (v) => v as String?),
+          avatarDecorations: $checkedConvert(
+              'avatarDecorations',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      AvatarDecoration.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          avatarId: $checkedConvert('avatarId', (v) => v as String?),
           avatarUrl: $checkedConvert(
               'avatarUrl', (v) => v == null ? null : Uri.parse(v as String)),
+          backgroundId: $checkedConvert('backgroundId', (v) => v as String?),
+          backgroundUrl: $checkedConvert('backgroundUrl',
+              (v) => v == null ? null : Uri.parse(v as String)),
+          bannerBlurhash:
+              $checkedConvert('bannerBlurhash', (v) => v as String?),
+          bannerId: $checkedConvert('bannerId', (v) => v as String?),
+          bannerUrl: $checkedConvert(
+              'bannerUrl', (v) => v == null ? null : Uri.parse(v as String)),
+          birthday: $checkedConvert('birthday', (v) => v as String?),
+          description: $checkedConvert('description', (v) => v as String?),
           emojis: $checkedConvert(
             'emojis',
             (v) => (v as List<dynamic>?)
@@ -87,25 +104,10 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
           isBot: $checkedConvert('isBot', (v) => v as bool?),
           isCat: $checkedConvert('isCat', (v) => v as bool?),
           isModerator: $checkedConvert('isModerator', (v) => v as bool?),
-          name: $checkedConvert('name', (v) => v as String?),
-          avatarDecorations: $checkedConvert(
-              'avatarDecorations',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      AvatarDecoration.fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          avatarId: $checkedConvert('avatarId', (v) => v as String?),
-          backgroundId: $checkedConvert('backgroundId', (v) => v as String?),
-          backgroundUrl: $checkedConvert('backgroundUrl',
-              (v) => v == null ? null : Uri.parse(v as String)),
-          bannerBlurhash:
-              $checkedConvert('bannerBlurhash', (v) => v as String?),
-          bannerId: $checkedConvert('bannerId', (v) => v as String?),
-          bannerUrl: $checkedConvert(
-              'bannerUrl', (v) => v == null ? null : Uri.parse(v as String)),
-          birthday: $checkedConvert('birthday', (v) => v as String?),
-          description: $checkedConvert('description', (v) => v as String?),
           location: $checkedConvert('location', (v) => v as String?),
+          name: $checkedConvert('name', (v) => v as String?),
+          onlineStatus: $checkedConvert('onlineStatus',
+              (v) => $enumDecodeNullable(_$UserOnlineStatusEnumMap, v)),
           pinnedPage: $checkedConvert(
               'pinnedPage',
               (v) =>
@@ -123,17 +125,18 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
+      'host': instance.host,
+      'emojis': instance.emojis,
       'id': instance.id,
       'name': instance.name,
       'username': instance.username,
-      'host': instance.host,
       'avatarUrl': instance.avatarUrl?.toString(),
       'avatarBlurhash': instance.avatarBlurhash,
       'isAdmin': instance.isAdmin,
       'isModerator': instance.isModerator,
       'isBot': instance.isBot,
       'isCat': instance.isCat,
-      'emojis': instance.emojis,
+      'onlineStatus': _$UserOnlineStatusEnumMap[instance.onlineStatus],
       'url': instance.url?.toString(),
       'uri': instance.uri?.toString(),
       'createdAt': instance.createdAt?.toIso8601String(),
@@ -184,3 +187,10 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'isMuted': instance.isMuted,
       'avatarDecorations': instance.avatarDecorations,
     };
+
+const _$UserOnlineStatusEnumMap = {
+  UserOnlineStatus.unknown: 'unknown',
+  UserOnlineStatus.online: 'online',
+  UserOnlineStatus.active: 'active',
+  UserOnlineStatus.offline: 'offline',
+};

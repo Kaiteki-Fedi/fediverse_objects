@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'user_lite.dart';
+import 'user.dart';
 import 'drive_file.dart';
 import 'user_group.dart';
 part 'messaging_message.g.dart';
@@ -12,7 +12,7 @@ class MessagingMessage {
 
   final String userId;
 
-  final UserLite? user;
+  final User? user;
 
   final String? text;
 
@@ -22,7 +22,7 @@ class MessagingMessage {
 
   final String? recipientId;
 
-  final UserLite? recipient;
+  final User? recipient;
 
   final String? groupId;
 

@@ -16,7 +16,7 @@ NoteReaction _$NoteReactionFromJson(Map<String, dynamic> json) =>
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           user: $checkedConvert(
-              'user', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+              'user', (v) => User.fromJson(v as Map<String, dynamic>)),
           type: $checkedConvert('type', (v) => v as String),
         );
         return val;

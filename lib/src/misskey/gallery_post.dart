@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'drive_file.dart';
-import 'user_lite.dart';
+import 'user.dart';
 
 part 'gallery_post.g.dart';
 
@@ -19,7 +19,7 @@ class GalleryPost {
 
   final String userId;
 
-  final UserLite user;
+  final User user;
 
   final List<String>? fileIds;
 

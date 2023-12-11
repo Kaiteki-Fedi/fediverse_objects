@@ -23,7 +23,7 @@ Page _$PageFromJson(Map<String, dynamic> json) => $checkedCreate(
           variables: $checkedConvert('variables', (v) => v as List<dynamic>),
           userId: $checkedConvert('userId', (v) => v as String),
           user: $checkedConvert(
-              'user', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+              'user', (v) => User.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },

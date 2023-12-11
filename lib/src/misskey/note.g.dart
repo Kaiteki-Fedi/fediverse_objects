@@ -18,7 +18,7 @@ Note _$NoteFromJson(Map<String, dynamic> json) => $checkedCreate(
           cw: $checkedConvert('cw', (v) => v as String?),
           userId: $checkedConvert('userId', (v) => v as String),
           user: $checkedConvert(
-              'user', (v) => UserLite.fromJson(v as Map<String, dynamic>)),
+              'user', (v) => User.fromJson(v as Map<String, dynamic>)),
           replyId: $checkedConvert('replyId', (v) => v as String?),
           renoteId: $checkedConvert('renoteId', (v) => v as String?),
           reply: $checkedConvert(
