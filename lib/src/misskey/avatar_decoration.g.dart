@@ -14,8 +14,8 @@ AvatarDecoration _$AvatarDecorationFromJson(Map<String, dynamic> json) =>
         final val = AvatarDecoration(
           id: $checkedConvert('id', (v) => v as String),
           url: $checkedConvert('url', (v) => Uri.parse(v as String)),
-          angle: $checkedConvert('angle', (v) => (v as num).toDouble()),
-          flipH: $checkedConvert('flipH', (v) => v as bool),
+          angle: $checkedConvert('angle', (v) => (v as num?)?.toDouble()),
+          flipH: $checkedConvert('flipH', (v) => v as bool?),
         );
         return val;
       },

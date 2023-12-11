@@ -6,14 +6,14 @@ part 'avatar_decoration.g.dart';
 class AvatarDecoration {
   final String id;
   final Uri url;
-  final double angle;
-  final bool flipH;
+  final double? angle;
+  final bool? flipH;
 
   const AvatarDecoration({
     required this.id,
     required this.url,
-    required this.angle,
-    required this.flipH,
+    this.angle,
+    this.flipH,
   });
 
   factory AvatarDecoration.fromJson(Map<String, dynamic> json) =>
