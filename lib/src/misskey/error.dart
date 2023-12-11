@@ -3,11 +3,19 @@ part 'error.g.dart';
 
 @JsonSerializable()
 class Error {
-  /// An error object.
-  final Error error;
+  /// An error code. Unique within the endpoint.
+  final String? code;
+
+  /// An error message.
+  final String? message;
+
+  /// An error ID. This ID is static.
+  final String? id;
 
   const Error({
-    required this.error,
+    this.code,
+    this.message,
+    this.id,
   });
 
   factory Error.fromJson(Map<String, dynamic> json) => _$ErrorFromJson(json);

@@ -15,7 +15,7 @@ class UserLite {
   /// The local host is represented with `null`.
   final String? host;
 
-  final String? avatarUrl;
+  final Uri? avatarUrl;
 
   final String? avatarBlurhash;
 

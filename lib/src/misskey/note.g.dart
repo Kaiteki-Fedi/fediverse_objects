@@ -63,8 +63,10 @@ Note _$NoteFromJson(Map<String, dynamic> json) => $checkedCreate(
               'reactions', (v) => Map<String, int>.from(v as Map)),
           renoteCount: $checkedConvert('renoteCount', (v) => v as int),
           repliesCount: $checkedConvert('repliesCount', (v) => v as int),
-          uri: $checkedConvert('uri', (v) => v as String?),
-          url: $checkedConvert('url', (v) => v as String?),
+          uri: $checkedConvert(
+              'uri', (v) => v == null ? null : Uri.parse(v as String)),
+          url: $checkedConvert(
+              'url', (v) => v == null ? null : Uri.parse(v as String)),
           myReaction: $checkedConvert('myReaction', (v) => v as String?),
         );
         return val;
@@ -97,7 +99,7 @@ Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{
       'reactions': instance.reactions,
       'renoteCount': instance.renoteCount,
       'repliesCount': instance.repliesCount,
-      'uri': instance.uri,
-      'url': instance.url,
+      'uri': instance.uri?.toString(),
+      'url': instance.url?.toString(),
       'myReaction': instance.myReaction,
     };

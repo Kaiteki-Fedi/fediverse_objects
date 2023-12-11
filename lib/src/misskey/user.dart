@@ -1,24 +1,33 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../misskey.dart';
 import '../misskey_emojis_conversion.dart';
+import 'avatar_decoration.dart';
+import 'emoji.dart';
+import 'note.dart';
+import 'page.dart';
+import 'user_field.dart';
+import 'user_lite.dart';
 
 part 'user.g.dart';
 
 @JsonSerializable()
 class User extends UserLite {
-  final String? url;
+  final Uri? url;
+  final Uri? uri;
   final DateTime? createdAt;
   final DateTime? updatedAt;
-  final String? bannerUrl;
-  final dynamic bannerBlurhash;
-  final dynamic bannerColor;
+  final String? avatarId;
+  final String? backgroundId;
+  final Uri? backgroundUrl;
+  final Uri? bannerUrl;
+  final String? bannerBlurhash;
+  final String? bannerId;
   final bool? isLocked;
   final bool? isSuspended;
   final String? description;
   final String? location;
   final String? birthday;
-  final List<Map<String, dynamic>>? fields;
+  final List<UserField>? fields;
   final int? followersCount;
   final int? followingCount;
   final int? notesCount;
@@ -29,8 +38,6 @@ class User extends UserLite {
   final bool? twoFactorEnabled;
   final bool? usePasswordLessLogin;
   final bool? securityKeys;
-  final String? avatarId;
-  final String? bannerId;
   final bool? autoWatch;
   final bool? injectFeaturedNote;
   final bool? alwaysMarkNsfw;
@@ -44,9 +51,7 @@ class User extends UserLite {
   final bool? hasUnreadMessagingMessage;
   final bool? hasUnreadNotification;
   final bool? hasPendingReceivedFollowRequest;
-  final Map<String, dynamic>? integrations;
-  final List<dynamic>? mutedWords;
-  final List<dynamic>? mutingNotificationTypes;
+  final List<String>? mutedWords;
   final bool? isFollowing;
   final bool? hasPendingFollowRequestFromYou;
   final bool? hasPendingFollowRequestToYou;
@@ -54,66 +59,68 @@ class User extends UserLite {
   final bool? isBlocking;
   final bool? isBlocked;
   final bool? isMuted;
+  final List<AvatarDecoration>? avatarDecorations;
 
   const User({
     required super.id,
-    super.name,
     required super.username,
-    super.host,
-    super.avatarUrl,
-    super.avatarBlurhash,
-    super.isAdmin,
-    super.isModerator,
-    super.isBot,
-    super.isCat,
-    super.emojis,
-    this.url,
+    required this.alwaysMarkNsfw,
+    required this.autoAcceptFollowed,
+    required this.autoWatch,
+    required this.carefulBot,
     required this.createdAt,
-    this.updatedAt,
-    this.bannerUrl,
-    this.bannerBlurhash,
-    this.bannerColor,
-    required this.isLocked,
-    required this.isSuspended,
-    this.description,
-    this.location,
-    this.birthday,
     required this.fields,
     required this.followersCount,
     required this.followingCount,
-    required this.notesCount,
-    required this.pinnedNoteIds,
-    required this.pinnedNotes,
-    this.pinnedPageId,
-    this.pinnedPage,
-    required this.twoFactorEnabled,
-    required this.usePasswordLessLogin,
-    required this.securityKeys,
-    this.avatarId,
-    this.bannerId,
-    required this.autoWatch,
-    required this.injectFeaturedNote,
-    required this.alwaysMarkNsfw,
-    required this.carefulBot,
-    required this.autoAcceptFollowed,
-    required this.hasUnreadSpecifiedNotes,
-    required this.hasUnreadMentions,
+    required this.hasPendingFollowRequestFromYou,
+    required this.hasPendingFollowRequestToYou,
+    required this.hasPendingReceivedFollowRequest,
     required this.hasUnreadAnnouncement,
     required this.hasUnreadAntenna,
     required this.hasUnreadChannel,
+    required this.hasUnreadMentions,
     required this.hasUnreadMessagingMessage,
     required this.hasUnreadNotification,
-    required this.hasPendingReceivedFollowRequest,
-    required this.integrations,
-    required this.mutedWords,
-    required this.mutingNotificationTypes,
-    required this.isFollowing,
-    required this.hasPendingFollowRequestFromYou,
-    required this.hasPendingFollowRequestToYou,
-    required this.isFollowed,
-    required this.isBlocking,
+    required this.hasUnreadSpecifiedNotes,
+    required this.injectFeaturedNote,
     required this.isBlocked,
+    required this.isBlocking,
+    required this.isFollowed,
+    required this.isFollowing,
+    required this.isLocked,
     required this.isMuted,
+    required this.isSuspended,
+    required this.mutedWords,
+    required this.notesCount,
+    required this.pinnedNoteIds,
+    required this.pinnedNotes,
+    required this.securityKeys,
+    required this.twoFactorEnabled,
+    required this.usePasswordLessLogin,
+    super.avatarBlurhash,
+    super.avatarUrl,
+    super.emojis,
+    super.host,
+    super.isAdmin,
+    super.isBot,
+    super.isCat,
+    super.isModerator,
+    super.name,
+    this.avatarDecorations,
+    this.avatarId,
+    this.backgroundId,
+    this.backgroundUrl,
+    this.bannerBlurhash,
+    this.bannerId,
+    this.bannerUrl,
+    this.birthday,
+    this.description,
+    this.location,
+    this.pinnedPage,
+    this.pinnedPageId,
+    this.updatedAt,
+    this.uri,
+    this.url,
   });
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

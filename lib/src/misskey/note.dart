@@ -61,9 +61,9 @@ class Note {
 
   final int repliesCount;
 
-  final String? uri;
+  final Uri? uri;
 
-  final String? url;
+  final Uri? url;
 
   final String? myReaction;
 

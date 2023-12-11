@@ -11,13 +11,16 @@ Error _$ErrorFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = Error(
-          error: $checkedConvert(
-              'error', (v) => Error.fromJson(v as Map<String, dynamic>)),
+          code: $checkedConvert('code', (v) => v as String?),
+          message: $checkedConvert('message', (v) => v as String?),
+          id: $checkedConvert('id', (v) => v as String?),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$ErrorToJson(Error instance) => <String, dynamic>{
-      'error': instance.error,
+      'code': instance.code,
+      'message': instance.message,
+      'id': instance.id,
     };

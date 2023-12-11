@@ -15,7 +15,8 @@ UserLite _$UserLiteFromJson(Map<String, dynamic> json) => $checkedCreate(
           name: $checkedConvert('name', (v) => v as String?),
           username: $checkedConvert('username', (v) => v as String),
           host: $checkedConvert('host', (v) => v as String?),
-          avatarUrl: $checkedConvert('avatarUrl', (v) => v as String?),
+          avatarUrl: $checkedConvert(
+              'avatarUrl', (v) => v == null ? null : Uri.parse(v as String)),
           avatarBlurhash:
               $checkedConvert('avatarBlurhash', (v) => v as String?),
           isAdmin: $checkedConvert('isAdmin', (v) => v as bool?),
@@ -41,7 +42,7 @@ Map<String, dynamic> _$UserLiteToJson(UserLite instance) => <String, dynamic>{
       'name': instance.name,
       'username': instance.username,
       'host': instance.host,
-      'avatarUrl': instance.avatarUrl,
+      'avatarUrl': instance.avatarUrl?.toString(),
       'avatarBlurhash': instance.avatarBlurhash,
       'isAdmin': instance.isAdmin,
       'isModerator': instance.isModerator,

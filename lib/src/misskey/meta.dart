@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'emoji.dart';
-import 'manual/ad.dart';
+import 'ad.dart';
 
 part 'meta.g.dart';
 
