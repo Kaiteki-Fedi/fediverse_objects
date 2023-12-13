@@ -11,13 +11,43 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = User(
+          id: $checkedConvert('id', (v) => v as String),
+          username: $checkedConvert('username', (v) => v as String),
           alwaysMarkNsfw: $checkedConvert('alwaysMarkNsfw', (v) => v as bool?),
           autoAcceptFollowed:
               $checkedConvert('autoAcceptFollowed', (v) => v as bool?),
           autoWatch: $checkedConvert('autoWatch', (v) => v as bool?),
+          avatarBlurhash:
+              $checkedConvert('avatarBlurhash', (v) => v as String?),
+          avatarDecorations: $checkedConvert(
+              'avatarDecorations',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      AvatarDecoration.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          avatarId: $checkedConvert('avatarId', (v) => v as String?),
+          avatarUrl: $checkedConvert(
+              'avatarUrl', (v) => v == null ? null : Uri.parse(v as String)),
+          backgroundId: $checkedConvert('backgroundId', (v) => v as String?),
+          backgroundUrl: $checkedConvert('backgroundUrl',
+              (v) => v == null ? null : Uri.parse(v as String)),
+          bannerBlurhash:
+              $checkedConvert('bannerBlurhash', (v) => v as String?),
+          bannerId: $checkedConvert('bannerId', (v) => v as String?),
+          bannerUrl: $checkedConvert(
+              'bannerUrl', (v) => v == null ? null : Uri.parse(v as String)),
+          birthday: $checkedConvert('birthday', (v) => v as String?),
           carefulBot: $checkedConvert('carefulBot', (v) => v as bool?),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
+          description: $checkedConvert('description', (v) => v as String?),
+          emojis: $checkedConvert(
+            'emojis',
+            (v) => (v as List<dynamic>?)
+                ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
+                .toList(),
+            readValue: misskeyEmojisReadValue,
+          ),
           fields: $checkedConvert(
               'fields',
               (v) => (v as List<dynamic>?)
@@ -45,19 +75,33 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
               $checkedConvert('hasUnreadNotification', (v) => v as bool?),
           hasUnreadSpecifiedNotes:
               $checkedConvert('hasUnreadSpecifiedNotes', (v) => v as bool?),
-          id: $checkedConvert('id', (v) => v as String),
+          host: $checkedConvert('host', (v) => v as String?),
           injectFeaturedNote:
               $checkedConvert('injectFeaturedNote', (v) => v as bool?),
+          isAdmin: $checkedConvert('isAdmin', (v) => v as bool?),
           isBlocked: $checkedConvert('isBlocked', (v) => v as bool?),
           isBlocking: $checkedConvert('isBlocking', (v) => v as bool?),
+          isBot: $checkedConvert('isBot', (v) => v as bool?),
+          isCat: $checkedConvert('isCat', (v) => v as bool?),
           isFollowed: $checkedConvert('isFollowed', (v) => v as bool?),
           isFollowing: $checkedConvert('isFollowing', (v) => v as bool?),
           isLocked: $checkedConvert('isLocked', (v) => v as bool?),
+          isModerator: $checkedConvert('isModerator', (v) => v as bool?),
           isMuted: $checkedConvert('isMuted', (v) => v as bool?),
           isSuspended: $checkedConvert('isSuspended', (v) => v as bool?),
-          mutedWords: $checkedConvert('mutedWords',
+          location: $checkedConvert('location', (v) => v as String?),
+          mutedInstances: $checkedConvert('mutedInstances',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          mutedWords: $checkedConvert(
+              'mutedWords',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      (e as List<dynamic>).map((e) => e as String).toList())
+                  .toList()),
+          name: $checkedConvert('name', (v) => v as String?),
           notesCount: $checkedConvert('notesCount', (v) => v as int?),
+          onlineStatus: $checkedConvert('onlineStatus',
+              (v) => $enumDecodeNullable(_$UserOnlineStatusEnumMap, v)),
           pinnedNoteIds: $checkedConvert('pinnedNoteIds',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           pinnedNotes: $checkedConvert(
@@ -65,60 +109,22 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
               (v) => (v as List<dynamic>?)
                   ?.map((e) => Note.fromJson(e as Map<String, dynamic>))
                   .toList()),
-          securityKeys: $checkedConvert('securityKeys', (v) => v as bool?),
-          twoFactorEnabled:
-              $checkedConvert('twoFactorEnabled', (v) => v as bool?),
-          usePasswordLessLogin:
-              $checkedConvert('usePasswordLessLogin', (v) => v as bool?),
-          username: $checkedConvert('username', (v) => v as String),
-          avatarBlurhash:
-              $checkedConvert('avatarBlurhash', (v) => v as String?),
-          avatarDecorations: $checkedConvert(
-              'avatarDecorations',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      AvatarDecoration.fromJson(e as Map<String, dynamic>))
-                  .toList()),
-          avatarId: $checkedConvert('avatarId', (v) => v as String?),
-          avatarUrl: $checkedConvert(
-              'avatarUrl', (v) => v == null ? null : Uri.parse(v as String)),
-          backgroundId: $checkedConvert('backgroundId', (v) => v as String?),
-          backgroundUrl: $checkedConvert('backgroundUrl',
-              (v) => v == null ? null : Uri.parse(v as String)),
-          bannerBlurhash:
-              $checkedConvert('bannerBlurhash', (v) => v as String?),
-          bannerId: $checkedConvert('bannerId', (v) => v as String?),
-          bannerUrl: $checkedConvert(
-              'bannerUrl', (v) => v == null ? null : Uri.parse(v as String)),
-          birthday: $checkedConvert('birthday', (v) => v as String?),
-          description: $checkedConvert('description', (v) => v as String?),
-          emojis: $checkedConvert(
-            'emojis',
-            (v) => (v as List<dynamic>?)
-                ?.map((e) => Emoji.fromJson(e as Map<String, dynamic>))
-                .toList(),
-            readValue: misskeyEmojisReadValue,
-          ),
-          host: $checkedConvert('host', (v) => v as String?),
-          isAdmin: $checkedConvert('isAdmin', (v) => v as bool?),
-          isBot: $checkedConvert('isBot', (v) => v as bool?),
-          isCat: $checkedConvert('isCat', (v) => v as bool?),
-          isModerator: $checkedConvert('isModerator', (v) => v as bool?),
-          location: $checkedConvert('location', (v) => v as String?),
-          name: $checkedConvert('name', (v) => v as String?),
-          onlineStatus: $checkedConvert('onlineStatus',
-              (v) => $enumDecodeNullable(_$UserOnlineStatusEnumMap, v)),
           pinnedPage: $checkedConvert(
               'pinnedPage',
               (v) =>
                   v == null ? null : Page.fromJson(v as Map<String, dynamic>)),
           pinnedPageId: $checkedConvert('pinnedPageId', (v) => v as String?),
+          securityKeys: $checkedConvert('securityKeys', (v) => v as bool?),
+          twoFactorEnabled:
+              $checkedConvert('twoFactorEnabled', (v) => v as bool?),
           updatedAt: $checkedConvert('updatedAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
           uri: $checkedConvert(
               'uri', (v) => v == null ? null : Uri.parse(v as String)),
           url: $checkedConvert(
               'url', (v) => v == null ? null : Uri.parse(v as String)),
+          usePasswordLessLogin:
+              $checkedConvert('usePasswordLessLogin', (v) => v as bool?),
         );
         return val;
       },
@@ -178,6 +184,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'hasPendingReceivedFollowRequest':
           instance.hasPendingReceivedFollowRequest,
       'mutedWords': instance.mutedWords,
+      'mutedInstances': instance.mutedInstances,
       'isFollowing': instance.isFollowing,
       'hasPendingFollowRequestFromYou': instance.hasPendingFollowRequestFromYou,
       'hasPendingFollowRequestToYou': instance.hasPendingFollowRequestToYou,
