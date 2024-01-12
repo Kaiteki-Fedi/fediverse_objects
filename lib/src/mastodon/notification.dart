@@ -22,6 +22,14 @@ class Notification {
   /// Status that was the object of the notification, e.g. in mentions, reblogs, favourites, or polls.
   final Status? status;
 
+  /// The emoji of the reaction.
+  ///
+  /// Example: `👍` or `:hug:`
+  final String? emoji;
+
+  /// The URL of the custom emoji, null if it's a unicode emoji.
+  final Uri? emojiUrl;
+
   /// The type of event that resulted in the notification.
   ///
   /// - `follow` = Someone followed you
@@ -44,6 +52,8 @@ class Notification {
     this.account,
     this.pleroma,
     this.status,
+    this.emoji,
+    this.emojiUrl,
   });
 
   factory Notification.fromJson(Map<String, dynamic> json) =>

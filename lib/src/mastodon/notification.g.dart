@@ -31,10 +31,13 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) =>
               (v) => v == null
                   ? null
                   : Status.fromJson(v as Map<String, dynamic>)),
+          emoji: $checkedConvert('emoji', (v) => v as String?),
+          emojiUrl: $checkedConvert(
+              'emoji_url', (v) => v == null ? null : Uri.parse(v as String)),
         );
         return val;
       },
-      fieldKeyMap: const {'createdAt': 'created_at'},
+      fieldKeyMap: const {'createdAt': 'created_at', 'emojiUrl': 'emoji_url'},
     );
 
 Map<String, dynamic> _$NotificationToJson(Notification instance) =>
@@ -44,5 +47,7 @@ Map<String, dynamic> _$NotificationToJson(Notification instance) =>
       'id': instance.id,
       'pleroma': instance.pleroma,
       'status': instance.status,
+      'emoji': instance.emoji,
+      'emoji_url': instance.emojiUrl?.toString(),
       'type': instance.type,
     };
