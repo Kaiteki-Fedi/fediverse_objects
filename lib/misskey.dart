@@ -7,6 +7,7 @@ export '/src/misskey/channel.dart';
 export '/src/misskey/drive_file.dart';
 export '/src/misskey/emoji.dart';
 export '/src/misskey/error.dart';
+export '/src/misskey/favorite.dart';
 export '/src/misskey/following_request.dart';
 export '/src/misskey/messaging_message.dart';
 export '/src/misskey/meta.dart';
